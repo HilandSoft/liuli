@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title></title> 
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+		<LINK href="css/css.css" type="text/css" rel="stylesheet">
+		<style type="text/css"> <!-- .style1 {font-size: 12pt}
+	-->
+		</style>
+<!--media=print 这个属性可以在打印时有效-->
+		<style media="print"> 
+.Noprint { DISPLAY: none } 
+.PageNext { PAGE-BREAK-AFTER: always } 
+</style>
+		<style> 
+.tdp { BORDER-RIGHT: #ffffff 0px solid; BORDER-TOP: #ffffff 0px solid; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid } 
+.tabp { BORDER-RIGHT: #000000 2px solid; BORDER-TOP: #000000 2px solid; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid } 
+.NOPRINT { FONT-SIZE: 9pt; FONT-FAMILY: "宋体" } 
+</style>
+</head>
+<script language="JavaScript">
+function f1() {
+var ff=window.frames[0];
+alert(ff.name);
+//window.ch
+ff.self.print();
+}
+</script>
+<body>
+
+<iframe id="frame1" name="frame1" scrolling="auto" width="750" height="700" src="agreement2.aspx" frameborder="1"></iframe>
+<div align="center"><a href="#" onclick="f1();">Print</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#" onclick="window.close();">Close</a>
+</div>
+<OBJECT id="WebBrowser" classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2" height="0"
+								width="0" VIEWASTEXT>
+							</OBJECT>
+</body>
+</html>

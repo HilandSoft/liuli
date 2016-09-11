@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Golden Bridge Cash Solution</title>
+    <link href="CSSN/final.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .style2 {
+            font-size: small;
+            font-family: Verdana;
+        }
+    </style>
+</head>
+<body>
+    <!--start top-->
+    <div id="top">
+        <div class="logo">
+            <a href="../">
+                <img src="imagesN/logo.jpg" alt="Golden Bridge Cash Solution" width="180" height="63" /></a>
+        </div>
+        <div class="right">
+            <div class="userInfo">xieran Logout</div>
+            <div class="call">Call Us 1300 137 906</div>
+        </div>
+    </div>
+    <!--end top-->
+    <!--start homebanner-->
+    <!--start subbanner-->
+    <div id="subheader">
+        <h1>Member Console</h1>
+    </div>
+    <!--end subbanner-->
+    <!--start main-->
+    <div id="main">
+        <!--start process-->
+        <div id="process">
+            <div class="title">Member Console</div>
+            <div class="style2"><strong>Loan Account</strong></div>
+            <ul class="menus">
+                <div class="menuItme"><a class="menuItemA" href="#">Current Loan</a> </div>
+            </ul>
+
+            <ul class="menus">
+                <div class="menuItme"><a class="menuItemA actived" href="#">Loan History</a></div>
+            </ul>
+
+            <div class="style2"><strong>Apply Now</strong></div>
+            <ul class="menus">
+                <div class="menuItme"><a class="menuItemA" href="#">New Cash Loan</a> </div>
+            </ul>
+
+            <ul class="menus">
+                <div class="menuItme"><a class="menuItemA" href="#">Loan Extension</a> </div>
+            </ul>
+
+            <div class="style2"><strong>Manage Account</strong></div>
+            <ul class="menus">
+                <div class="menuItme"><a class="menuItemA" href="#">Your Profile</a> </div>
+            </ul>
+
+            <ul class="menus">
+                <div class="menuItme"><a class="menuItemA" href="#">Change Password</a> </div>
+            </ul>
+        </div>
+        <!--end process-->
+        <div id="content" style="margin-left: 0px;">
+            sssssssssssssssssssssss
+        </div>
+    </div>
+
+    <!--end main-->
+    <!--start footer-->
+    <div style="clear: both;"></div>
+    <div id="footer">&copy; Copyright Golden Bridge Cash Solution Pty Ltd 2011</div>
+    <script type="text/javascript">
+        var mouseover_tid = [];
+        var mouseout_tid = [];
+        jQuery(document).ready(function () {
+            jQuery('.menus > li, .menus > li > .children > li').each(function (index) {
+                jQuery(this).hover(
+                function () {
+                    var _self = this;
+                    clearTimeout(mouseout_tid[index]);
+                    mouseover_tid[index] = setTimeout(function () {
+                        jQuery(_self).find('ul:eq(0)').fadeIn(200);
+                    }, 400);
+                },
+                function () {
+                    var _self = this;
+                    clearTimeout(mouseover_tid[index]);
+                    mouseout_tid[index] = setTimeout(function () {
+                        jQuery(_self).find('ul:eq(0)').fadeOut(200);
+                    }, 400);
+                }
+                );
+            });
+        });
+    </script>
+    <!--end footer-->
+</body>
+</html>

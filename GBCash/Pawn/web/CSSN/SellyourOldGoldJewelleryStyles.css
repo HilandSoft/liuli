@@ -1,0 +1,38 @@
+﻿h1,h2,h3,h4,h5,h6,p,img,a,table,tr,td,ol,ul,li{margin:0; padding:0; border:0;}
+body{margin:0; padding:0; background-color:#e5e4e0;}
+.clear{clear:both;}
+
+.gallery-main{margin:0; padding:14px 0 17px 0; font-family:Arial, Helvetica, sans-serif;}
+
+.gallry-img{float:left; width:128px; text-align:center; color:#000; margin:0 10px;}
+
+.glry-image{margin:12px 0;}
+.gallry-img h3{font-size:13px; color:#292828;}
+.gallry-img p{font-weight:bold; font-size:16px; color:#292828;}
+
+.rite-pane{float:left; width:321px;}
+
+.content{background-color:#000; padding:0 0 0 10px; font-family:Arial, Helvetica, sans-serif;}
+.content-lft{ width:601px; color:#000; padding:5px 0 0 10px;}
+.content-lft h3{color:#000; font-size:14px; margin:5px 0 5px 0;} 
+.content-lft p{font-size:12px; color:#FFF; line-height:14px; margin:0 0 10px 0;}
+.content-lft ul{margin:0 0 10px 0; padding:0; line-height:14px; font-size:15px;}
+.content-lft ul li{list-style:none;}
+.content-lft ol{margin:0 0 0 30px; padding:0; font-size:12px;}
+.content-lft ol li{line-height:14px;}
+.rite-hd{background-image:url(../images/rite-hd-bg.png); background-repeat:no-repeat; width:321px; height:32px; }
+.rite-hd h2{font-size:19px; color:#FFF; padding:5px 0 0 10px;}
+.rite-mid{background-color:#FFF; height:auto; padding:6px 0 0 0;}
+.form-main{margin:0 0 0 16px;}
+.form-mid{background-image:url(../images/form-mid.png); background-repeat:repeat-y; width:290px; height:auto;}
+.form-mid h2{font-family:"Times New Roman", Times, serif; font-size:12px; color:#000; text-align:center; font-weight:normal; margin:0 0 12px 0;}
+.form-inner{margin:0 0 0 29px;}
+.form-inner input{background-image:url(../images/fld-bg.png); background-repeat:no-repeat; width:227px; height:25px; background-color:transparent; border:none; color:#9c9383; font-size:12px; padding:0 0 0 5px; margin:0 0 7px 0;}
+.form-inner input.inpt{background-image:url(../images/fld-bg-2.png); background-repeat:no-repeat; width:112px; height:25px; padding:0 0 0 5px; margin:0 0 7px 0;}
+.form-inner select.inpt{background-image:url(../images/fld-bg-2.png); background-repeat:no-repeat; width:112px; height:25px; padding:0 0 0 5px; margin:0 0 7px 0; border:none; color:#9c9383}
+.form-term{font-size:11px; font-family:Arial, Helvetica, sans-serif; color:#756a59; text-align:left;}
+.form-term input{margin:0 8px 0 0; width:14px; height:15px;}
+.chk-up{border-bottom:1px solid #ac956a; padding:0 0 8px 0; margin:0 0 8px 0; width:231px;}
+.send-btn{color:#fff; font-size:14px;}
+.send-btn a{text-align:center; color:#FFF; text-decoration:none; background-image:url(../images/send-btn.png); background-repeat:no-repeat; width:232px; height:23px; display:block; font-family:Arial, Helvetica, sans-serif; padding:10px 0 0 0; margin:8px 0 0 0;}    
+.ui-tooltip-content{font-size:10px;}      

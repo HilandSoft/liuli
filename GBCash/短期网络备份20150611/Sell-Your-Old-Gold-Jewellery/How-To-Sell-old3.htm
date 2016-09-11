@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Home</title>
+    <link href="../CSSN/style.css" rel="stylesheet" type="text/css" />
+    <script src="../javascriptN/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="../javascriptN/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="../javascriptN/jquery.watermark.min.js" type="text/javascript"></script>
+   
+    <style>
+    
+    @charset "utf-8";
+/* CSS Document */
+h1,h2,h3,h4,h5,h6,p,img,a,table,tr,td,ol,ul,li{margin:0; padding:0; border:0;}
+
+body{margin:0; padding:0; background-color:#e5e4e0;}
+
+.wrraper{width:983px; margin:0 auto;}
+
+.header{background-color:#ffffff; height:96px;}
+
+.clear{clear:both;}
+
+/*
+.logo{float:left; margin:15px 0 0 7px;}
+*/
+.membr{float:right; margin:27px 5px 0 0;}
+
+
+.menu-main{margin:4px 0 10px 0; padding:0; height:36px; font-size:14px;}
+.menu-main ul{margin:0; padding:0;}
+.menu-main ul li{list-style:none; float:left;}
+.menu-main ul li a{text-decoration:none; color:#000; width:138px; text-align:center; height:23px; padding:9px 0 0 0; display:block;}
+.menu-main ul li a:hover{background-image:url(../images/hvr.png); background-repeat:no-repeat; height:23px; padding:9px 0 0 0; color:#FFF;}
+
+.main-banner{background-image:url(../images/banner-bg.png); background-repeat:no-repeat; width:981px; height:107px; margin:0 auto 10px auto; text-align:center; font-size:60px; color:#FFF;}
+.main-banner p{padding:18px 0 0 0;}
+
+
+.content-main{margin:0; padding:0;}
+
+.left-pane{float:left; width:650px; margin:0 7px 0 0; background-color:White}
+.lft-mid{background-image:url(../images/lft-mid.png); width:642px; height:auto; background-repeat:repeat-y; padding:0 4px;}
+
+.btns-main{margin:0 0 16px 0; padding:0;}
+.btns-main a{margin:0 10px;}
+
+.hd-bg{background-color:#000; height:43px;}
+.hd-bg h2{font-family:Arial, Helvetica, sans-serif; font-size:20px; padding:11px 0 0 0; font-weight:bold; text-align:center; color:#FFF;}
+
+
+.gallery-main{margin:0; padding:14px 0 17px 0; font-family:Arial, Helvetica, sans-serif;}
+
+.gallry-img{float:left; width:128px; text-align:center; color:#000; margin:0 10px;}
+
+.glry-image{margin:12px 0;}
+.gallry-img h3{font-size:13px; color:#292828;}
+.gallry-img p{font-weight:bold; font-size:16px; color:#292828;}
+
+.rite-pane{float:left; width:321px;}
+
+
+
+.content{background-color:#000; padding:0 0 0 10px; font-family:Arial, Helvetica, sans-serif;}
+.content-lft{ width:301px; color:#000; padding:5px 0 0 10px;}
+.content-lft h3{color:#000; font-size:14px; margin:5px 0 5px 0;} 
+.content-lft p{font-size:12px; color:#FFF; line-height:14px; margin:0 0 10px 0;}
+.content-lft ul{margin:0 0 10px 0; padding:0; line-height:14px; font-size:15px;}
+.content-lft ul li{list-style:none;}
+
+.content-lft ol{margin:0 0 0 30px; padding:0; font-size:12px;}
+.content-lft ol li{line-height:14px;}
+
+
+
+
+
+.rite-hd{background-image:url(../images/rite-hd-bg.png); background-repeat:no-repeat; width:321px; height:32px; }
+.rite-hd h2{font-size:19px; color:#FFF; padding:5px 0 0 10px;}
+.rite-mid{background-color:#FFF; height:auto; padding:6px 0 0 0;}
+
+.form-main{margin:0 0 0 16px;}
+.form-mid{background-image:url(../images/form-mid.png); background-repeat:repeat-y; width:290px; height:auto;}
+.form-mid h2{font-family:"Times New Roman", Times, serif; font-size:12px; color:#000; text-align:center; font-weight:normal; margin:0 0 12px 0;}
+
+.form-inner{margin:0 0 0 29px;}
+.form-inner input{background-image:url(../images/fld-bg.png); background-repeat:no-repeat; width:227px; height:25px; background-color:transparent; border:none; color:#9c9383; font-size:12px; padding:0 0 0 5px; margin:0 0 7px 0;}
+.form-inner input.inpt{background-image:url(../images/fld-bg-2.png); background-repeat:no-repeat; width:112px; height:25px; padding:0 0 0 5px; margin:0 0 7px 0;}
+
+.form-inner select.inpt{background-image:url(../images/fld-bg-2.png); background-repeat:no-repeat; width:112px; height:25px; padding:0 0 0 5px; margin:0 0 7px 0; border:none; color:#9c9383}
+
+.form-term{font-size:11px; font-family:Arial, Helvetica, sans-serif; color:#756a59; text-align:left;}
+.form-term input{margin:0 8px 0 0; width:14px; height:15px;}
+
+.chk-up{border-bottom:1px solid #ac956a; padding:0 0 8px 0; margin:0 0 8px 0; width:231px;}
+
+.send-btn{color:#fff; font-size:14px;}
+.send-btn a{text-align:center; color:#FFF; text-decoration:none; background-image:url(../images/send-btn.png); background-repeat:no-repeat; width:232px; height:23px; display:block; font-family:Arial, Helvetica, sans-serif; padding:10px 0 0 0; margin:8px 0 0 0;}
+
+input.watermark { color: #999; }
+/*
+.footer-main{color:#b6bbc7; font-size:12px; text-align:center; padding:40px 0 20px 0;}*/
+    </style>
+</head>
+<body>
+    <div id="top">
+        <div class="logo">
+            <a href="../">
+                <img src="../imagesN/logo.jpg" alt="Golden Bridge Cash Solution" /></a></div>
+        <div class="call">
+            Call Us 1300 137 906</div>
+    </div>
+    <div id="nav">
+        <ul class="menus">
+            <li class="menuItme"><a class="menuItemA actived" href="../default.htm">Home</a>
+            </li>
+            <li class="menuItme"><a class="menuItemA" href="../About-Us/">About Us </a></li>
+            <li class="menuItme"><a class="menuItemA" href="#">Loan Options</a>
+                <ul class="children">
+                    <li><a href="#">Payday Loans</a>
+                        <ul class="nestedchildren">
+                            <li><a href="http://gbcash.com.au/how-it-works/">How it Works</a></li>
+                            <li><a href="http://gbcash.com.au/Costs-And-Fees/">Costs & Fees</a></li>
+                            <li><a href="http://gbcash.com.au/faq.htm">FAQs</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Secured Personal Loans</a>
+                        <ul class="nestedchildren1">
+                            <li><a href="http://secured.gbcash.com.au/home/how-it-works/">How it Works</a></li>
+                            <li><a href="http://secured.gbcash.com.au/Home/Costs-And-Fees">Costs & Fees</a></li>
+                            <li><a href="http://secured.gbcash.com.au/Home/Faqs">FAQs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="menuItme"><a class="menuItemA" href="#">Sell Your Old Gold Jewellery</a>
+                <ul class="children">
+                    <li><a href="../Sell-Your-Old-Gold-Jewellery/What-We-Buy.htm">What We Buy</a></li>
+                    <li><a href="../Sell-Your-Old-Gold-Jewellery/How-To-Sell.htm">How To Sell</a></li>
+                    <li><a href="../Sell-Your-Old-Gold-Jewellery/Today-Prices.htm">Today’s Prices</a></li>
+                    <li><a href="../Sell-Your-Old-Gold-Jewellery/Visit-Us-In-Person.htm">Visit Us In Person</a></li>
+                </ul>
+            </li>
+            <li class="menuItme"><a class="menuItemA" href="#">Information</a>
+                <ul class="children">
+                    <li><a href="../Information/Newsletter.htm">Newsletter</a></li>
+                    <li><a href="../Information/Relevant-Links.htm">Relevant Links</a></li>
+                </ul>
+            </li>
+            <li class="last menuItme"><a class="menuItemA" href="../Contact-Us/">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+    <div id="subheader">
+        <h1>
+            Sell Your Old Gold Jewellery</h1>
+    </div>
+    <div id="main">
+        <div class="content-main1">
+            <div id="content" style="margin: 15px; float: left; padding: 5px 0 0 10px; width: 620px">
+                <div id="links" style="padding: 20px 5px 5px 35px; font-family: Georgia, 'Times New Roman' , Times, serif">
+                    <ul>
+                        <li><a href="#">How to sell</a></li>
+                        <li><a href="#">What we buy</a> </li>
+                        <li><a href="#">What we will pay</a> </li>
+                        <li><a href="#">Visit us in person</a> </li>
+                    </ul>
+                </div>
+                <h2 style="color: #ff6600; padding: 20px">
+                    How to sell your old gold jewellery
+                </h2>
+                <div style="padding-left: 20px; font-size: medium">
+                    For clients Australia-wide, the Secure Gold Pack Experience combines the ease of
+                    remotely selling precious metals with the security, attention and personal service
+                    you would expect of a face-to-face transaction. Our streamlined system allows you
+                    to sell your items with transparency, speed, and confidentiality.
+                </div>
+                <div class="gallery-main">
+                    <div class="gallry-img">
+                        <h3>
+                            Fill in the form</h3>
+                        <div class="glry-image">
+                            <a href="#">
+                                <img src="../images/img-1.png" width="128" height="128" /></a></div>
+                        <p>
+                            STEP 1</p>
+                    </div>
+                    <div class="gallry-img">
+                        <h3>
+                            Send in your gold</h3>
+                        <div class="glry-image">
+                            <a href="#">
+                                <img src="../images/img-2.png" width="128" height="128" /></a></div>
+                        <p>
+                            STEP 2</p>
+                    </div>
+                    <div class="gallry-img">
+                        <h3>
+                            Free Evaluation</h3>
+                        <div class="glry-image">
+                            <a href="#">
+                                <img src="../images/img-3.png" width="128" height="128" /></a></div>
+                        <p>
+                            STEP 3</p>
+                    </div>
+                    <div class="gallry-img">
+                        <h3>
+                            Recive Payment</h3>
+                        <div class="glry-image">
+                            <a href="#">
+                                <img src="../images/img-4.png" width="128" height="128" /></a></div>
+                        <p>
+                            STEP 4</p>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="content-lft">
+                    <h3>
+                        HOW IT WORKS,STEP BY STEP</h3>
+                    <ol>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                    </ol>
+                </div>
+                <h2 style="color: #ff6600; padding: 20px">
+                    What we buy
+                </h2>
+                <div style="padding: 1px 5px 5px 35px; font-family: Georgia, 'Times New Roman' , Times, serif">
+                    <ul>
+                        <li>All 9-24 Carat Jewellery</li>
+                        <li>Scrap Gold, Silver or Platinum</li>
+                    </ul>
+                </div>
+                <h2 style="color: #ff6600; padding: 20px">
+                    What will we pay
+                </h2>
+                <div style="padding: 1px 5px 5px 35px; font-family: Georgia, 'Times New Roman' , Times, serif">
+                    <ul>
+                        <li>24ct</li>
+                        <li>22ct</li>
+                        <li>18ct</li>
+                        <li>14ct</li>
+                        <li>9ct</li>                       
+                    </ul>
+                </div>
+                <hr style="width:10px:" color="black" /> 
+            </div>
+            <div class="rite-pane">
+                <div class="rite-hd">
+                    <h2>
+                        <img align="absmiddle" src="../images/phn-icon.png" width="27" height="17" />
+                        &nbsp; Request A Secure Gold Pack</h2>
+                </div>
+                <div class="rite-mid">
+                    <div class="form-main">
+                        <div>
+                            <img src="../images/form-top.png" width="290" height="7" /></div>
+                        <div class="form-mid">
+                            <h2>
+                                FILL IN THE FORM BELOW TO REQUEST<br />
+                                A FULLY INSURED GOLDPACK</h2>
+                            <div class="form-inner">
+                                <input name="firstname" id="firstname"  value="First Name*" type="text" class="required" />
+                                <input name="lastname" id="lastname" value="Last Name*" type="text" class="required"/>
+                                <input name="" value="Address*" type="text" class="required"/>
+                                <input name="" value="City*" type="text" class="required"/>
+                                <div>
+                                    <select class="inpt" name="">
+                                        <option>State*</option>
+                                    </select>
+                                    <input class="inpt" name="postalcode" id="postalcode" value="Postcode*" type="text"/></div>
+                                <input name="" value="Phone number*" type="text" class="required"/>
+                                <input name="" value="Email*" type="text" class="required"/>
+                                <div class="form-term">
+                                    <div class="chk-up">
+                                        <input name="" type="checkbox" value="" />
+                                        Yes, include my free $ 15,000 Insurance</div>
+                                    <div>
+                                        <input name="" type="checkbox" value="" checked="checked" />
+                                        Yes, I would like to receive latest news</div>
+                                </div>
+                                <div class="send-btn">
+                                    <a href="#">SEND ME A SECURE GOLD PACK</a></div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="../images/form-btm.png" width="290" height="7" /></div>
+                    </div>
+                </div>
+                <div>
+                    <img src="../images/rite-btm.png" width="321" height="8" /></div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <!--  <div class="footer-main">
+            <p>
+                Copyright Golden Bridge Cash Solution Pty Ltd 2011</p>
+        </div>-->
+    </div>
+    <!--start footer-->
+    <div style="clear: both;">
+    </div>
+    <div id="footer">
+        &copy; Copyright Golden Bridge Cash Solution Pty Ltd 2011</div>
+    <!--   </div>-->
+    <script type="text/javascript">
+      
+
+        function setCurrentMenu(liSelector, aSelector) {
+            $(liSelector).addClass("activedprocess");
+            $(aSelector).addClass("activedprocesstxt");
+        }
+   
+        var mouseover_tid = [];
+        var mouseout_tid = [];
+
+        jQuery(document).ready(function () {
+
+         createWatermark('.required');
+            createWatermark('#postalcode');
+
+            jQuery('.menus > li, .menus > li > .children > li').each(function (index) {
+                jQuery(this).hover(
+
+			        function () {
+			            var _self = this;
+			            clearTimeout(mouseout_tid[index]);
+			            mouseover_tid[index] = setTimeout(function () {
+			                jQuery(_self).find('ul:eq(0)').fadeIn(200);
+			            }, 400);
+			        },
+
+			        function () {
+			            var _self = this;
+			            clearTimeout(mouseover_tid[index]);
+			            mouseout_tid[index] = setTimeout(function () {
+			                jQuery(_self).find('ul:eq(0)').fadeOut(200);
+			            }, 400);
+			        }
+
+		        );
+            });
+			});	
+           
+       
+
+        function createWatermark(inputTextboxId) {
+            var tbval = $(inputTextboxId).val();
+            $(inputTextboxId).focus(function () { $(this).val(''); });
+            $(inputTextboxId).blur(function () { $(this).val(tbval); });          
+        }
+        
+    </script>
+    </script>
+</body>
+</html>

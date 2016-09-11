@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title></title>
+<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+<meta name=ProgId content=VisualStudio.HTML>
+<meta name=Originator content="Microsoft Visual Studio .NET 7.1">
+<!--media=print 这个属性可以在打印时有效-->
+		<style media="print"> 
+.Noprint { DISPLAY: none } 
+.PageNext { PAGE-BREAK-AFTER: always } 
+</style>
+		<style> 
+.tdp { BORDER-RIGHT: #ffffff 0px solid; BORDER-TOP: #ffffff 0px solid; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid } 
+.tabp { BORDER-RIGHT: #000000 2px solid; BORDER-TOP: #000000 2px solid; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid } 
+.NOPRINT { FONT-SIZE: 9pt; FONT-FAMILY: "宋体" } 
+</style>
+<script language=javascript>
+function f1() {
+var ff=window.frames[0];
+alert(ff.name);
+var btn=ff.document.getElementById("Button1");
+//ff.document.all.WebBrowser.ExecWB(6,6);
+btn.onclick();
+}
+</script>
+</head>
+<body>
+
+<TABLE id="Table1" width="500px" cellSpacing="1" cellPadding="1" align="center" border="0"
+			>
+			<TBODY>
+				<TR class="b" bgColor="#99ccff" height="30">
+					<TD style="WIDTH: 144px; HEIGHT: 30px" width="144" align="right"><div><FONT color="darkblue">商户：</FONT></div>
+					</TD>
+					<TD style="HEIGHT: 30px" width="376">&nbsp;
+					</TD>
+				</TR>
+				<TR class="b" bgColor="#99ccff" height="30">
+					<TD style="WIDTH: 144px; HEIGHT: 30px" width="144" align="right"><FONT color="darkblue">名称：</FONT></TD>
+					<TD width="376" style="HEIGHT: 30px">&nbsp;
+					</TD>
+				</TR>
+				<TR class="b" bgColor="#99ccff" height="30">
+					<TD style="WIDTH: 144px; HEIGHT: 30px" width="144" align="right" valign="middle">
+						<P><FONT color="darkblue">内容：</FONT></P>
+						<P>
+						</P>
+					</TD>
+				</TR>
+				<TR class="b" bgColor="#99ccff" height="30">
+					<TD style="WIDTH: 144px; HEIGHT: 30px" width="144" align="right"><FONT color="darkblue">积分：</FONT></TD>
+					<TD width="376" style="HEIGHT: 30px">&nbsp;
+					</TD>
+				</TR>
+				<TR class="b" vAlign="middle" align="center" bgColor="#99ccff">
+					<TD colSpan="2" height="30" style="HEIGHT: 40px"><FONT style="BACKGROUND-COLOR: lightcoral">
+							<OBJECT id="WebBrowser" classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2" height="0"
+								width="0" VIEWASTEXT>
+							</OBJECT>
+						</FONT>
+						<iframe id="frame1" name="frame1" scrolling="auto" width="450" height="300" src="HTMLPage3.htm" frameborder="1"></iframe>
+
+						<input type="button" value="打印" onclick="document.frame1.WebBrowser.ExecWB(8,8);" ID="Button1"
+							NAME="Button1"> <input type="button" value="退出" onclick="javascript:window.close()" ID="Button2" NAME="Button2">
+					</TD>
+				</TR>
+			</TBODY>
+		</TABLE>
+
+</body>
+</html>

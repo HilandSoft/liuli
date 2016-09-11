@@ -1,0 +1,3 @@
+本文件夹下的项目仅在windowsxp系统下使用vs2003操作.txt
+
+虚拟机vmware准备删除

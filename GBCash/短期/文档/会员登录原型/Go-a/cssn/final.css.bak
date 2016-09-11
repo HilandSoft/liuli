@@ -1,0 +1,640 @@
+﻿body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+div, ul, dl, h1, h2, h3, h4, blockquote, table, p {
+    position: relative;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+fieldset, img {
+    border: 0 none;
+    vertical-align: middle;
+}
+input, select {
+    vertical-align: middle;
+}
+address, caption, cite, code, dfn, em, th, var {
+    font-style: normal;
+    font-weight: normal;
+}
+abbr, span.abbr, acronym {
+    border-bottom: 1px dashed #AAAAAA;
+    cursor: help;
+    letter-spacing: 0.1em;
+}
+var {
+    font-style: italic;
+}
+ul, li {
+    list-style: none outside none;
+}
+body {
+    background-color: #E5E4E0;
+}
+#top {
+    background-color: #FFFFFF;
+    height: 94px;
+    margin: 0 auto;
+    width: 983px;
+}
+#top .logo {
+    float: left;
+    padding-top: 20px;
+}
+#top .login {
+    float: right;
+    height: 66px;
+    margin-right: 5px;
+    top: 27px;
+    width: 170px;
+}
+
+#top .right {
+    background-color: #3B3B3B;
+    color: White;
+    float: right;
+    font-family: Georgia,'Times New Roman',Times,serif;
+    font-weight: bold;
+    height: 50px;
+    margin-right: 0;
+    text-align: center;
+    top: 15px;
+    width: 180px;
+}
+
+#top .call {
+    background-color: #3B3B3B;
+    color: White;
+    font-family: Georgia,'Times New Roman',Times,serif;
+    font-weight: bold;
+    height: 25px;
+    margin-right: 0;
+    text-align: center;
+    width: 180px;
+}
+
+#top .userInfo {
+
+    height: 25px;
+    margin-right: 0;
+    text-align: center;
+    top: 5px;
+    width: 180px;
+}
+#nav {
+    
+    height: 36px;
+    margin: 0 auto;
+    width: 983px;
+}
+.menus {
+    height: 36px;
+    margin-left: 24px;
+    width: auto;
+}
+.menus .menuItme {
+    background: url("nav-divid.png") no-repeat scroll right center transparent;
+    float: left;
+    height: 36px;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.menus .menuItme .menuItemA {
+    border-radius: 7px 7px 0 0;
+    color: #333333;
+    display: block;
+    float: left;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 14px;
+    height: 32px;
+    line-height: 32px;
+    margin-top: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+}
+.menus .menuItme .menuItemA:hover {
+    background: none repeat-x scroll 0 0 #FF6600;
+    color: #614E33;
+    margin-top: 4px;
+    position: relative;
+    z-index: 3;
+}
+.menus .menuItme .actived {
+    background-color: #FF6600;
+    color: #FFFFFF;
+    margin-top: 4px;
+    position: relative;
+    z-index: 3;
+}
+.menus .last {
+    background: none repeat scroll 0 0 transparent;
+}
+.children {
+    display: none;
+    margin: 0;
+    position: absolute;
+    top: 35px;
+    z-index: 3000;
+}
+.nestedchildren {
+    display: none;
+    left: 180px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    z-index: 3000;
+}
+.nestedchildren1 {
+    display: none;
+    left: 180px;
+    margin: 0;
+    position: absolute;
+    top: 35px;
+    z-index: 3000;
+}
+.children li, .nestedchildren li, .nestedchildren1 li {
+    background: none repeat scroll 0 0 #AC761E;
+    border-top: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    display: block;
+    float: none;
+    line-height: 35px;
+    margin: 0;
+    padding: 0;
+}
+.children li a {
+    color: #FFFFFF;
+    display: block;
+    padding: 0 10px;
+    text-decoration: none;
+    width: 160px;
+}
+.nestedchildren li a, .nestedchildren1 li a {
+    color: #FFFFFF;
+    display: block;
+    padding: 0 10px;
+    text-decoration: none;
+    width: 150px;
+}
+.children li a:hover, .nestedchildren li a:hover, .nestedchildren1 li a:hover {
+    background-color: #FFFFFF;
+    color: #AC761E;
+}
+#homebanner {
+    background: url("../imagesN/homebannerbox.jpg") no-repeat scroll right top transparent;
+    height: 265px;
+    margin: 10px auto 0;
+    width: 983px;
+}
+#homebanner .slideshow {
+    float: left;
+    height: 260px;
+    width: 707px;
+}
+#homebanner ul.tickbox {
+    float: left;
+    left: 25px;
+    top: 30px;
+}
+#homebanner ul.tickbox li {
+    background: url("../imagesN/tick2.png") no-repeat scroll left top transparent;
+    color: #FFFFFF;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 20px;
+    height: 27px;
+    line-height: 27px;
+    margin-bottom: 10px;
+    padding-left: 42px;
+    width: auto;
+}
+#homebanner ul.tickbox li.end {
+    letter-spacing: -0.7px;
+}
+#homeboxcontainer {
+    height: 319px;
+    margin: 6px auto 0;
+    width: 983px;
+}
+.homebox {
+    background: url("../imagesN/homeboxbg.gif") repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 319px;
+    margin-right: 10px;
+    width: 321px;
+}
+.homebox h1 {
+    color: #FFFFFF;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 20px;
+    font-weight: normal;
+    height: 44px;
+    left: 10px;
+    line-height: 44px;
+    padding-left: 30px;
+}
+.homebox h1.box1hd {
+    background: url("../imagesN/box1icon.jpg") no-repeat scroll left center transparent;
+    padding-left: 34px;
+}
+.homebox h1.box2hd {
+    background: url("../imagesN/box2icon.jpg") no-repeat scroll left center transparent;
+    padding-left: 36px;
+}
+.homebox h1.box3hd {
+    background: url("../imagesN/box3icon.jpg") no-repeat scroll left center transparent;
+    padding-left: 31px;
+}
+.homebox .fimg {
+    height: 87px;
+    margin: 10px auto 0;
+    width: 284px;
+}
+.homebox h2 {
+    color: #A46610;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 18px;
+    font-weight: normal;
+    height: auto;
+    line-height: 22px;
+    margin: 5px auto 0;
+    text-align: center;
+    width: 284px;
+}
+.homebox ul.homeboxinfo {
+    margin: 10px auto 0;
+    width: 284px;
+}
+.homebox ul.homeboxinfo li {
+    background: url("../imagesN/arrow1.gif") no-repeat scroll left center transparent;
+    color: #5B5B5B;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 13px;
+    height: 17px;
+    line-height: 13px;
+    margin-bottom: 8px;
+    padding-left: 10px;
+}
+.homebox ul.homeboxinfo li.nobg {
+    background: none repeat scroll 0 0 transparent;
+}
+.homebox ul.homeboxinfo li.nobghead {
+    background: none repeat scroll 0 0 transparent;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding-left: 0;
+    vertical-align: middle;
+}
+.homebox ul.homeboxinfo2 {
+    margin: 8px auto 0;
+    width: 284px;
+}
+.homebox ul.homeboxinfo2 li {
+    background: url("../imagesN/arrow1.gif") no-repeat scroll left center transparent;
+    color: #5B5B5B;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 13px;
+    height: 11px;
+    line-height: 13px;
+    margin-bottom: 6px;
+    padding-left: 10px;
+}
+.homebox ul.homeboxinfo2 li.nobg {
+    background: none repeat scroll 0 0 transparent;
+}
+.homebox ul.homeboxinfo2 li.nobghead {
+    background: none repeat scroll 0 0 transparent;
+    font-weight: bold;
+    padding-left: 0;
+    vertical-align: middle;
+}
+.homebox ul.btns {
+    height: 35px;
+    margin: 10px auto 0;
+    width: 284px;
+}
+.homebox ul.btns li.btn1 {
+    float: left;
+    margin-left: 8px;
+}
+.homebox ul.btns a {
+    background: url("../imagesN/greenbtn.gif") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    display: block;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 15px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    text-decoration: none;
+    width: 105px;
+}
+.homebox ul.btns a.nobg {
+    background: none repeat scroll 0 0 transparent;
+    color: #5B5B5B;
+    float: left;
+    margin-left: 8px;
+}
+.homebox ul.btns a:hover {
+    color: #000000;
+}
+.homebox ul.btns li.btn2 {
+    float: right;
+    margin-right: 8px;
+}
+.homebox ul.btns li.btn3 {
+    float: left;
+    margin-left: 8px;
+}
+.inlinebtns {
+    background: url("../imagesN/greenbtn.gif") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 15px;
+    font-weight: normal;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    text-decoration: none;
+    width: 105px;
+}
+.price {
+    background-color: #F5F2E8;
+    border: 1px solid #FF6600;
+    height: 22px;
+}
+#subheader {
+    background: url("../imagesN/subpage-header.jpg") repeat scroll 0 0 transparent;
+    height: 107px;
+    margin: 10px auto 0;
+    width: 981px;
+}
+#subheader h1 {
+    color: #FFFFFF;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 50px;
+    font-weight: normal;
+    line-height: 107px;
+    padding-left: 50px;
+}
+#main {
+    height: auto;
+    margin: 10px auto 0;
+    min-height: 537px;
+    width: 983px;
+}
+#main2 {
+    background-color: #FFFFFF;
+    border-radius: 6px 6px 6px 6px;
+    height: auto;
+    margin: 10px auto 0;
+    min-height: 505px;
+    padding: 40px;
+    width: 903px;
+}
+#process {
+    background: url("../imagesN/processbg.gif") repeat scroll 0 0 transparent;
+    border-radius: 6px 6px 6px 6px;
+    display: block;
+    float: left;
+    height: 537px;
+    width: 321px;
+}
+#process h1 {
+    background: url("../imagesN/box1icon.jpg") no-repeat scroll left center transparent;
+    color: #FFFFFF;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 18px;
+    font-weight: normal;
+    height: 32px;
+    left: 10px;
+    line-height: 32px;
+    padding-left: 32px;
+}
+#process h1.phoneicon {
+    background: url("../imagesN/phoneicon.jpg") no-repeat scroll left center transparent;
+}
+#process ul {
+    margin: 20px auto 0;
+    width: 297px;
+}
+#process ul li {
+    height: 45px;
+}
+#process ul li.activedprocess {
+    background: url("../imagesN/processactived.gif") no-repeat scroll left top transparent;
+    height: 51px;
+}
+#process ul li a {
+    color: #777777;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 16px;
+    line-height: 51px;
+    padding-left: 20px;
+    text-decoration: none;
+}
+#process ul li a:hover {
+    color: #73B328;
+}
+#process ul li a.activedprocesstxt {
+    color: #FFFFFF;
+    padding-left: 58px;
+}
+#process ul li.contactdetials {
+    color: #A46610;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 20px;
+}
+#process ul li.contactdetials a.con {
+    color: #A46610;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 14px;
+    line-height: 28px;
+    text-decoration: none;
+}
+#process a.applybtn {
+    background: url("../imagesN/applybtn.gif") repeat scroll 0 0 transparent;
+    display: block;
+    height: 54px;
+    margin: 15px auto 0;
+    width: 285px;
+}
+#content {
+    background-color: #FFFFFF;
+    border-radius: 6px 6px 6px 6px;
+    float: left;
+    height: auto;
+    margin-left: 10px;
+    min-height: 505px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 32px;
+    width: 150px;
+}
+#content h1 {
+    color: #FF6600;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+#content p {
+    color: #000000;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+#content ul li {
+    color: #000000;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 13px;
+    line-height: 20px;
+    list-style: disc inside none;
+}
+#content a.brownlink {
+    color: #FF6600;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 13px;
+    line-height: 20px;
+}
+#content .bottombtns {
+    height: 35px;
+    margin: 50px auto 0;
+    width: 260px;
+}
+.bottombtns a.green2 {
+    background: url("../imagesN/greenbtn.gif") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    display: block;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 15px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    text-decoration: none;
+    width: 105px;
+}
+.bottombtns a.green2:hover {
+    color: #000000;
+}
+#loginform {
+    float: left;
+    height: auto;
+    margin-left: 30px;
+    width: auto;
+}
+#loginform h1 {
+    color: #3B3B3B;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+#loginform p {
+    color: #000000;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 13px;
+    line-height: 23px;
+}
+#loginform a.brownlink {
+    color: #FF6600;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 13px;
+    line-height: 23px;
+}
+#contactform {
+    margin: 0;
+}
+#contactform * {
+    color: #FF6600;
+}
+#contactform ol {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+#contactform li {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+#contactform li.buttons {
+    margin: 5px 0;
+}
+#contactform label {
+    color: #000000;
+    display: block;
+    float: left;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 15px;
+    line-height: 23px;
+    margin: 0;
+    padding: 10px 0;
+    text-transform: capitalize;
+    width: 90px;
+}
+#contactform label span {
+    color: #000000;
+}
+#contactform input.text {
+    background: none repeat scroll 0 0 #E3D6C3;
+    border: medium none;
+    float: left;
+    height: 16px;
+    margin: 10px 0;
+    padding: 5px 2px;
+    width: 270px;
+}
+#contactform textarea {
+    background: none repeat scroll 0 0 #E8E7E2;
+    border: 1px solid #DEDDD6;
+    float: left;
+    margin: 10px 0;
+    padding: 2px;
+    width: 420px;
+}
+#contactform li.buttons input {
+    border: 0 none;
+    color: #FFFFFF;
+    float: right;
+    margin: 20px 0 0;
+}
+p.response {
+    color: #FF0000;
+    font: 11px/1.8em Georgia,"Times New Roman",Times,serif;
+    text-align: center;
+    width: auto;
+}
+span.browntxt {
+    color: #FF6600;
+    font-size: 20px;
+}
+#footer {
+    color: #B6B6B6;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 11px;
+    height: 30px;
+    line-height: 11px;
+    margin: 40px auto 0;
+    text-align: center;
+    width: 983px;
+}
+
+ a#currentloan:hover, a#loanhist:hover,a#cashloan:hover,a#loanext:hover,a#yourprofile:hover,a#chpasswd:hover
+ {
+background: #CCCCCC;
+text-decoration: underline;
+color:#FFFFFF;
+}

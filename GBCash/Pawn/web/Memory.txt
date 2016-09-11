@@ -1,0 +1,87 @@
+利率的计算方式(计算公式) 在Manage/Agreement.aspx.cs页面最后有
+HuiyunBN.cs 第64行 this.Order="H.Regtime desc";,展示屏蔽掉了
+
+//开发备忘(新功能开发)
+4.20081121 在cs_ProcessCenter表中 使用 processOther1表示 当前信息最后设定的状态是否提醒过(0或者null表示未提醒,1表示提醒过. 每次状态切换的时候都重新置0)
+1.cs_UserLoanInfoCheck表中,字段UserLoanType 中 1表示短期贷款,2表示长期贷款
+2.cs_User表中,UserType中 0表示后台用户, (其他前台用户暂时不保存在这个表中)
+3.cs_ProcessCenter表中,第一步的各个信息的校对信息放入扩展字段中,每步的操作人,操作时间放入扩展字段中
+
+
+//开发备忘(接手原始文件)
+1. 20080810建立表 MemberLoadNote
+2. 20080826使用Huiyuan表的param3表示会员的Score
+3. Huiyuan使用 字段Status使用18表示PreApprove
+
+4.Huiyuan和Employed 表 字段 IsValid使用 18表示 PreApprove
+										21表示 ReudcedLimit
+										22表示 BlackList
+										23表示 PermantlyBlackList
+										24表示 Collection
+
+5.20080903 使用MemberLoadNote中的Desc表示follow up history信息
+
+6.20080912 使用LPerson表内的字段Other1表示Note,Other2表示follow up history信息
+
+7.20080920 把LPerson的Other1,Other2修改成NVarChar(2000)类型
+	ALTER TABLE LPerson ALTER COLUMN Other1 nvarchar(2000) 
+	ALTER TABLE LPerson ALTER COLUMN Other2 nvarchar(2000) 
+	
+8.20080921 长期贷款 用24表示 Collection状态
+
+9.20081014 LIniLoan的 Other1表示 贷款日期
+
+
+//调整短期贷款的语句
+select * from Schedule where huiSid= 19733
+update Schedule set Repaydue=31.1,Balance=76.1 where id= 48683
+update Schedule set Datedue='2/10/2008',Balance=320.52 where id= 48939 --//20081002
+
+//代码阅读备忘
+Employed表中 param3表示 第n次贷款
+			 param5表示 工作
+			 param1表示 需要还款总额
+			
+			
+			
+Schedule表的Param1表示 Employe的id
+			 
+			 
+Huiyuan表的 param1表示传真
+
+//长期贷款的几个表的意义
+Liniload表 记录贷款的信息 
+	1.PrimaryPurpose表示贷款目的
+	2.Loan贷款数额
+	3.Term贷款的期限(单位:月)
+	
+LPerson表 长期贷款用户的个人信息
+	
+LResident表 长期贷款用户居住地信息
+
+LParams表 长期贷款的参数表
+	Sid表示 月(即3个月或者5个月的参数 都单独存放为一行)
+
+LEmployment表 长期贷款用户的工作信息
+
+LBank表 长期贷款用户的银行信息
+
+Lpay表 长期贷款 还款日程表
+
+//短期贷款的几个表的意义
+Huiyuan表 短期贷款人员的基本信息
+Schedule表 短期贷款还款日程表
+SystemInfo表 短期贷款的参数信息
+
+//修改,用户的短期贷款的语句
+select * from schedule where huisid=38457
+update [schedule] set Repaydue=328 ,Balance =328 where id=49832
+
+
+//修改存储过程的所有者
+exec   sp_changeobjectowner     '存储过程名'   ,   'newowner'
+
+//修改长期贷款表中,所有出生日期不是 dd/MM/yyyy格式的数据
+select * from LPerson where datalength(DBirth)< 10
+update LPerson set dbirth='12/05/1962' where sid=16489
+

@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLCash", "http://localhost/PLCash/PLCash.csproj", "{DD79E04F-DB31-4DA7-B69C-0400AB0D331C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(VisualSVN) = preSolution
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DD79E04F-DB31-4DA7-B69C-0400AB0D331C}.Debug.ActiveCfg = Debug|.NET
+		{DD79E04F-DB31-4DA7-B69C-0400AB0D331C}.Debug.Build.0 = Debug|.NET
+		{DD79E04F-DB31-4DA7-B69C-0400AB0D331C}.Release.ActiveCfg = Release|.NET
+		{DD79E04F-DB31-4DA7-B69C-0400AB0D331C}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

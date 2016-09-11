@@ -1,0 +1,499 @@
+
+body {
+   BORDER-RIGHT: #215984 0px solid;
+	BORDER-TOP: #215984 0px solid;
+	BORDER-LEFT: #215984 0px solid; 
+	BORDER-BOTTOM: #215984 0px solid; 
+	MARGIN: 0px;
+	
+    SCROLLBAR-FACE-COLOR: #dee3e7;
+	SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; 
+	SCROLLBAR-SHADOW-COLOR: #dee3e7; 
+	SCROLLBAR-3DLIGHT-COLOR: #d1d7dc; 
+	SCROLLBAR-ARROW-COLOR: #006699; 
+	SCROLLBAR-TRACK-COLOR: #efefef; 
+	SCROLLBAR-DARKSHADOW-COLOR: #98aab1;
+}
+
+table {
+    font-size: 9pt;
+}
+
+td {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #000000;
+	line-height: 20px;
+}
+
+
+p {
+    font-size: 9pt;
+}
+
+INPUT
+{
+	font-size: 12px;
+	border: 1px solid #CCCCCC;
+    
+}
+
+/*
+ * 控制所有下拉菜单的字体,颜色和大小.
+*/
+select{
+    color: #000000;
+    font-family: "宋体";
+    font-size:9pt;
+}
+
+/*
+ * 控制Frame-2.htm中间表格的背景图像，树状菜单使用.
+*/
+.frame_2 {
+    background-image:  url(../images/bg_frame_2.gif);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    height:400px;
+    padding-top: 8px;
+    padding-left: 10px;
+}
+
+/*
+ * 主窗体
+*/
+body.mainBody {
+    margin: 0px;
+}
+
+/*
+ * 列表窗体
+*/
+body.listBody {
+    margin: 0px;
+}
+
+/*
+ * 录入窗体
+*/
+body.inputBody {
+    margin: 0px;
+}
+
+/*
+ * 查询窗体
+*/
+body.queryBody {
+    margin: 0px;
+}
+
+
+/*
+ * 弹出窗体
+*/
+body.popBody {
+    margin: 0px;
+    background-color: #ffffff;
+}
+
+/*
+ * 导航菜单窗体
+*/
+body.menuBody {
+    margin: 0px;
+     background-color: #f7f3f7;
+}
+
+a:hover {
+    color: #ff0000;
+    text-decoration: underline;
+}
+a:active {
+    color: #ff0000;
+    text-decoration: none;
+}
+a:visited {
+    color: #0000ff;
+    text-decoration: none;
+}
+a:link {
+    color: #0000ff;
+    text-decoration: none;
+}
+
+/* 注释信息
+*/
+.noteMsg {
+    font-family: "宋体";
+    font-size: 9pt;
+    line-height: 150%;
+    color: #996666;
+}
+
+/*
+ * 警告信息
+*/
+.warnMsg {
+    font-size: 9pt;
+    color: #993366;
+}
+
+/* 导航信息
+*/
+.navigateMsg {
+    font-family: "宋体";
+    font-size: 9pt;
+    color: #000033;
+}
+
+/*
+ * 导航位置提示背景
+*/
+.bgNavigationHint {
+    font-size: 9pt;
+    background-color: #f7f3f7;
+    height: 20px;
+    width: 100%;
+    padding-right: 20px;
+    text-align: right;
+}
+
+/*
+ * 工具条背景
+*/
+.bgToolbar {
+    font-size: 9pt;
+}
+
+/*
+ * 带链接的标题
+*/
+a.caption:hover {
+    color: #003366;
+    text-decoration: underline;
+    font-size: 9pt;
+}
+a.caption:active {
+    color: #003366;
+    text-decoration: none;
+    font-size: 9pt;
+}
+a.caption:visited {
+    color: #003366;
+    text-decoration: none;
+    font-size: 9pt;
+}
+a.caption:link {
+    color: #003366;
+    text-decoration: none;
+    font-size: 9pt;
+}
+
+
+/*
+ * 超级链接形式的工具条按钮
+*/
+a.toolbar:hover {
+    color: #ff0000;
+    text-decoration: underline;
+    font-size: 9pt;
+}
+a.toolbar:active {
+    color: #ff0000;
+    text-decoration: none;
+    font-size: 9pt;
+}
+a.toolbar:visited {
+    color: #0000ff;
+    text-decoration: none;
+    font-size: 9pt;
+}
+a.toolbar:link {
+    color: #0000ff;
+    text-decoration: none;
+    font-size: 9pt;
+}
+
+/*
+ * 超级链接式按钮
+*/
+a.button:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    font-size: 10pt;
+}
+a.button:active {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 9pt;
+}
+a.button:visited {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 10pt;
+}
+a.button:link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 10pt;
+}
+
+/*
+ * 超级链接式翻页按钮
+*/
+a.scrollButton:hover {
+    color: #660099;
+    text-decoration: underline;
+    font-size: 9pt;
+}
+a.scrollButton:active {
+    color: #660099;
+    text-decoration: none;
+    font-size: 9pt;
+}
+a.scrollButton:visited {
+    color: #660099;
+    text-decoration: none;
+    font-size: 9pt;
+}
+a.scrollButton:link {
+    text-align:center;
+    color: #00659C;
+    text-decoration: none;
+    font-size: 9pt;
+}
+
+
+
+/*
+ * 工具条按钮
+*/
+input.toolbar {
+    border-right: #1c67ab 1px solid;
+    border-top: #1c67ab 1px solid;
+    font-size: 12px;
+    margin-left: 2px;
+    border-left: #1c67ab 1px solid;
+    cursor: pointer;
+    color: #1c67ab;
+    margin-right: 2px;
+    padding-top: 2px;
+    border-bottom: #1c67ab 1px solid;
+    font-family: 宋体;
+    height: 20px;
+    background-color: white;
+}
+
+/*
+ * 常用提交（确定）或取消（重置）按钮
+*/
+input.button {
+    height: 20px;
+    width: 100px;
+    background-color: #E0E0E0;
+    border-top: #ffffff 1px solid;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    font-size: 9pt;
+}
+
+
+
+/* 
+ * 录入窗体设计
+*/
+
+table.tableInput {
+    font-size: 12px;
+	border: 1px solid #CCCCCC;
+}
+
+tr.pageTitle {
+    font-size: 10.5pt;
+    font-weight: bold;
+    color: #000000;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+tr.trButton {
+    background-color: #ffffff;
+    text-align: center;
+}
+
+td.tdLabel {
+	font-size: 12px;
+	background-color: #f9f9f9;
+}
+
+td.tdLabel_1 {
+	font-size: 12px;
+	background-color: #DFEFFF;
+}
+
+
+td.tdInput {
+    background-color: #ffffff;
+    padding-left: 5px;
+}
+
+
+
+/* 录入查询窗体设计
+ *
+*/
+
+table.tableQuery {
+    background-color: #006699;
+    border-right: #cccccc 1px solid;
+    border-top: #ffffff 1px solid;
+    border-left: #ffffff 1px solid;
+    border-bottom: #cccccc 2px solid;
+}
+
+tr.trQueryTitle {
+    height: 22pt;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #00659C;
+    background-color: #DFEFFF;
+    font-family: "宋体";
+    padding-left: 12px;
+}
+
+table.tableQueryInput {
+    background-color: #ffffff;
+    font-weight: bold;
+    font-size: 9pt;
+    color: #000000;
+    font-family: 宋体;
+    width: 100%;
+}
+
+tr.trQueryButton {
+    background-color: #ffffff;
+}
+
+/* 
+ * 弹出窗体设计
+*/
+
+table.tablePop {
+    background-color: #DEEFFF;
+    border-right: #cccccc 1px solid;
+    border-top: #ffffff 1px solid;
+    border-left: #ffffff 1px solid;
+    border-bottom: #cccccc 2px solid;
+}
+
+td.tdPopTitle {
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #94BEE7;
+    text-align: center;
+}
+
+td.tdPopLabel {
+    font-size: 9pt;
+    font-weight: bold;
+    background-color: #ffffff;
+    text-align: right;
+    padding-right: 3px;
+    
+    color: #3D3D3D;
+}
+
+
+td.tdPopText {
+	background-color: #ffffff;
+	padding-left: 5px;
+	line-height: 130%;
+}
+
+/* 数据显示表格
+*/
+.tableGrid {
+    width: 92%;
+    background-color: #DFEFFF;
+    border-right: #cccccc 1px solid;
+    border-top: #ffffff 1px solid;
+    border-left: #ffffff 1px solid;
+    border-bottom: #cccccc 2px solid;
+    text-align: center;
+}
+
+/* 数据显示表格的页眉
+*/
+.gridHeader {
+    font-size: 12px;
+	background-color: #DFEFFF;
+}
+
+/* 数据显示表格的页脚
+*/
+.gridFooter {
+   font-size: 12px;
+	background-color: #DFEFFF;
+}
+
+/* 数据显示表格的翻页
+*/
+.gridPager {
+    height: 18pt;
+    font-size: 9pt;
+    color: #000000;
+    font-weight: bold;
+    background-color: #D9DFC1;
+}
+
+/* 数据显示表格的普通显示行
+*/
+.gridItem {
+    background-color: #FFFFff;
+    font-size: 9pt;
+    height:18pt;
+    behavior:url(../jslib/trHilt.htc)
+}
+
+/* 数据显示表格的交替显示行
+*/
+.gridAltItem {
+    background-color: #ffffff;
+    font-size: 9pt;
+    height:18pt;
+    behavior:url(../jslib/trHilt.htc)
+}
+
+/* 数据显示表格的处于编辑状态的显示行
+*/
+.gridEditItem {
+    background-color: #FFFFff;
+    font-size: 9pt;
+    height:18pt;
+}
+
+/* 数据显示表格的处于选中状态的显示行
+*/
+.gridSelectedItem {
+    background-color: #FFFFff;
+    font-size: 9pt;
+    height:18pt;
+}
+
+.Attention{
+	background-color: #E9A94E;
+	font-family:Arial;
+}
+
+.commonImageTextButton, .commonImageTextButton:link, .commonImageTextButton:visited, .commonImageTextButton:active{display: inline-table;display: inline-block; padding: 4px; margin: 1px; border: solid 1px #888; border-top: #ccc; border-left: #ccc; background: #eee; color: #333; font: 9pt bold; padding-left: 4px; line-height: normal;cursor:hand}
+/*
+.commonImageTextButton:hover{ text-decoration: underline; font-weight: bold; padding:3px 5px 5px 21px; cursor:hand}
+*/
+
+.textBox{ border: solid #ccc 1px; padding: 2px 1px; }
+.passwordBox { border: 1px solid #ccc; }
+.dropDownList { border: solid #ccc 1px; padding: 1px }
+.textareaBox { border: 1px solid #ccc; }
+.fileUpload { background: transparent; border: 1px solid #ccc; padding: 2px 1px; }

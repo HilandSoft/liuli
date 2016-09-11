@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Golden Bridge Cash Solution</title>
+<link href="../CSSN/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../swfobjectN/swfobject.js"></script>
+<script src="../javascriptN/jquery-1.4.4.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+<!--start top-->
+<div id="top">
+<div class="logo"><a href="../"><img src="../imagesN/logo.jpg" alt="Golden Bridge Cash Solution" /></a></div>
+<div class="login"><a href="../login.htm"><img src="../imagesN/member.jpg" width="170" height="66" /></a></div>
+</div>
+<!--end top-->
+
+<!--start nav-->
+<div id="nav">
+<ul class="menus">
+<li  class="menuItme"><a class="menuItemA" href="../" >HOME</a>
+	
+</li>
+<li class="menuItme"><a class="menuItemA actived" href="../how-it-works/">HOW IT WORKS</a>
+	<ul class="children">
+            <li><a href="../how-it-works/">Payday Loans</a></li>
+            <li><a href="http://pl.gbcash.com.au/howitworks.aspx">Unsecured Loans</a></li>
+            <li><a href="http://secured.gbcash.com.au/home/how-it-works/">Secured Loans</a></li>
+   </ul>
+</li>
+<li class="menuItme"><a class="menuItemA" href="../faq.htm">FAQs</a>
+	<ul class="children">
+            <li><a href="../faq.htm">Payday Loans</a></li>
+            <li><a href="http://pl.gbcash.com.au/faqs.aspx/">Unsecured Loans</a></li>
+            <li><a href="http://secured.gbcash.com.au/Home/Faqs">Secured Loans</a></li>
+   </ul>
+</li>
+<li class="menuItme"><a class="menuItemA" href="../Costs-And-Fees/">COSTS & FEES</a>
+	<ul class="children">
+            <li><a href="../Costs-And-Fees/">Payday Loans</a></li>
+            <li><a href="http://pl.gbcash.com.au/CostFees.aspx">Unsecured Loans</a></li>
+            <li><a href="http://secured.gbcash.com.au/Home/Costs-And-Fees/">Secured Loans</a></li>
+   </ul>
+</li>
+<li class="menuItme"><a class="menuItemA" href="../Calculator/">LOAN CALCULATOR</a>
+	<ul class="children">
+            <li><a href="../Calculator/">Payday Loans</a></li>
+            <li><a href="http://pl.gbcash.com.au/Calculator.aspx">Unsecured Loans</a></li>
+            <li><a href="http://secured.gbcash.com.au/Home/Secured-Loans-Calculator/">Secured Loans</a></li>
+   </ul>
+</li>
+<li  class="last menuItme"><a class="menuItemA" href="../Contact-Us/">CONTACT US</a>
+</li>
+</ul>
+</div>
+<!--end nav-->
+
+<!--start homebanner-->
+<!--start subbanner-->
+<div id="subheader">
+<h1>WHO CAN APPLY</h1>
+</div>
+<!--end subbanner-->
+
+<!--start main-->
+<div id="main">
+<!--start process-->
+<div id="process" style="float:right;">
+<h1 class="phoneicon">Golden Bridge Cash Solution</h1>
+
+<ul>
+<li class="contactdetials">Tel: 1300 137 906</li>
+<li class="contactdetials">Fax: 1300 138 916</li>
+<li class="contactdetials">Email: info@cashsolution.com.au </li>
+<li class="contactdetials">PO Box 347</li>
+<li class="contactdetials">Collins Street West, VIC 8007</li>
+<li class="contactdetials">92 112 483 226</li>
+<li class="contactdetials">Australian Credit Licence No.: 388601</li>
+<li class="contactdetials">COSL member No.: 0002491</li>
+<li class="contactdetials"><img style="padding-top:20px;" src="../imagesN/contactpic.jpg" width="255" height="170" /></li>
+</ul>
+</div>
+<!--end process-->
+<div id="content" style="margin-left:5px;">
+                      <strong>Who can apply? </strong> 
+                        <p>Qualifying is easy. There are no credit checks and 
+                          you just need to meet the following minimum requirements: 
+                        </p>
+                        <ul>
+                          <li>Over 18 years old and an Australian citizen or permanent 
+                          resident</li>
+                          <li>
+                            <LABEL for=CheckBoxList1_1>Currently employed  and take home at least $350 per week.</LABEL>
+                          </li>
+                          <li>Have a bank account in good standing verifying the 
+                          income deposits.</li>
+                          <li>Have been on your current address for at least the 
+                          last 3 months</li>
+                          <li>Other requirements may apply<br>
+                          </li>
+                        </ul>                        
+                        <p><a href="../Apply">Click here to Apply Now!<br>
+                          </a></p>
+</div>
+</div>
+<!--end main-->
+
+<!--start footer-->
+<div style="clear:both;"></div><div id="footer">&copy; Copyright Golden Bridge Cash Solution Pty Ltd 2011</div>
+<script type="text/javascript">
+        var mouseover_tid = [];
+        var mouseout_tid = [];
+
+        jQuery(document).ready(function () {
+
+            jQuery('.menus > li').each(function (index) {
+                jQuery(this).hover(
+
+			        function () {
+			            var _self = this;
+			            clearTimeout(mouseout_tid[index]);
+			            mouseover_tid[index] = setTimeout(function () {
+			                jQuery(_self).find('ul:eq(0)').fadeIn(200);
+			            }, 400);
+			        },
+
+			        function () {
+			            var _self = this;
+			            clearTimeout(mouseover_tid[index]);
+			            mouseout_tid[index] = setTimeout(function () {
+			                jQuery(_self).find('ul:eq(0)').fadeOut(200);
+			            }, 400);
+			        }
+
+		        );
+            });
+        });	
+    </script>
+<!--end footer-->
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+1.贷款流程
+-	Pre-qualification
+-	Apply now
+-	About yourself
+-	About your work 
+-	About the loan
+-	Submit application
+
+2.服务器seesion丢失，贷款步骤走不下去
+

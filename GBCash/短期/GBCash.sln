@@ -1,0 +1,58 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "http://localhost/gbc/WebApp.csproj", "{39888526-52E9-4B26-BBAB-A5D640087149}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{56C9C755-C3EF-4CC6-B7B3-947E5B13DA0D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STRUCTURE", "STRUCTURE\STRUCTURE.csproj", "{00D1EB47-6081-4584-B65D-1120BE4518F6}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{18A201DE-9847-4144-8579-C7D07F280E96}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{E9EE8A70-6006-4D81-9B18-9EB7F481545F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{39888526-52E9-4B26-BBAB-A5D640087149}.Debug.ActiveCfg = Debug|.NET
+		{39888526-52E9-4B26-BBAB-A5D640087149}.Debug.Build.0 = Debug|.NET
+		{39888526-52E9-4B26-BBAB-A5D640087149}.Release.ActiveCfg = Release|.NET
+		{39888526-52E9-4B26-BBAB-A5D640087149}.Release.Build.0 = Release|.NET
+		{56C9C755-C3EF-4CC6-B7B3-947E5B13DA0D}.Debug.ActiveCfg = Debug|.NET
+		{56C9C755-C3EF-4CC6-B7B3-947E5B13DA0D}.Debug.Build.0 = Debug|.NET
+		{56C9C755-C3EF-4CC6-B7B3-947E5B13DA0D}.Release.ActiveCfg = Release|.NET
+		{56C9C755-C3EF-4CC6-B7B3-947E5B13DA0D}.Release.Build.0 = Release|.NET
+		{00D1EB47-6081-4584-B65D-1120BE4518F6}.Debug.ActiveCfg = Debug|.NET
+		{00D1EB47-6081-4584-B65D-1120BE4518F6}.Debug.Build.0 = Debug|.NET
+		{00D1EB47-6081-4584-B65D-1120BE4518F6}.Release.ActiveCfg = Release|.NET
+		{00D1EB47-6081-4584-B65D-1120BE4518F6}.Release.Build.0 = Release|.NET
+		{18A201DE-9847-4144-8579-C7D07F280E96}.Debug.ActiveCfg = Debug|.NET
+		{18A201DE-9847-4144-8579-C7D07F280E96}.Debug.Build.0 = Debug|.NET
+		{18A201DE-9847-4144-8579-C7D07F280E96}.Release.ActiveCfg = Release|.NET
+		{18A201DE-9847-4144-8579-C7D07F280E96}.Release.Build.0 = Release|.NET
+		{E9EE8A70-6006-4D81-9B18-9EB7F481545F}.Debug.ActiveCfg = Debug|.NET
+		{E9EE8A70-6006-4D81-9B18-9EB7F481545F}.Debug.Build.0 = Debug|.NET
+		{E9EE8A70-6006-4D81-9B18-9EB7F481545F}.Release.ActiveCfg = Release|.NET
+		{E9EE8A70-6006-4D81-9B18-9EB7F481545F}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+	GlobalSection(VisualSVN) = preSolution
+	EndGlobalSection
+EndGlobal

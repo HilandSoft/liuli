@@ -1,0 +1,141 @@
+以下为http://localhost/gbcash/manage/MainTop.aspx内javascript中原始的脚本信息
+
+
+var current_window = null;
+		/**
+		* 响应鼠标进入窗口标签消息
+		*/
+		function onOverWndLabel()
+		{
+			var src = event.srcElement;
+			while ( src.tagName != "TABLE" )
+			{
+				if ( src.tagName == "TD" )
+				{
+					if ( src.className != "wnd_label_active" )
+					{
+						src.className = "wnd_label_hover";
+					}
+					break;
+				}
+				src = src.parentElement;
+			}
+		}
+
+		/**
+		* 响应鼠标离开窗口标签消息
+		*/
+		function onOutWndLabel()
+		{
+			var src = event.srcElement;
+			while ( src.tagName != "TABLE" )
+			{
+				if ( src.tagName == "TD" )
+				{
+					if ( src.className != "wnd_label_active" )
+					{
+						src.className = "wnd_label_normal";
+					}
+					break;
+				}
+				src = src.parentElement;
+			}
+		}
+
+		/**
+		* 响应鼠标点击窗口标签消息
+		*/
+		function onClickWndLabel()
+		{
+			var src = event.srcElement;
+			while ( src.tagName != "TABLE" )
+			{
+				if ( src.tagName == "TD" )
+				{
+					if ( src.className != "wnd_label_active" )
+					{
+						var cells = wnd_labels.rows[ 0 ].cells, len = cells.length;
+						for ( var i = 0; i < len; ++i )
+						{
+							if ( cells[ i ].id == src.id )
+							{
+								cells[ i ].className = "wnd_label_active";
+							}
+							else
+							{
+								cells[ i ].className = "wnd_label_normal";
+							}
+						}
+
+						// 隐藏老窗口, 显示新窗口
+						  
+					
+						current_window = src.id;
+					}
+					break;
+				}
+				src = src.parentElement;
+			}
+		
+			switch ( src.id )
+			{
+		    
+			case "a0":
+				window.parent.frames["main"].location.href = "MainHome.aspx";
+				break;
+
+			case "a1":
+				//window.parent.window.document.all.main.src = "InfoFrameSet.aspx";
+				window.parent.window.document.all.main.src = "InfoFrame.htm";
+				break;
+			
+			case "a5":
+				window.parent.window.document.all.main.src = "VideoList.aspx";
+				break;
+			
+			case "a2":
+				window.parent.window.document.all.main.src = "ProductFrame.htm";
+				break;
+			
+			case "a4":
+				window.parent.window.document.all.main.src = "Gbe.aspx";
+				break;
+				
+			case "a3":
+				window.parent.window.document.all.main.src = "agreeinput.aspx";
+				break;
+			case "a6":
+				window.parent.window.document.all.main.src = "UserManage.Aspx";
+				break;
+				
+			case "a7":
+				window.parent.frames["main"].location.href = "MemberList.aspx";
+				break;
+				
+			case "a8":
+				window.parent.window.document.all.main.src = "SystemInfo.aspx";
+				break;
+				
+			case "a9":
+				window.parent.window.document.all.main.src = "MemberHistory.aspx";
+				break;
+			
+			
+			case "a10":
+				window.parent.window.document.all.main.src = "renew.aspx";
+				break;
+			case "a11":
+				window.parent.window.document.all.main.src = "Long/LongList.aspx";
+				break;
+			case "a12":
+				window.parent.window.document.all.main.src = "Long/ParamsSet.aspx";
+				break;
+				
+			case "b1":
+				window.parent.window.document.all.main.src = "AdminManage/AdminList.aspx";
+				break;
+			case "b2":
+				window.parent.window.document.all.main.src = "ProcessCenter/ProcessList.aspx";
+				break;
+			}
+		}

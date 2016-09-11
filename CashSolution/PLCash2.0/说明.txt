@@ -1,0 +1,9 @@
+3.本项目对应的网站为pl.cashsolution.com.au
+2.文件googlec2b9ed8ccfb50d3a.html为google托管邮箱的验证文件
+
+1.本项目是从CashSolution2.0中 迁移出的。
+是把CashSolution2.0中的长期贷款部分专门成立一个网站处理。
+本项目仅是长期贷款的前台web部分。
+后台数据的处理依然在CashSolution的后台统一处理。
+
+（开发方面，本项目使用的BLL，DAL等直接使用Cashsolution2.0的功能。即本项目libs目录下的dll是Cashsolution2.0编译后的结果）
