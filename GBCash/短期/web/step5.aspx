@@ -11,11 +11,10 @@
 			<table width="390" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td>
-						For your first loan, please fax us the signed documents together with:<BR>
-						<img src="images/small002.gif" width="13" height="13"> Latest pay slip stubs
-						<BR>
-						<img src="images/small002.gif" width="13" height="13"> Latest Bank account 
-						statement received in the last 30 days<BR>
+						For your first loan, please fax us the signed loan ageement and direct debit request form together with:<BR>
+						<img src="images/small002.gif" width="13" height="13"> Latest pay slip<BR>
+						<img src="images/small002.gif" width="13" height="13"> Last 90 days bank 
+						statement <BR>
 						<img src="images/small002.gif" width="13" height="13"> Your Identification card 
 						(usually Driver's Licence or Passport)<BR>
 						<img src="images/small002.gif" width="13" height="13"> A utility bill, 
@@ -31,7 +30,7 @@
 							Thank you for your application!</div>
 						<br>
 						<div align="right">
-							<a href="#" onclick="alert('Thank you for your application! You can check your application status and access your loan account by login Members section.')">
+							<a href="#" onClick="alert('Thank you for your application! You can check your application status and access your loan account by login Members section.')">
 								Finish</a>
 						</div>
 					</td>

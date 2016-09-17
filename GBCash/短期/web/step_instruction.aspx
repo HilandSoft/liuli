@@ -44,13 +44,13 @@
 							<LI>
 							Two latest pay slips
 							<LI>
-							1 month bank statement received in the last 30 days .
+							last 90 days  bank statement 
 							<LI>
-							Your Identification card (usually Driver's Licence or Passport).
+							Your Identification card (usually Driver's Licence or Passport)
 							<LI>
 								A utility bill or mortgage documents or lease agreement. Each document to 
 								include current address and be current one month before you submit the loan 
-								application.							</LI>
+								application</LI>
 						</UL>
 						<div align="right">
 							<a class="commonImageTextButton" onClick="openNextWindows()" style="CURSOR: hand" target="_self"><b>Next>>></b></a>						</div>					</TD>

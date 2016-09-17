@@ -121,7 +121,7 @@
 											<TD>
 												<P>If you have changed your banking details since your last loan application, you 
 													need to contact us on 1300 138 916 or Email to <A href="mailto:apply@cashsolution.com.au">
-														apply@cashsolution.com.au </A>to obtain a Change of Account Details Form.</P>
+														apply@gbcash.com.au </A>to obtain a Change of Account Details Form.</P>
 											</TD>
 										</TR>
 										<TR>
@@ -387,18 +387,15 @@
 							<td><asp:panel id="Panel3" runat="server" Visible="False" Width="472px" Height="620px">
 									<TABLE border="0" cellSpacing="0" cellPadding="0" width="500">
 										<TR>
-											<TD width="137">Name:
-											</TD>
+											<TD width="137">Name:											</TD>
 											<TD width="363"><%=huiName%><FONT face="宋体"></FONT></TD>
 										</TR>
 										<TR>
-											<TD>Customer Number:
-											</TD>
+											<TD>Customer Number:											</TD>
 											<TD><%=CustomerNum%><FONT face="宋体"></FONT></TD>
 										</TR>
 										<TR>
-											<TD>When are you paid:
-											</TD>
+											<TD>When are you paid:											</TD>
 											<TD>
 												<asp:radiobuttonlist id="RadioButtonList1" runat="server" Width="224px" RepeatDirection="Horizontal">
 													<asp:ListItem Value="Weekly" Selected="True">Weekly</asp:ListItem>
@@ -412,8 +409,10 @@
 													MM <INPUT id="nPayMm" size="4" name="textfield2924324" runat="server"> YYYY <INPUT id="nPayYy" size="4" name="textfield2924334" runat="server"><FONT color="#990000" face="宋体">*</FONT></FONT></TD>
 										</TR>
 										<TR>
-											<TD colSpan="2"><STRONG>Loan Information </STRONG>
-											</TD>
+										  <TD colSpan="2">&nbsp;</TD>
+									  </TR>
+										<TR>
+											<TD colSpan="2"><STRONG>Loan Information </STRONG>											</TD>
 										</TR>
 										<TR>
 											<TD>Purpose of the loan:</TD>
@@ -434,42 +433,50 @@
 													<asp:ListItem Value="2">2 installments</asp:ListItem>
 													<asp:ListItem Value="3">3 installments</asp:ListItem>
 													<asp:ListItem Value="4">Repay on next payday</asp:ListItem>
-												</asp:DropDownList><FONT color="#990000" face="ËÎÌå">* </FONT>
-											</TD>
+												</asp:DropDownList><FONT color="#990000" face="ËÎÌå">* </FONT>											</TD>
 										</TR>
+										<TR>
+										  <TD colSpan="3">&nbsp;</TD>
+									  </TR>
 										<TR>
 											<TD colSpan="3"><STRONG>Financial Obligations</STRONG></TD>
 										</TR>
 										<TR>
-											<TD colSpan="3">Are you in default in payment under other <A class="title" title="small amount credit contract: a credit contract is a small amount&#13;&#10;credit contract if:|(a) the contract is not a continuing credit contract; and |(b) the credit provider under the contract is not an ADI; and |(c) the credit limit of the contract is $2,000 (or such other&#13;&#10;amount as is prescribed by the regulations) or less; and |(d) the term of the contract is at least 16 days but not longer than&#13;&#10;1 year (or such other number of years as is prescribed by the regulations); and |(e) the debtor’s obligations under the contract are not, and will&#13;&#10;not be, secured; and |(f) the contract meets any other requirements prescribed by the regulations."
-													href="#">Other regular expenses</A>?
-												<asp:RadioButtonList style="Z-INDEX: 0" id="rblHasOtherSamllCredit" runat="server" RepeatDirection="Horizontal">
-													<asp:ListItem Value="1">Yes</asp:ListItem>
-													<asp:ListItem Value="0">No</asp:ListItem>
+											<TD colSpan="3"><ul>
+											  <li>Are you in default in payment under other <A class="title" title="small amount credit contract: a credit contract is a small amount&#13;&#10;credit contract if:|(a) the contract is not a continuing credit contract; and |(b) the credit provider under the contract is not an ADI; and |(c) the credit limit of the contract is $2,000 (or such other&#13;&#10;amount as is prescribed by the regulations) or less; and |(d) the term of the contract is at least 16 days but not longer than&#13;&#10;1 year (or such other number of years as is prescribed by the regulations); and |(e) the debtor’s obligations under the contract are not, and will&#13;&#10;not be, secured; and |(f) the contract meets any other requirements prescribed by the regulations."
+													href="#">Small Amount Credit Contract </A>?										      </li>
+											  </ul>											  <asp:RadioButtonList style="Z-INDEX: 0" id="rblHasOtherSamllCredit" runat="server" RepeatDirection="Horizontal">
+												  <asp:ListItem Value="1">Yes</asp:ListItem>
+												  <asp:ListItem Value="0">No</asp:ListItem>
 												</asp:RadioButtonList></TD>
-										</TR>
+									  </TR>
 										<TR>
-											<TD colSpan="4">How many other small amount credit contracts have you had in the 
-												last 90 days?
-												<asp:DropDownList style="Z-INDEX: 0" id="ddlSmalCreditCount" runat="server">
-													<asp:ListItem Value="0">nil</asp:ListItem>
-													<asp:ListItem Value="1">1</asp:ListItem>
-													<asp:ListItem Value="2">2</asp:ListItem>
-													<asp:ListItem Value="3">3</asp:ListItem>
-													<asp:ListItem Value="99">More than 3</asp:ListItem>
+										  <TD colSpan="4">&nbsp;</TD>
+									  </TR>
+										<TR>
+											<TD colSpan="4"><ul>
+											  <li>How many other small amount credit contracts have you had in the 
+											    last 90 days?										      </li>
+											  </ul>											  <asp:DropDownList style="Z-INDEX: 0" id="ddlSmalCreditCount" runat="server">
+												  <asp:ListItem Value="0">nil</asp:ListItem>
+												  <asp:ListItem Value="1">1</asp:ListItem>
+												  <asp:ListItem Value="2">2</asp:ListItem>
+												  <asp:ListItem Value="3">3</asp:ListItem>
+												  <asp:ListItem Value="99">More than 3</asp:ListItem>
 												</asp:DropDownList></TD>
+									  </TR>
+										<TR>
+											<TD colSpan="3">&nbsp;</TD>
 										</TR>
 										<TR>
-											<TD colSpan="3"><STRONG>Financial Information</STRONG></TD>
-										</TR>
-										<TR>
-											<TD colSpan="3">Are you expecting any changes of your gross income in your next 
-												three pay cycles?
-												<asp:RadioButtonList style="Z-INDEX: 0" id="rblIsGrossIncomeChange" runat="server" RepeatDirection="Horizontal">
-													<asp:ListItem Value="1">Yes</asp:ListItem>
-													<asp:ListItem Value="0">No</asp:ListItem>
+											<TD colSpan="3"><ul>
+											  <li>Are you expecting any changes of your gross income in your next 
+											    three pay cycles?										      </li>
+											  </ul>											  <asp:RadioButtonList style="Z-INDEX: 0" id="rblIsGrossIncomeChange" runat="server" RepeatDirection="Horizontal">
+												  <asp:ListItem Value="1">Yes</asp:ListItem>
+												  <asp:ListItem Value="0">No</asp:ListItem>
 												</asp:RadioButtonList></TD>
-										</TR>
+									  </TR>
 										<TR>
 											<TD colSpan="2">If the answer is “yes”, how much are you expecting to get paid in 
 												each pay cycle?</TD>
@@ -477,20 +484,26 @@
 												<asp:TextBox style="Z-INDEX: 0" id="tbxGrossIncomeChangeValue" runat="server"></asp:TextBox></TD>
 										</TR>
 										<TR>
-											<TD colSpan="3">Are you expecting to pay any other credit providers other thanbanks in your next three pay cycle?
-												<asp:RadioButtonList style="Z-INDEX: 0" id="rblIsPayOtherCredit" runat="server" RepeatDirection="Horizontal">
-													<asp:ListItem Value="1">Yes</asp:ListItem>
-													<asp:ListItem Value="0">No</asp:ListItem>
+										  <TD colSpan="3">&nbsp;</TD>
+									  </TR>
+										<TR>
+											<TD colSpan="3"><ul>
+											  <li>Are you expecting to pay any other credit providers other thanbanks in your next three pay cycle?										      </li>
+											  </ul>											  <asp:RadioButtonList style="Z-INDEX: 0" id="rblIsPayOtherCredit" runat="server" RepeatDirection="Horizontal">
+												  <asp:ListItem Value="1">Yes</asp:ListItem>
+												  <asp:ListItem Value="0">No</asp:ListItem>
 												</asp:RadioButtonList></TD>
-										</TR>
+									  </TR>
 										<TR>
 											<TD colSpan="2">If the answer is “yes”,how much are you expecting to pay in each pay cycle?</TD>
 											<TD>
 												<asp:TextBox style="Z-INDEX: 0" id="tbxPayOtherCreditValue" runat="server"></asp:TextBox></TD>
 										</TR>
 										<TR>
-											<TD colSpan="3"><STRONG>Expenses Information </STRONG>
-											</TD>
+										  <TD colSpan="3">&nbsp;</TD>
+									  </TR>
+										<TR>
+											<TD colSpan="3"><STRONG>Expenses Information </STRONG>											</TD>
 										</TR>
 										<TR>
 											<TD>Your rent/mortgage payment:</TD>
@@ -517,10 +530,6 @@
 											<TD colSpan="2">
 												<TABLE border="1" cellSpacing="0" borderColor="#d4d0c8" cellPadding="0" width="95%">
 													<TR>
-														<TD width="35%">Credit Limit</TD>
-														<TD>$2340</TD>
-													</TR>
-													<TR>
 														<TD width="35%">Amount of credit</TD>
 														<TD>$
 															<asp:Literal id="litAmountOfCredit" Runat="server"></asp:Literal></TD>
@@ -541,6 +550,14 @@
 															<asp:Literal id="litRepaymentInDays" Text="day(s)" Runat="server"></asp:Literal></TD>
 													</TR>
 													<TR>
+													  <TD>Establishment fee </TD>
+													  <TD>20%</TD>
+												  </TR>
+													<TR>
+													  <TD>Monthly fee </TD>
+													  <TD>4%</TD>
+												  </TR>
+													<TR>
 														<TD>Annual Percentage Rate</TD>
 														<TD>
 															<asp:Literal id="litAnnualPercentageRate" Text="%" Runat="server"></asp:Literal></TD>
@@ -558,28 +575,19 @@
 															Installment3:
 															<asp:TextBox id="txd3" runat="server" Width="72px" ReadOnly="True" BorderWidth="0px" BorderStyle="None"></asp:TextBox>&nbsp; 
 															&nbsp; $
-															<asp:TextBox id="txs3" runat="server" Width="72px" ReadOnly="True" BorderWidth="0px" BorderStyle="None"></asp:TextBox><BR>
-														</TD>
+															<asp:TextBox id="txs3" runat="server" Width="72px" ReadOnly="True" BorderWidth="0px" BorderStyle="None"></asp:TextBox><BR>														</TD>
 													</TR>
 													<TR>
 														<TD width="35%">Charges may become payable</TD>
-														<TD>25 for each payment dishonoured<BR>
-															$50 for any instalment is not paid in full within 5 days following its 
-															scheduled date.<BR>
-															Default rate at 48% per annum<BR>
-														</TD>
+														<TD>Payment Dishonour Fee: $25 for each payment dishonoured. <br />
+Late Fee: $50 for any installment is not paid in full within 5                           days following its scheduled due date.<BR>
+													  Collection Fee: 50% of outstanding debt.<BR>														</TD>
 													</TR>
 												</TABLE>
 											</TD>
 										</TR>
 										<TR>
-											<TD colSpan="2">Note: Credit charges are 1.333% per day of the credit advanced over 
-												the repayment period of time. The total charge of the credit is evenly 
-												distributed to each installment. Chargeable repayment period won't start until 
-												your next payday, if you choose to repay other than "repay on your next payday" 
-												option and there is not more than 15 days to your next payday. For early 
-												repayment, chargeable repayment period is from credit advance date to the 
-												actual repayment date.</TD>
+											<TD colSpan="2">&nbsp;</TD>
 										</TR>
 										<TR>
 											<TD colSpan="2">
@@ -594,13 +602,11 @@
 													<BR>
 													&nbsp;&nbsp;In the event of default, I agree to pay all applicable penalties 
 													including a $25.00 Returned Item Fee, and if the balance is not paid within 5 
-													days following its scheduled Due Date, to pay an additional $50 Late Fee. I 
-													also agree to pay a default interest of 24% per annum of the outstanding debt 
-													after 62 days following its scheduled Due Date.
+													days following its scheduled Due Date, to pay an additional $50 Late Fee. 
 													<BR>
-													&nbsp;&nbsp;I understand that a Debt Collection Fee calculated to be 25% of the 
+													&nbsp;&nbsp;I understand that a Debt Collection Fee calculated to be 50% of the 
 													total amount owing will be added to my outstanding amount if my account is 
-													passed on to professional Debt Collection Agency. I understand that if I let 
+													passed on to a professional Debt Collection Agency. I understand that if I let 
 													any of my payments 'bounce', I authorize Golden Bridge Cash Solution to access 
 													my account until all loans, fees and penalties are recovered.</DIV>
 											</TD>

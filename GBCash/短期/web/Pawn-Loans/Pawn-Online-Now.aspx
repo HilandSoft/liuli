@@ -84,7 +84,7 @@
             <li class="menuItme"><a class="menuItemA actived" href="../default.htm">Home</a>
             </li>
             <li class="menuItme"><a class="menuItemA" href="./">About Us</a> </li>
-            <li class="menuItme"><a class="menuItemA" href="#">Loan Options</a><div style="clear:both"></div>
+            <li class="menuItme"><a class="menuItemA" href="#">Loan Options</a>
                 <ul class="children">
                     <li><a href="#">Payday Loans</a>
                         <ul class="nestedchildren">
@@ -112,7 +112,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="menuItme"><a class="menuItemA" href="#">Sell Your Old Gold Jewellery</a><div style="clear:both"></div>
+            <li class="menuItme"><a class="menuItemA" href="#">Sell Your Old Gold Jewellery</a>
                 <ul class="children">
                     <li><a href="../Sell-Your-Old-Gold-Jewellery/What-We-Buy.aspx">What We Buy</a></li>
                     <li><a href="../Sell-Your-Old-Gold-Jewellery/How-To-Sell.aspx">How To Sell</a></li>
@@ -120,15 +120,12 @@
                     <li><a href="../Sell-Your-Old-Gold-Jewellery/Visit-Us-In-Person.aspx">Visit Us In Person</a></li>
                 </ul>
             </li>
-            <li class="menuItme">
-					<a class="menuItemA" href="#">Calculators</a>
-					<ul class="children">
-						<li>
-							<a href="http://gbcash.com.au/Calculator/default.htm">Payday Loans</a>
-						<li>
-							<a href="http://secured.gbcash.com.au/Home/Secured-Loans-Calculator/">Secured Personal Loans</a></li>
-					</ul>
-				</li>
+            <li class="menuItme"><a class="menuItemA" href="#">Information</a>
+                <ul class="children">
+                    <li><a href="../Information/Newsletter.htm">Newsletter</a></li>
+                    <li><a href="../Information/Relevant-Links.htm">Relevant Links</a></li>
+                </ul>
+            </li>
             <li class="last menuItme"><a class="menuItemA" href="../Contact-Us/">Contact Us</a>
             </li>
         </ul>

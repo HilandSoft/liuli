@@ -43,7 +43,7 @@
 						</FONT><INPUT style="WIDTH: 51px; HEIGHT: 24px" type="reset" value="Reset"></TD>
 				</TR>
 				<tr>
-					<td>Please call 1300 137 906 or email <a href="mailto:apply@cashsolution.com.au">apply@cashsolution.com.au</a>
+					<td>Please call 1300 137 906 or email <a href="mailto:apply@gbcash.com.au">apply@gbcash.com.au</a>
 						if you have any problems/questions filling in this form</td>
 				</tr>
 				<tr>
@@ -54,10 +54,6 @@
 				</tr>
 			</TABLE>
 		</form>
-		<script type="text/javascript">
-			$(document).ready(function(){
-				//parent.setCurrentMenu("#liInitial","#liInitial a");
-			});
-		</script>
+		
 	</body>
 </HTML>

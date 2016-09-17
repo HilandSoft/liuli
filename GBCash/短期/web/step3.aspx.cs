@@ -18,9 +18,6 @@ namespace YingNet.WeiXing.WebApp
     public class step3 : Page
     {
         protected Button Button1;
-        protected TextBox d1F;
-        protected TextBox d2F;
-        protected TextBox d3F;
         protected DropDownList DropDownList1;
         protected HtmlInputHidden Hidden1;
         protected LinkButton Linkbutton3;
@@ -33,12 +30,6 @@ namespace YingNet.WeiXing.WebApp
         protected RadioButtonList RadioButtonList2;
         protected RadioButtonList RadioButtonList3;
         protected RadioButtonList RadioButtonList4;
-        protected TextBox s1;
-        protected TextBox s2;
-        protected TextBox s3;
-        protected HtmlInputText selReShip1;
-        protected HtmlInputText selReShip2;
-        protected HtmlInputText selReShip3;
         protected HtmlInputButton Submit1;
         protected HtmlInputText txAddress;
         protected HtmlInputText txAname;
@@ -68,19 +59,12 @@ namespace YingNet.WeiXing.WebApp
         protected HtmlSelect txMonth2;
         protected HtmlInputText txOffice;
         protected HtmlInputText txPhone;
-        protected HtmlInputText txReName1;
-        protected HtmlInputText txReName2;
-        protected HtmlInputText txReName3;
-        protected HtmlInputText txReNum1;
-        protected HtmlInputText txReNum2;
-        protected HtmlInputText txReNum3;
         protected HtmlInputText txType;
         protected HtmlSelect txYear;
         protected HtmlSelect txYear2;
         protected HtmlInputText txYy1;
         protected HtmlInputText txYy4;
         protected HtmlInputText txYy5;
-		protected System.Web.UI.WebControls.Label labAnnualRate;
         protected HtmlInputText txYy6;
 		protected System.Web.UI.WebControls.TextBox txtLoanPurpose;
 		protected System.Web.UI.WebControls.DropDownList ddlSmalCreditCount;
@@ -91,27 +75,30 @@ namespace YingNet.WeiXing.WebApp
 		protected CircleDropDownList ddlOtherLenderCircle;
 		protected HtmlTableRow annualRateRow;
 
+		protected DateTime[] payDates4Schedule;
+		protected double payAmountPerTime4Schedule;
+
         private void Button1_Click(object sender, EventArgs e)
         {
-            this.d1F.Text = this.d2F.Text = this.d3F.Text = this.s1.Text = this.s2.Text = this.s3.Text = "";
+            //this.d1F.Text = this.d2F.Text = this.d3F.Text = this.s1.Text = this.s2.Text = this.s3.Text = "";
             this.CalDateDue();
             this.CalLoan();
-			this.DisplayAnnualRate();
+			//this.DisplayAnnualRate();
         }
 
 		private void DisplayAnnualRate()
 		{
-			//DropDownList1表示用户选择的周期数
-			int numInstallmentCount = Convert.ToInt32(this.DropDownList1.SelectedValue);
-			PaidPeriodTypes paidPeriodType= GetPaidPeridType();
-			string rateDisplay= AnnualPercentageRate.GetAnnualPercentageRatePercent(paidPeriodType,numInstallmentCount);
+//			//DropDownList1表示用户选择的周期数
+//			int numInstallmentCount = Convert.ToInt32(this.DropDownList1.SelectedValue);
+//			PaidPeriodTypes paidPeriodType= GetPaidPeridType();
+//			string rateDisplay= AnnualPercentageRate.GetAnnualPercentageRatePercent(paidPeriodType,numInstallmentCount);
 			
-			this.labAnnualRate.Text=rateDisplay;//"486.89%";
+			//this.labAnnualRate.Text=rateDisplay;//"486.89%";
 			
-			/* //暂时不显示年利率部分
+			//暂时不显示年利率部分
 			this.annualRateRow.Attributes["style"]="Display:block";
 			this.annualRateRow.Visible= true;
-			*/
+			
 		}
 
 		private PaidPeriodTypes GetPaidPeridType()
@@ -179,6 +166,22 @@ namespace YingNet.WeiXing.WebApp
 			
 		}
 
+		private DateTime getSalaryDate(){
+			DateTime timeRecentlySalaryDate = new DateTime();
+			
+			//RadioButtonList1表示工作/受支助
+			if (this.RadioButtonList1.SelectedIndex == 0)
+			{
+				timeRecentlySalaryDate = new DateTime(Convert.ToInt32(this.txYy1.Value), Convert.ToInt32(this.txMm1.Value), Convert.ToInt32(this.txDd1.Value), 0x17, 0x3b, 0x3b);
+			}
+			else
+			{
+				timeRecentlySalaryDate = new DateTime(Convert.ToInt32(this.txYy4.Value), Convert.ToInt32(this.txMm4.Value), Convert.ToInt32(this.txDd4.Value), 0x17, 0x3b, 0x3b);
+			}
+
+			return timeRecentlySalaryDate;
+		}
+
         public void CalDateDue()
         {
             TimeSpan span3;
@@ -186,63 +189,29 @@ namespace YingNet.WeiXing.WebApp
             DateTime timeSecondPay = new DateTime();
             DateTime timeThirdPay = new DateTime();
             DateTime timeAtOncePay = new DateTime();
-            DateTime timeRecentlySalaryDate = new DateTime();
+            DateTime timeRecentlySalaryDate = this.getSalaryDate();
             
-        	//RadioButtonList1表示工作/受支助
-        	if (this.RadioButtonList1.SelectedIndex == 0)
-            {
-                timeRecentlySalaryDate = new DateTime(Convert.ToInt32(this.txYy1.Value), Convert.ToInt32(this.txMm1.Value), Convert.ToInt32(this.txDd1.Value), 0x17, 0x3b, 0x3b);
-            }
-            else
-            {
-                timeRecentlySalaryDate = new DateTime(Convert.ToInt32(this.txYy4.Value), Convert.ToInt32(this.txMm4.Value), Convert.ToInt32(this.txDd4.Value), 0x17, 0x3b, 0x3b);
-            }
         	
         	//~~以下为修改内容~~~
 			//DropDownList1表示用户选择的周期数
-			int numInstallmentCount = Convert.ToInt32(this.DropDownList1.SelectedValue);
+			//int numInstallmentCount = 0;//Convert.ToInt32(this.DropDownList1.SelectedValue);
+		
+			//更改还款周期数目的计算方式为根据还款周期类型固定确定
+
+
+
         	int userLoanType = this.RadioButtonList1.SelectedIndex;
         	
        	
         	string errorString = string.Empty;
+			DateTime[]  payDates= new DateTime[9];
         	
-        	bool isSuccessful= PayDaySchedule.CalculatePayDate(this.Page, numInstallmentCount, timeRecentlySalaryDate, userLoanType,
-        	                                GetSelectedRepaymentCycleType(userLoanType),ref timeFirstPay,ref timeSecondPay,ref timeThirdPay,
-        	                                ref timeAtOncePay, SafeDateTime.LocalNow, out errorString);
+        	bool isSuccessful= PayDaySchedule.CalculatePayDate(this.Page, timeRecentlySalaryDate,GetSelectedRepaymentCycleType(userLoanType),SafeDateTime.LocalNow,ref payDates, out errorString);
         	
 			if(isSuccessful == true)
 			{
-				string str = "";
-				string str2 = "";
-				string str3 = "";
-				string str4 = "";
-				str = timeFirstPay.ToShortDateString();
-				this.d1F.Text = timeFirstPay.Day.ToString() + "/" + timeFirstPay.Month.ToString() + "/" + timeFirstPay.Year.ToString();
-				switch (numInstallmentCount)
-				{
-					case 2:
-						str2 = timeSecondPay.ToShortDateString();
-						this.d2F.Text = timeSecondPay.Day.ToString() + "/" + timeSecondPay.Month.ToString() + "/" + timeSecondPay.Year.ToString();
-						break;
-
-					case 3:
-						str2 = timeSecondPay.ToShortDateString();
-						str3 = timeThirdPay.ToShortDateString();
-						this.d2F.Text = timeSecondPay.Day.ToString() + "/" + timeSecondPay.Month.ToString() + "/" + timeSecondPay.Year.ToString();
-						this.d3F.Text = timeThirdPay.Day.ToString() + "/" + timeThirdPay.Month.ToString() + "/" + timeThirdPay.Year.ToString();
-						break;
-					case 4:
-						str4 = timeAtOncePay.ToShortDateString();
-						this.d1F.Text = timeAtOncePay.Day.ToString() + "/" + timeAtOncePay.Month.ToString() + "/" + timeAtOncePay.Year.ToString();
-						break;
-				}
-        	
-				/*
-				this.Session["Datedue1"] = str;
-				this.Session["Datedue2"] = str2;
-				this.Session["Datedue3"] = str3;
-				this.Session["Datedue4"] = str4;
-				*/
+				this.Session["payDates4Schedule"]= payDates;
+				payDates4Schedule= payDates;
 			}
 			else
 			{
@@ -255,11 +224,9 @@ namespace YingNet.WeiXing.WebApp
             float numIncomeOrBenefit;
         	int userLoanType = 0;
             float numLoanAmount = Convert.ToSingle(this.txLoan.Value);
-
 			
+        	
 			
-        	//DropDownList1表示用户选择的周期数
-			int numInstallmentCount = Convert.ToInt32(this.DropDownList1.SelectedValue);
             if (this.RadioButtonList1.SelectedIndex == 0)
             {
                 numIncomeOrBenefit = Convert.ToSingle(this.txIncome.Value);
@@ -270,43 +237,27 @@ namespace YingNet.WeiXing.WebApp
                 numIncomeOrBenefit = Convert.ToSingle(this.txBenefit.Value);
             	userLoanType = 1;
             }
+
+			DateTime timeRecentlySalaryDate = this.getSalaryDate();
+
+			int numInstallmentCount = PayDaySchedule.CalculateInstallmentCount(GetSelectedRepaymentCycleType(userLoanType),timeRecentlySalaryDate,SafeDateTime.LocalNow);
+
             
             string errorString = string.Empty;
-        	bool isSuccessful = PayDaySchedule.CalculatePayLoan(this.Page, userLoanType, numInstallmentCount, numIncomeOrBenefit,
-        		                                numLoanAmount, out errorString);
+			double PayAmountPerTime= 0;
+			bool isSuccessful = PayDaySchedule.CalculatePayLoan(this.Page,  numIncomeOrBenefit,numLoanAmount,numInstallmentCount, false,ref PayAmountPerTime, out errorString);
         	if(isSuccessful==true)
         	{
-				switch (numInstallmentCount)
-				{
-					case 1:
-						this.s1.Text =Convert.ToString(this.Session["Repaydue1"]);
-						break;
-					case 2:
-						this.s1.Text= Convert.ToString(this.Session["Repaydue1"]);
-						this.s2.Text= Convert.ToString(this.Session["Repaydue2"]);
-						break;
-					case 3:
-						this.s1.Text= Convert.ToString(this.Session["Repaydue1"]);
-						this.s2.Text= Convert.ToString(this.Session["Repaydue2"]);
-						this.s3.Text= Convert.ToString(this.Session["Repaydue3"]);
-						break;
-					case 4:
-						if (this.Session["XFirst2"] != null)
-						{
-							this.s1.Text= Convert.ToString(this.Session["Repaydue4"]);
-						}
-						else
-						{
-							this.s1.Text = "";
-						}
-						break;
-				}
-        	}
-        	else
-        	{
-        		this.Response.Write(errorString);
-        	}
-        }
+				payAmountPerTime4Schedule= PayAmountPerTime;
+
+				this.Session["numInstallmentCount4Schedule"]= numInstallmentCount;
+				this.Session["payAmountPerTime4Schedule"]= PayAmountPerTime;
+			}
+			else
+			{
+				this.Response.Write(errorString);
+			}
+		}
 
         public void getHuiyuan()
         {
@@ -364,19 +315,19 @@ namespace YingNet.WeiXing.WebApp
             dt.Bsb = this.txBsb.Value;
             dt.ANumber = this.txAnumber.Value;
             dt.MContact = this.RadioButtonList4.SelectedValue;
-            dt.Rname1 = this.txReName1.Value;
-            dt.Rship1 = this.selReShip1.Value;
-            dt.Rnum1 = this.txReNum1.Value;
-            dt.Rname2 = this.txReName2.Value;
-            dt.Rship2 = this.selReShip2.Value;
-            dt.Rnum2 = this.txReNum2.Value;
-            dt.Rname3 = this.txReName3.Value;
-            dt.Rship3 = this.selReShip3.Value;
-            dt.Rnum3 = this.txReNum3.Value;
+//            dt.Rname1 = this.txReName1.Value;
+//            dt.Rship1 = this.selReShip1.Value;
+//            dt.Rnum1 = this.txReNum1.Value;
+//            dt.Rname2 = this.txReName2.Value;
+//            dt.Rship2 = this.selReShip2.Value;
+//            dt.Rnum2 = this.txReNum2.Value;
+//            dt.Rname3 = this.txReName3.Value;
+//            dt.Rship3 = this.selReShip3.Value;
+//            dt.Rnum3 = this.txReNum3.Value;
             dt.Param4 = this.txFullname.Text;
             dt.IsValid = 3;
             dt.Loan = Convert.ToSingle(this.txLoan.Value);
-            dt.NInstallment = Convert.ToInt32(this.DropDownList1.SelectedValue);
+            dt.NInstallment =  Convert.ToInt32(this.Session["numInstallmentCount4Schedule"]);//TODO ;//Convert.ToInt32(this.DropDownList1.SelectedValue);
             dt.RTime = SafeDateTime.LocalNow;
             
 			dt.LoanPurpose= this.txtLoanPurpose.Text;
@@ -440,18 +391,20 @@ namespace YingNet.WeiXing.WebApp
                 dt.XDay = Convert.ToInt32(this.Session["XFirst"]);
             }
             dt.huiSid = Convert.ToInt32(this.Session["huiSid"]);
-            if (this.s1.Text != "")
-            {
-                dt.Param1 = Convert.ToSingle(this.s1.Text);
-            }
-            if ((this.s1.Text != "") && (this.s2.Text != ""))
-            {
-                dt.Param1 = Convert.ToSingle(this.s1.Text) + Convert.ToSingle(this.s2.Text);
-            }
-            if (((this.s1.Text != "") && (this.s2.Text != "")) && (this.s3.Text != ""))
-            {
-                dt.Param1 = (Convert.ToSingle(this.s1.Text) + Convert.ToSingle(this.s2.Text)) + Convert.ToSingle(this.s3.Text);
-            }
+//            if (this.s1.Text != "")
+//            {
+//                dt.Param1 = Convert.ToSingle(this.s1.Text);
+//            }
+//            if ((this.s1.Text != "") && (this.s2.Text != ""))
+//            {
+//                dt.Param1 = Convert.ToSingle(this.s1.Text) + Convert.ToSingle(this.s2.Text);
+//            }
+//            if (((this.s1.Text != "") && (this.s2.Text != "")) && (this.s3.Text != ""))
+//            {
+//                dt.Param1 = (Convert.ToSingle(this.s1.Text) + Convert.ToSingle(this.s2.Text)) + Convert.ToSingle(this.s3.Text);
+//            }
+			dt.Param1= dt.NInstallment * Convert.ToDouble(this.Session["payAmountPerTime4Schedule"]);
+
             dt.Param2 = num * dt.NInstallment;
             dt.Param3 = 1;
             this.Hidden1.Value = dbn.Add2(dt).ToString();
@@ -461,98 +414,25 @@ namespace YingNet.WeiXing.WebApp
         {
             ScheduleBN ebn = new ScheduleBN(this.Page);
             ScheduleDT dt = null;
-        	//this.DropDownList1表示分期还款的方式(分1,2,3期等)
-        	switch (Convert.ToInt32(this.DropDownList1.SelectedValue))
-            {
-                case 1:
-                    dt = new ScheduleDT();
-                    dt.Datedue = Convert.ToDateTime(this.Session["Datedue1"]);
-                    dt.Repaydue = Convert.ToSingle(this.Session["Repaydue1"]);
-                    dt.huiSid = Convert.ToInt32(this.Session["huiSid"]);
-                    dt.Numberment = 1;
-                    dt.Param1 = this.Hidden1.Value;
-                    dt.Param2 = "0";
-                    dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]);
-                    dt.RepayTime = Convert.ToDateTime("2000-1-1");
-                    dt.OperateTime = Convert.ToDateTime("2000-1-1");
-                    ebn.Add(dt);
-                    break;
 
-                case 2:
-                    dt = new ScheduleDT();
-                    dt.Datedue = Convert.ToDateTime(this.Session["Datedue1"]);
-                    dt.Repaydue = Convert.ToSingle(this.Session["Repaydue1"]);
-                    dt.huiSid = Convert.ToInt32(this.Session["huiSid"]);
-                    dt.Numberment = 1;
-                    dt.Param1 = this.Hidden1.Value;
-                    dt.Param2 = "0";
-                    dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]);
-                    dt.RepayTime = Convert.ToDateTime("2000-1-1");
-                    dt.OperateTime = Convert.ToDateTime("2000-1-1");
-                    ebn.Add(dt);
-                    dt = new ScheduleDT();
-                    dt.Datedue = Convert.ToDateTime(this.Session["Datedue2"]);
-                    dt.Repaydue = Convert.ToSingle(this.Session["Repaydue2"]);
-                    dt.huiSid = Convert.ToInt32(this.Session["huiSid"]);
-                    dt.Numberment = 1;
-                    dt.Param1 = this.Hidden1.Value;
-                    dt.Param2 = "0";
-                    dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]) + Convert.ToSingle(this.Session["Repaydue2"]);
-                    dt.RepayTime = Convert.ToDateTime("2000-1-1");
-                    dt.OperateTime = Convert.ToDateTime("2000-1-1");
-                    ebn.Add(dt);
-                    break;
+			double PayAmountPerTime= Convert.ToDouble(this.Session["payAmountPerTime4Schedule"]);
+			DateTime[] payDates= (DateTime[])this.Session["payDates4Schedule"];
 
-                case 3:
-                    dt = new ScheduleDT();
-                    dt.Datedue = Convert.ToDateTime(this.Session["Datedue1"]);
-                    dt.Repaydue = Convert.ToSingle(this.Session["Repaydue1"]);
-                    dt.huiSid = Convert.ToInt32(this.Session["huiSid"]);
-                    dt.Numberment = 1;
-                    dt.Param1 = this.Hidden1.Value;
-                    dt.Param2 = "0";
-                    dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]);
-                    dt.RepayTime = Convert.ToDateTime("2000-1-1");
-                    dt.OperateTime = Convert.ToDateTime("2000-1-1");
-                    ebn.Add(dt);
-                    dt = new ScheduleDT();
-                    dt.Datedue = Convert.ToDateTime(this.Session["Datedue2"]);
-                    dt.Repaydue = Convert.ToSingle(this.Session["Repaydue2"]);
-                    dt.huiSid = Convert.ToInt32(this.Session["huiSid"]);
-                    dt.Numberment = 1;
-                    dt.Param1 = this.Hidden1.Value;
-                    dt.Param2 = "0";
-                    dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]) + Convert.ToSingle(this.Session["Repaydue2"]);
-                    dt.RepayTime = Convert.ToDateTime("2000-1-1");
-                    dt.OperateTime = Convert.ToDateTime("2000-1-1");
-                    ebn.Add(dt);
-                    dt = new ScheduleDT();
-                    dt.Datedue = Convert.ToDateTime(this.Session["Datedue3"]);
-                    dt.Repaydue = Convert.ToSingle(this.Session["Repaydue3"]);
-                    dt.huiSid = Convert.ToInt32(this.Session["huiSid"]);
-                    dt.Numberment = 1;
-                    dt.Param1 = this.Hidden1.Value;
-                    dt.Param2 = "0";
-                    dt.Balance = (Convert.ToSingle(this.Session["Repaydue1"]) + Convert.ToSingle(this.Session["Repaydue2"])) + Convert.ToSingle(this.Session["Repaydue3"]);
-                    dt.RepayTime = Convert.ToDateTime("2000-1-1");
-                    dt.OperateTime = Convert.ToDateTime("2000-1-1");
-                    ebn.Add(dt);
-                    break;
 
-                case 4:
-                    dt = new ScheduleDT();
-                    dt.Datedue = Convert.ToDateTime(this.Session["Datedue4"]);
-                    dt.Repaydue = Convert.ToSingle(this.Session["Repaydue4"]);
-                    dt.huiSid = Convert.ToInt32(this.Session["huiSid"]);
-                    dt.Numberment = 1;
-                    dt.Param1 = this.Hidden1.Value;
-                    dt.Param2 = "0";
-                    dt.Balance = Convert.ToSingle(this.Session["Repaydue4"]);
-                    dt.RepayTime = Convert.ToDateTime("2000-1-1");
-                    dt.OperateTime = Convert.ToDateTime("2000-1-1");
-                    ebn.Add(dt);
-                    break;
-            }
+			int numInstallmentCount= Convert.ToInt32(this.Session["numInstallmentCount4Schedule"]);
+			for(int i=0;i<numInstallmentCount;i++){
+				dt = new ScheduleDT();
+				dt.Datedue = payDates[i];//Convert.ToDateTime(this.Session["Datedue1"]);
+				dt.Repaydue = PayAmountPerTime;
+				dt.huiSid = Convert.ToInt32(this.Session["huiSid"]);
+				dt.Numberment = 1;
+				dt.Param1 = this.Hidden1.Value;
+				dt.Param2 = "0";
+				dt.Balance = PayAmountPerTime * (i+1);
+				dt.RepayTime = Convert.ToDateTime("2000-1-1");
+				dt.OperateTime = Convert.ToDateTime("2000-1-1");
+				ebn.Add(dt);
+			}
         }
 
         private void InitializeComponent()
@@ -648,11 +528,7 @@ namespace YingNet.WeiXing.WebApp
 
         private void Submit1_ServerClick(object sender, EventArgs e)
         {
-            if ((this.d1F.Text == "") || (this.s1.Text == ""))
-            {
-                base.Response.Write("<script>alert(\"Please click 'Calculate' button for repayment schedule before you submit the application.\");</script>");
-            }
-            else if (this.txFullname.Text == "")
+            if (this.txFullname.Text == "")
             {
                 base.Response.Write("<script>alert('You need to sign by tying in your FULL name before submission.');</script>");
             }
@@ -664,7 +540,7 @@ namespace YingNet.WeiXing.WebApp
             {
                 try
                 {
-                    this.Session["NumberLoanI"] = this.DropDownList1.SelectedValue;
+                    this.Session["NumberLoanI"] = this.Session["numInstallmentCount4Schedule"]; //this.DropDownList1.SelectedValue;
                     this.getInfo();
                     this.getSchedule();
                     this.getHuiyuan();

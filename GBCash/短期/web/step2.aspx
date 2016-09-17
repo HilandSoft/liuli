@@ -237,16 +237,16 @@
 						<table cellSpacing="0" cellPadding="0" width="397" border="0">
 							<tr>
 								<td width="133">
-									Home&nbsp;Address:</td>
+									Street No. </td>
 								<td width="264"><input id="txResident" type="text" size="20" name="textfield262" runat="server"><FONT face="宋体" color="#990000">*</FONT></td>
 							</tr>
 							<tr>
-								<td>Street :</td>
+								<td>Street Name:</td>
 								<td><input id="txStreet" type="text" size="20" name="textfield2622" runat="server"><FONT face="宋体" color="#990000">*</FONT></td>
 							</tr>
 							<tr>
 								<td valign="top">Suburb:</td>
-								<td><input id="txCity" type="text" size="20" name="textfield292" runat="server"><FONT face="宋体" color="#990000">*</FONT>&nbsp;&nbsp;State:&nbsp;
+							  <td><input id="txCity" type="text" size="20" name="textfield292" runat="server"><FONT face="宋体" color="#990000">*</FONT>&nbsp;&nbsp;State:&nbsp;
 									<SELECT id="selState" name="select2" runat="server">
 										<OPTION value="ACT" selected>ACT</OPTION>
 										<OPTION value="NSW">NSW</OPTION>
@@ -256,8 +256,7 @@
 										<OPTION value="VIC">VIC</OPTION>
 										<OPTION value="WA">WA</OPTION>
 										<option>QLD</option>
-									</SELECT>
-									<strong>Please note</strong>: The loans are currently not available for the residents in ACT, NSW and QLD.							  </td>
+									</SELECT></td>
 							</tr>
 						</table>
 						<table cellSpacing="0" cellPadding="0" width="397" border="0">
@@ -331,9 +330,11 @@
 						<table cellSpacing="0" cellPadding="0" width="397" border="0">
 							<tr>
 								<td colSpan="2"><br>
-									<strong>Login Information </strong>
-								</td>
+									<strong>Login Information </strong>								</td>
 							</tr>
+							<tr>
+							  <td colSpan="2">(Please choose an username and a password you can remember for future login purpose) </td>
+						  </tr>
 							<tr>
 								<td colSpan="2">&nbsp;</td>
 							</tr>
@@ -354,8 +355,7 @@
 											<td><input id="txConfirm" type="password" style="WIDTH:150px;HEIGHT:20px" name="textfield211"
 													runat="server"><FONT face="宋体" color="#990000">*</FONT></td>
 										</tr>
-									</table>
-								</td>
+									</table>								</td>
 							</tr>
 						</table>
 					</td>

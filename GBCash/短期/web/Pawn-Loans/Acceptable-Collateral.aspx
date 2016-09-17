@@ -40,7 +40,7 @@
 						<a class="menuItemA" href="http://gbcash.com.au/About-Us/">About Us</a>
 					</li>
 					<li class="menuItme">
-						<a class="menuItemA" href="#">Loan Options</a><div style="clear:both"></div>
+						<a class="menuItemA" href="#">Loan Options</a>
 						<ul class="children">
 							<li>
 								<a href="#">Payday Loans</a>
@@ -82,7 +82,7 @@
 						</ul>
 					</li>
 					<li class="menuItme">
-						<a class="menuItemA" href="#">Sell Your Old Gold Jewellery</a><div style="clear:both"></div>
+						<a class="menuItemA" href="#">Sell Your Old Gold Jewellery</a>
 						<ul class="children">
 							<li>
 								<a href="http://gbcash.com.au/Sell-Your-Old-Gold-Jewellery/What-We-Buy.aspx">What We Buy</a></li>
@@ -96,7 +96,7 @@
 						</ul>
 					</li>
 					<li class="menuItme">
-						<a class="menuItemA" href="#">Information</a><div style="clear:both"></div>
+						<a class="menuItemA" href="#">Information</a>
 						<ul class="children">
 							<li>
 								<a href="http://gbcash.com.au/Information/Newsletter.htm">Newsletter</a></li>

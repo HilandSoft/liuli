@@ -68,7 +68,7 @@
                         <td> Payments on loans and extensions: <a href="mailto:payment@cashsolution.com.au">payment@cashsolution.com.au </a> </td>
                       </tr>
                       <tr>
-                        <td> General requests or concerns: <a href="mailto:info@gbcash.com.au">info@gbcash.com.au </a> </td>
+                        <td> General requests or concerns: <a href="mailto:info@cashsolution.com.au">info@cashsolution.com.au </a> </td>
                       </tr>
                       <tr>
                         <td><p>&nbsp;</p></td>

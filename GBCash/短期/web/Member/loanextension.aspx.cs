@@ -325,7 +325,10 @@
             ebn.QueryIsValid("2");
             ebn.QueryParam2("0");
             DataTable list = ebn.GetList();
-            this.Hidden1.Value = list.Rows[0]["Numberment"].ToString();
+			
+			//this.Hidden1.Value = list.Rows[0]["Numberment"].ToString();
+			
+            
             for (int i = 0; i < list.Rows.Count; i++)
             {
                 string str = "Repaydue" + ((i + 1)).ToString();

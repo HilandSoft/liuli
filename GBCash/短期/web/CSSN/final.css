@@ -588,7 +588,7 @@ body {
 
     #content ul li {
         color: #000000;
-        font-family: Georgia,"Times New Roman",Times,serif;
+        /*font-family: Georgia,"Times New Roman",Times,serif;*/
         font-size: 13px;
         line-height: 20px;
         list-style: disc inside none;

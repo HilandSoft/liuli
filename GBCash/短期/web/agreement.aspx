@@ -31,14 +31,14 @@
 				</tr>
 				<tr>
 					<td align="center">
-						<strong>Please READ, SIGN, and FAX back to: 1300 138 916 or email to</strong> <a href="mailto:apply@cashsolution.com.au"><strong>apply@cashsolution.com.au</strong></a>
+						<strong>Please READ, SIGN, and FAX back to: 1300 138 916 or email to</strong> <a href="mailto:apply@cashsolution.com.au"><strong>apply@gbcash.com.au</strong></a>
 					</td>
 				</tr>
 				<tr>
 					<td align="center" height="10">
 						<span class="unnamed2">
 								 If you have any questions, please contact our Customer Service E-mail Address 
-								at <strong><a href="mailto:info@gbcash.com.au">info@gbcash.com.au </a></strong>
+								at <strong><a href="mailto:info@cashsolution.com.au">info@gbcash.com.au </a></strong>
 								or call at 1300 137 906
 								
 					  </span>
@@ -104,16 +104,14 @@
 								/<%=fYear%></strong></div>
 						<table cellSpacing="0" cellPadding="0" border="1" bordercolor="#000000">
 							<tr class="unnamed2">
-								<td width="97" vAlign="top" class="unnamed1"><strong>Loan Amount</strong>
+								<td width="95" vAlign="top" class="unnamed1"><strong>Loan Amount</strong>
 									<br>
 									(The dollar amount of credit provided to you )<br>
 									<BR>
-									$<%=LoanAccount%>
-								</td>
-								<td width="115" vAlign="top" class="unnamed1"><strong>Total Payable</strong><br>
+									$<%=LoanAccount%>								</td>
+								<td width="117" vAlign="top" class="unnamed1"><strong>Total Payable</strong><br>
 									(The dollar amount you will have paid after you have made all scheduled 
-									payments) $<%=TotalRepayable%>
-								</td>
+									payments) $<%=TotalRepayable%>								</td>
 								<td vAlign="top" width="180">
 									<p class="unnamed1"><strong>Repayment Schedule</strong>:<br>
 										1st Installment &nbsp;<%=Datedue1%>&nbsp;&nbsp;$<%=Repaydue1%><BR>
@@ -122,46 +120,40 @@
 										<%=Wpaid%>
 										<BR>
 										Repayment period in days:
-										<%=Period%>
-									</p>
-								</td>
+										<%=Period%>									</p>								</td>
 								<td width="134" vAlign="top" class="unnamed1">
 									<strong>Annual Percentage Rate</strong> (The cost of this loan as a yearly 
 									rate)<br>
 									<br>
 									<br>
-									<%=Tcoc1%>
-								</td>
+									<%=Tcoc1%>								</td>
 								<td width="112" vAlign="top" class="unnamed1">
 									<strong>Finance Cost </strong>
 									<br>
 									The dollar amount this loan will cost you over the repayment period )
 									<br>
 									<br>
-									$<%=Tcoc2%>
-								</td>
+									$<%=Tcoc2%>								</td>
 							</tr>
 							<tr class="unnamed2">
-							  <td colSpan="5" vAlign="top" class="unnamed1">Finance cost is $1.333 per day per $100 advanced over the repayment period of time. </td>
+							  <td colSpan="5" vAlign="top" class="unnamed1"><strong>Finance cost</strong> includes establishment fee 20% and monthly fee 4% of the loan amount. </td>
 						  </tr>
 							<tr class="unnamed2">
-							  <td colSpan="5" vAlign="top" class="unnamed1">A late fee of $50 may apply if any installment is not paid in full within five (5) days following its scheduled due date. </td>
+							  <td colSpan="5" vAlign="top" class="unnamed1"><STRONG>Charges may become payable</STRONG><br>
+							    Payment Dishonour Fee: $25 for each payment dishonoured <br>
+							    Late Fee: $50 for any installment is not paid in full within 5                           days following its scheduled due date.<br>
+							    Collection Fee: 50% of outstanding debt</td>
 						  </tr>
-							<tr class="unnamed2">
-								<td colSpan="5" vAlign="top" class="unnamed1">Collection fee of 25% of the amount of unpaid debt may become payable under this notice in the event of a breach.</td>
-							</tr>
 						</table>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<p align="center"><strong><br>
-								<a href="#">PROMISSORY NOTE NEGOTIABLE PAPER</a> </strong>
-						</p>
+						<p align="center"><strong>Terms and Conditions <a href="#"></a> </strong>						</p>
 					</td>
 				</tr>
 				<tr>
-					<td class="unnamed1">
+				  <td class="unnamed1">
 						<strong>PROMISE TO PAY</strong> For value received, I promise to pay to Bridge 
 						Enterprises (Aust) Pty Ltd (Hereafter referred to as &quot;Golden Bridge&quot;) or to 
 						their order the Total Payable shown above until the full amount of this note 
@@ -169,7 +161,7 @@
 						have full capacity to consent to the payment of such amount.
 						<br>
 						<strong>PAYMENT</strong> By signing this agreement I authorize Golden Bridge to 
-						effect ACH debit and credit entries without any further notice to me, for the 
+						effect direct debit and credit entries without any further notice to me, for the 
 						amounts submitted with this note or any future electronic loans or extension 
 						submissions made by me via the Fax Machine or by the Electronic Form on the 
 						Golden Bridge Website. The unpaid amounts will be debited from my nominated 
@@ -189,28 +181,15 @@
 						subsequent loan transactions with Golden Bridge, including this notice and all 
 						agreements to extend the due date of a loan or to apply a new loan.
 						<br>
-						<strong>LATE FEE AND PENALTY INTEREST</strong> In the event that any 
-						installment under this note is not paid in full within five (5) days following 
-						its scheduled Due Date, I agree to pay a Late Fee of $50. I will pay an 
-						interest of 0.065% per day (or default interest of 24% per annum) of the 
-						outstanding debt after 62 days following the date of the advance. This will be 
-						added to my outstanding account.
-						<br>
-						<strong>RETURNED OR REJECTED PAYMENTS</strong> In the event my electronic 
-						payment of any amount due under this agreement, and on presentation to the 
-						named financial institution, is returned due to insufficient funds or credit, 
-						stopped payment, or closed account, or any other reason, I agree to pay a $25 
-						Returned Item Fee.
-						<br>
+		        <strong>LATE FEE AND PENALTY INTEREST </strong>In the event of default, I agree to pay all penalties including a $25.00 dishonour fee for each item returned, and if the balance is not paid within 5 days of the payment due date, to pay an additional $50 late fee. I understand that a Debt Collection Fee calculated to be 50% of the total amount owing will be added to my outstanding amount if my account is passed on to a professional Debt Collection Agency. <br>
 						<strong>DISPUTE RESOLUTION</strong> I agree to pay reasonable fees of any 
-						solicitor at law debt collection agency who may be employed to recover the 
+						solicitor at law, debt collection agency who may be employed to recover the 
 						amount of this note, or any part hereof, in principal, cost and interest, or to 
 						protect the interest of Golden Bridge or to compromise or take any other action 
-						with required thereto, which fees are hereby fixed at twenty-five (25%) percent 
-						of the amount of the unpaid debt. Upon the occurrence of one or more of the 
+						with required thereto, which fees are hereby fixed at fifty percent 
+						 (50%) of the amount of the unpaid debt. Upon the occurrence of one or more of the 
 						following events of default (1) failure to make any  payments when due: 
-						(2) Failure to perform any obligation under any Security Agreement securing 
-						this note: (3) I default under any other credit extension with Golden Bridge; 
+						(2) I default under any other payment extension and/or repayment arrangement with Golden Bridge; 
 						(4) Should I die, become insolvent or apply for bankruptcy or other relief from 
 						creditors. I agree Golden Bridge may, at its option, declare the entire unpaid 
 						balance of this Note to be due immediately and payable without notice or 
@@ -227,15 +206,14 @@
 						<strong>TRANSACTIONS</strong> These transactions shall be made in the State of 
 						Victoria in Australia, and Victoria State Law shall govern all aspects thereof.
 						<br>
-						<strong>BY SIGNING BELOW</strong> By signing below, I acknowledge that I fully 
-						understand the Golden Bridge Cash Solution<sup>TM</sup> program and procedures 
-						and further acknowledge receipt of a completed copy of this Truth-in-Lending 
-						Disclosure Statement Promissory Note.
-					</td>
+					  <strong>BY SIGNING BELOW</strong>  I confirm that I have read and understood the Information Statement, Form 3A and Credit Guide. I acknowledge the terms and conditions of this loan agreement including the       Financial Table, and agree to be bound by the terms and conditions of this       loan agreement.</td>
 				</tr>
 				<tr>
 					<td>
 						<table cellSpacing="0" cellPadding="0" width="650" border="0">
+							<tr>
+							  <td colSpan="2">&nbsp;</td>
+						  </tr>
 							<tr>
 								<td colSpan="2">&nbsp;</td>
 							</tr>
@@ -244,9 +222,17 @@
 								<td width="523">__________________</td>
 							</tr>
 							<tr>
+							  <td>&nbsp;</td>
+							  <td>&nbsp;</td>
+						  </tr>
+							<tr>
 								<td>Print applicant's name</td>
 								<td>__________________</td>
 							</tr>
+							<tr>
+							  <td>&nbsp;</td>
+							  <td>&nbsp;</td>
+						  </tr>
 							<tr>
 								<td>Date</td>
 								<td>__________________</td>
@@ -256,17 +242,14 @@
 							</tr>
 							<tr>
 								<td colspan="2" align="center" height="24"><p align="center" class="unnamed1">
-										Golden Bridge Enterprises (Aust) Pty Ltd (ABN: 92 112 483 226) PO Box 347 , Collins Street West, VIC 8007<br>
+										Golden Bridge Enterprises (Aust) Pty Ltd (ABN: 92 112 483 226 ACL No. 388601) PO Box 347, Collins Street West, VIC 8007<br>
 										Tel: 1300 137 906&nbsp; &nbsp;Fax: 1300 138 916&nbsp; 
-										&nbsp;&nbsp;www.cashsolution.com.au
-									</p>
-								</td>
+										&nbsp;&nbsp;www.gbcash.com.au</p>								</td>
 							</tr>
 							<tr>
 								<td align="center" colSpan="4" height="20">
-									<A onclick="window.print();" href="#">Print</A> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<asp:LinkButton id="LinkButton1" runat="server">Next</asp:LinkButton>
-								</td>
+									<A onClick="window.print();" href="#">Print</A> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<asp:LinkButton id="LinkButton1" runat="server">Next</asp:LinkButton>								</td>
 							</tr>
 						</table>
 					</td>

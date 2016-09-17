@@ -95,9 +95,13 @@
 							<%for( int i=0;i<listByTime.Rows.Count;i++ ){
 								string repayTime = "";
 
-								if (Convert.ToDateTime(listByTime.Rows[i]["RepayTime"]).ToShortDateString() != "1/1/2001")
+								if (Convert.ToDateTime(listByTime.Rows[i]["RepayTime"]).ToShortDateString() != "01-01-2000")
 								{
 									repayTime = Convert.ToDateTime(listByTime.Rows[i]["RepayTime"]).ToString("MM/dd/yyyy");
+								}
+								
+								if(repayTime=="01-01-2000" || repayTime=="01/01/2000"){
+									repayTime ="";
 								}
 							%>
 							<TR>
