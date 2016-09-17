@@ -22,7 +22,6 @@
 		protected HtmlInputButton Button2;
 		protected CheckBox CheckBox1;
 		public string CustomerNum = "";
-		protected DropDownList DropDownList1;
 		public string EmploymentInfo = "";
 		protected HtmlInputHidden Hidden1;
 		protected HtmlInputHidden Hidden2;
@@ -59,9 +58,6 @@
 		public string tip6 = "";
 		public string txAddress = "";
 		public string txCity = "";
-		protected TextBox txd1;
-		protected TextBox txd2;
-		protected TextBox txd3;
 		public string txDate = "";
 		public string txDd1 = "";
 		public string txDriver = "";
@@ -83,9 +79,6 @@
 		public string txPhone = "";
 		public string txPost = "";
 		public string txResident = "";
-		protected TextBox txs1;
-		protected TextBox txs2;
-		protected TextBox txs3;
 		protected CheckBox cbUnderStoodTerm;
 		public string txStreet = "";
 		public string txTel = "";
@@ -115,13 +108,16 @@
 		protected System.Web.UI.WebControls.RadioButtonList rblIsPayOtherCredit;
 		protected System.Web.UI.WebControls.TextBox tbxPayOtherCreditValue;
 		protected System.Web.UI.WebControls.RadioButtonList rblHasOtherSamllCredit;
+
+		protected DateTime[] payDates4Schedule;
+		protected double payAmountPerTime4Schedule;
     	
 
 		private void Button1_Click(object sender, EventArgs e)
 		{
 			this.PanelWarning.Visible= false;
 			
-			this.txd1.Text = this.txd2.Text = this.txd3.Text = this.txs1.Text = this.txs2.Text = this.txs3.Text = "";
+			//this.txd1.Text = this.txd2.Text = this.txd3.Text = this.txs1.Text = this.txs2.Text = this.txs3.Text = "";
 			DateTime time = new DateTime(Convert.ToInt32(this.nPayYy.Value), Convert.ToInt32(this.nPayMm.Value), Convert.ToInt32(this.nPayDd.Value));
 			if (time <= SafeDateTime.LocalNow)
 			{
@@ -159,11 +155,7 @@
 				return;
 			}
         	
-			if ((this.txd1.Text == "") || (this.txs1.Text == ""))
-			{
-				base.Response.Write("<script>alert(\"Please click 'Calculate' button for repayment schedule before you submit the application.\");</script>");
-			}
-			else if (this.txFullname.Text == "")
+			if (this.txFullname.Text == "")
 			{
 				base.Response.Write("<script>alert('You need to sign by tying in your FULL name before submission.');</script>");
 			}
@@ -196,169 +188,33 @@
 			}
 		}
 
+		private DateTime GetSalaryDate(){
+			DateTime timeRecentlySalaryDate = new DateTime(Convert.ToInt32(this.nPayYy.Value), Convert.ToInt32(this.nPayMm.Value), Convert.ToInt32(this.nPayDd.Value), 0x17, 0x3b, 0x3b);
+			return timeRecentlySalaryDate;
+		}
+
 		public bool CalDateDue()
 		{
-			DateTime timeFirstPay = new DateTime();
-			DateTime timeSecondPay = new DateTime();
-			DateTime timeThirdPay = new DateTime();
-			DateTime timeAtOncePay = new DateTime();
-			DateTime timeRecentlySalaryDate = new DateTime(Convert.ToInt32(this.nPayYy.Value), Convert.ToInt32(this.nPayMm.Value), Convert.ToInt32(this.nPayDd.Value), 0x17, 0x3b, 0x3b);
-			int numInstallmentCount = Convert.ToInt32(this.DropDownList1.SelectedValue);
-			
-			//以下代码屏蔽，统一使用跟前台一样的计算逻辑（20130703）
-			//			int num = 0;
-			//			int num2 = 0;
-			//			int num3 = 0;
-			//			int num4 = 0;
-			//			float num5 = 0f;
-			//			DataTable list = new SystemInfoBN(this.Page).GetList();
-			//			if (list.Rows.Count > 0)
-			//			{
-			//				num = Convert.ToInt32(list.Rows[0]["shortday"]);
-			//				num5 = Convert.ToSingle(list.Rows[0]["frequency"]);
-			//				num2 = Convert.ToInt32(list.Rows[0]["datediffw"]);
-			//				num3 = Convert.ToInt32(list.Rows[0]["datedifff"]);
-			//				num4 = Convert.ToInt32(list.Rows[0]["datediffm"]);
-			//			}
-			//			
-			//			TimeSpan span = new TimeSpan(0x3e8L);
-			//			TimeSpan span2 = (TimeSpan) (timeRecentlySalaryDate - SafeDateTime.LocalNow);
-			//			switch (this.RadioButtonList1.SelectedIndex)
-			//			{
-			//				case 0:
-			//					if (span2.Days <= num2)
-			//					{
-			//						this.Session["frequency"] = 7;
-			//						span = new TimeSpan(7, 0, 0, 0);
-			//						timeFirstPay = timeRecentlySalaryDate + span;
-			//						timeSecondPay = timeFirstPay + span;
-			//						timeThirdPay = timeSecondPay + span;
-			//						break;
-			//					}
-			//					base.Response.Write("<script>alert('The number of days to your next payday has exceeded one pay interval. Please re-enter your next payday.');</script>");
-			//					return;
-			//
-			//				case 1:
-			//					if (span2.Days <= num3)
-			//					{
-			//						this.Session["frequency"] = 14;
-			//						span = new TimeSpan(14, 0, 0, 0);
-			//						timeFirstPay = timeRecentlySalaryDate + span;
-			//						timeSecondPay = timeFirstPay + span;
-			//						timeThirdPay = timeSecondPay + span;
-			//						break;
-			//					}
-			//					base.Response.Write("<script>alert('The number of days to your next payday has exceeded one pay interval. Please re-enter your next payday.');</script>");
-			//					return;
-			//
-			//				case 2:
-			//					if ((numInstallmentCount > 3) || (span2.Days <= num4))
-			//					{
-			//						this.Session["frequency"] = num5;
-			//						int year = timeRecentlySalaryDate.Year;
-			//						int month = timeRecentlySalaryDate.Month;
-			//						int day = timeRecentlySalaryDate.Day;
-			//						int num10 = timeRecentlySalaryDate.Month;
-			//						timeFirstPay = timeRecentlySalaryDate.AddMonths(1);
-			//						timeSecondPay = timeRecentlySalaryDate.AddMonths(2);
-			//						timeThirdPay = timeRecentlySalaryDate.AddMonths(3);
-			//						break;
-			//					}
-			//					base.Response.Write("<script>alert(\"The number of days to your next payday has exceeded 15 days. Please choose 'Repay on next payday' repayment option.\");</script>");
-			//					return;
-			//			}
-			//			TimeSpan span3 = (TimeSpan) (timeFirstPay - SafeDateTime.LocalNow);
-			//			this.Session["XFirst"] = span3.Days;
-			//			string str = "";
-			//			string str2 = "";
-			//			string str3 = "";
-			//			string str4 = "";
-			//			str = timeFirstPay.ToShortDateString();
-			//			this.txd1.Text = timeFirstPay.Day.ToString() + "/" + timeFirstPay.Month.ToString() + "/" + timeFirstPay.Year.ToString();
-			//			switch (numInstallmentCount)
-			//			{
-			//				case 2:
-			//					str2 = timeSecondPay.ToShortDateString();
-			//					this.txd2.Text = timeSecondPay.Day.ToString() + "/" + timeSecondPay.Month.ToString() + "/" + timeSecondPay.Year.ToString();
-			//					break;
-			//
-			//				case 3:
-			//					str2 = timeSecondPay.ToShortDateString();
-			//					str3 = timeThirdPay.ToShortDateString();
-			//					this.txd2.Text = timeSecondPay.Day.ToString() + "/" + timeSecondPay.Month.ToString() + "/" + timeSecondPay.Year.ToString();
-			//					this.txd3.Text = timeThirdPay.Day.ToString() + "/" + timeThirdPay.Month.ToString() + "/" + timeThirdPay.Year.ToString();
-			//					break;
-			//			}
-			//			if (numInstallmentCount == 4)
-			//			{
-			//				timeAtOncePay = timeRecentlySalaryDate;
-			//				TimeSpan span4 = (TimeSpan) (timeAtOncePay - SafeDateTime.LocalNow);
-			//				if (span4.Days < 3)
-			//				{
-			//					base.Response.Write("<script>alert(\"There's less than 3 days to your next payday. Please choose another repayment option.\")</script>");
-			//					this.txd1.Text = "";
-			//					this.Session["XFirst2"] = null;
-			//				}
-			//				else
-			//				{
-			//					str4 = timeAtOncePay.ToShortDateString();
-			//					this.txd1.Text = timeAtOncePay.Day.ToString() + "/" + timeAtOncePay.Month.ToString() + "/" + timeAtOncePay.Year.ToString();
-			//					this.Session["XFirst2"] = span4.Days;
-			//				}
-			//			}
-			//			this.Session["Datedue1"] = str;
-			//			this.Session["Datedue2"] = str2;
-			//			this.Session["Datedue3"] = str3;
-			//			this.Session["Datedue4"] = str4;
-			//以下代码屏蔽，统一使用跟前台一样的计算逻辑结束（20130703）
+			DateTime timeRecentlySalaryDate = this.GetSalaryDate();
 
-			//使用新的计算逻辑（20130703）
-			int userLoanType = 0;//0表示有工作的人士
 			string errorString = string.Empty;
+			DateTime[]  payDates= new DateTime[9];
         	
-			bool isSuccessful= PayDaySchedule.CalculatePayDate(this.Page, numInstallmentCount, timeRecentlySalaryDate, userLoanType,
-				GetSelectedRepaymentCycleType(),ref timeFirstPay,ref timeSecondPay,ref timeThirdPay,
-				ref timeAtOncePay, SafeDateTime.LocalNow, out errorString);
+			bool isSuccessful= PayDaySchedule.CalculatePayDate(this.Page, timeRecentlySalaryDate,GetSelectedRepaymentCycleType(),SafeDateTime.LocalNow,ref payDates, out errorString);
+
         	
 			if(isSuccessful == true)
 			{
-				string str = "";
-				string str2 = "";
-				string str3 = "";
-				string str4 = "";
-				str = timeFirstPay.ToShortDateString();
-				DateTime lastPayDate= new DateTime(2000,1,1);
-				this.txd1.Text = timeFirstPay.Day.ToString() + "/" + timeFirstPay.Month.ToString() + "/" + timeFirstPay.Year.ToString();
-				lastPayDate= timeFirstPay;
-				switch (numInstallmentCount)
-				{
-					case 2:
-						str2 = timeSecondPay.ToShortDateString();
-						lastPayDate= timeSecondPay;
-						this.txd2.Text = timeSecondPay.Day.ToString() + "/" + timeSecondPay.Month.ToString() + "/" + timeSecondPay.Year.ToString();
-						break;
+				this.Session["payDates4Schedule"]= payDates;
+				payDates4Schedule= payDates;
 
-					case 3:
-						str2 = timeSecondPay.ToShortDateString();
-						str3 = timeThirdPay.ToShortDateString();
-						this.txd2.Text = timeSecondPay.Day.ToString() + "/" + timeSecondPay.Month.ToString() + "/" + timeSecondPay.Year.ToString();
-						this.txd3.Text = timeThirdPay.Day.ToString() + "/" + timeThirdPay.Month.ToString() + "/" + timeThirdPay.Year.ToString();
-						lastPayDate= timeThirdPay;
-						break;
-					case 4:
-						str4 = timeAtOncePay.ToShortDateString();
-						this.txd1.Text = timeAtOncePay.Day.ToString() + "/" + timeAtOncePay.Month.ToString() + "/" + timeAtOncePay.Year.ToString();
-						lastPayDate= timeAtOncePay;
-						break;
-				}
 
-				this.Session["LastPayDate"]= lastPayDate;
+				this.Session["LastPayDate"]= payDates[payDates.Length-1];
 			}
 			else
 			{
 				this.Response.Write(errorString);
 			}
-			//使用新的计算逻辑结束（20130703）
 
 			return isSuccessful;
 		}
@@ -404,232 +260,58 @@
 			float num7 = 0f;
 			float numLoanAmount = Convert.ToSingle(this.txLoan.Value);
 			float numIncome = Convert.ToSingle(incomeString);
-			int numInstallmentCount = Convert.ToInt32(this.DropDownList1.SelectedValue);
+			//int numInstallmentCount = Convert.ToInt32(this.DropDownList1.SelectedValue);
+			DateTime timeRecentlySalaryDate = this.GetSalaryDate();
 			int num11 = 0;
 			int num12 = 0;
 			int userLoanType = Convert.ToInt32(list.Rows[0]["IsEmployed"]);
 
-			//以下代码屏蔽，统一使用跟前台一样的计算逻辑（20130703）
-			//			DataTable table2 = new SystemInfoBN(this.Page).GetList();
-			//			if (table2.Rows.Count > 0)
-			//			{
-			//				num = Convert.ToSingle(table2.Rows[0]["interest"].ToString());
-			//				num2 = Convert.ToSingle(table2.Rows[0]["frequency"].ToString());
-			//				num3 = Convert.ToSingle(table2.Rows[0]["percentage"].ToString());
-			//				num4 = Convert.ToInt32(table2.Rows[0]["upperlimit"].ToString());
-			//				num5 = Convert.ToInt32(table2.Rows[0]["upperlimit2"].ToString());
-			//				num11 = Convert.ToInt32(table2.Rows[0]["IsPercent"].ToString());
-			//				num7 = Convert.ToSingle(table2.Rows[0]["lowerlimit"].ToString());
-			//				num6 = Convert.ToSingle(table2.Rows[0]["poundage"].ToString());
-			//				num12 = Convert.ToInt32(table2.Rows[0]["term"].ToString());
-			//				num7 = Convert.ToSingle(table2.Rows[0]["lowerlimit"].ToString());
-			//			}
-			//			if (numLoanAmount > num5)
-			//			{
-			//				base.Response.Write("<script>alert(\"Maximum amount you can borrow for your fist loan is $" + num5.ToString() + ". Please modify and continue.\")</script>");
-			//			}
-			//			else if (numLoanAmount > ((numIncome * num3) * num10))
-			//			{
-			//				base.Response.Write("<script>alert(\"The loan amount you requested will exceed your maximum borrowing capability. Please modify and continue.\")</script>");
-			//			}
-			//			else
-			//			{
-			//				DateTime time = new DateTime();
-			//				switch (numInstallmentCount)
-			//				{
-			//					case 1:
-			//						if ((this.Session["Datedue1"] != null) && !(this.Session["Datedue1"].ToString() == ""))
-			//						{
-			//							time = Convert.ToDateTime(this.Session["Datedue1"]);
-			//							break;
-			//						}
-			//						return;
-			//
-			//					case 2:
-			//						if ((this.Session["Datedue2"] != null) && !(this.Session["Datedue2"].ToString() == ""))
-			//						{
-			//							time = Convert.ToDateTime(this.Session["Datedue2"]);
-			//							break;
-			//						}
-			//						return;
-			//
-			//					case 3:
-			//						if ((this.Session["Datedue3"] != null) && !(this.Session["Datedue3"].ToString() == ""))
-			//						{
-			//							time = Convert.ToDateTime(this.Session["Datedue3"]);
-			//							break;
-			//						}
-			//						return;
-			//					case 4:
-			//						if ((this.Session["Datedue4"] != null) && !(this.Session["Datedue4"].ToString() == ""))
-			//						{
-			//							time = Convert.ToDateTime(this.Session["Datedue4"]);
-			//							break;
-			//						}
-			//						return;
-			//				}
-			//				TimeSpan span = (TimeSpan) (time - SafeDateTime.LocalNow);
-			//				if (span.Days > num12)
-			//				{
-			//					base.Response.Write("<script>alert(\"The term of the loan is maximum 62 days or three pay periods whichever is the sooner. Please re-enter installment number.\")</script>");
-			//				}
-			//				else if (numLoanAmount < num7)
-			//				{
-			//					base.Response.Write("<script>alert(\"Minimum loan amount is $50. Please modify and continue.\")</script>");
-			//				}
-			//				else if (num13.Equals(0) && (numLoanAmount > 150f))
-			//				{
-			//					base.Response.Write("<script>alert(\"Maximum amount you can borrow is $150. Please modify and continue.\")</script>");
-			//				}
-			//				else
-			//				{
-			//					int num14 = Convert.ToInt32(this.Session["XFirst"]);
-			//					double num15 = 0.0;
-			//					this.Session["Repayduezs"] = this.txLoan.Value;
-			//					double tempSinglePay = 0;
-			//					double totalPayable = 0;
-			//					string annualPercentageRate = string.Empty;
-			//					PaidPeriodTypes paidPeriodType= PaidPeriodTypes.Weekly;
-			//					switch (numInstallmentCount)
-			//					{
-			//						case 1:
-			//							num15 = (numLoanAmount + ((numLoanAmount * Convert.ToSingle(this.Session["frequency"])) * num)) + num6;
-			//							totalPayable = num15;
-			//							this.txs1.Text = num15.ToString("0.00");
-			//							this.Session["Repaydue1"] = this.txs1.Text;
-			//							//annualPercentageRate = "486.89%";
-			//							break;
-			//
-			//						case 2:
-			//						{
-			//							tempSinglePay = (((((numLoanAmount * Convert.ToSingle(this.Session["frequency"])) * num) * 2f) + numLoanAmount) + num6) * 0.5; 
-			//							totalPayable = tempSinglePay * 2;
-			//							this.txs2.Text = tempSinglePay.ToString("0.00");
-			//							this.txs1.Text = this.txs2.Text;
-			//							this.Session["Repaydue1"] = this.txs1.Text;
-			//							this.Session["Repaydue2"] = this.txs1.Text;
-			//							/*	
-			//							switch(this.RadioButtonList1.SelectedIndex)
-			//								{
-			//									case 0:
-			//										annualPercentageRate = "700.44%";
-			//										break;
-			//									case 1:
-			//										annualPercentageRate = "677.85%";
-			//										break;
-			//									case 2:
-			//										annualPercentageRate = "486.89%";
-			//										break;
-			//								}
-			//								*/
-			//						}
-			//							break;
-			//
-			//						case 3:
-			//						{
-			//							tempSinglePay = ((double) (((((numLoanAmount * Convert.ToSingle(this.Session["frequency"])) * num) * 3f) + numLoanAmount) + num6)) / 3.0;
-			//							totalPayable = tempSinglePay*3;
-			//							this.txs3.Text = tempSinglePay.ToString("0.00");
-			//							this.txs1.Text = this.txs2.Text = this.txs3.Text;
-			//							this.Session["Repaydue1"] = this.txs1.Text;
-			//							this.Session["Repaydue2"] = this.txs1.Text;
-			//							this.Session["Repaydue3"] = this.txs1.Text;
-			//							/*	
-			//							switch(this.RadioButtonList1.SelectedIndex)
-			//								{
-			//									case 0:
-			//										annualPercentageRate = "700.44%";
-			//										break;
-			//									case 1:
-			//										annualPercentageRate = "677.85%";
-			//										break;
-			//									case 2:
-			//										annualPercentageRate = "486.89%";
-			//										break;
-			//								}
-			//								*/
-			//						}
-			//							break;
-			//					}
-			//
-			//
-			//					switch(this.RadioButtonList1.SelectedIndex)
-			//					{
-			//						case 0:
-			//							paidPeriodType= PaidPeriodTypes.Weekly;
-			//							break;
-			//						case 1:
-			//							paidPeriodType= PaidPeriodTypes.Fnightly;
-			//							break;
-			//						case 2:
-			//							paidPeriodType= PaidPeriodTypes.Monthly;
-			//							break;
-			//					}
-			//					
-			//
-			//					annualPercentageRate= AnnualPercentageRate.GetAnnualPercentageRatePercent(paidPeriodType,num10);
-			//
-			//					if (numInstallmentCount == 4)
-			//					{
-			//						if (this.Session["XFirst2"] != null)
-			//						{
-			//							totalPayable = (double) (numLoanAmount + ((numLoanAmount*Convert.ToInt32(this.Session["XFirst2"]))*num));
-			//							this.txs1.Text = totalPayable.ToString("0.00");
-			//							this.Session["Repaydue4"] = this.txs1.Text;
-			//							annualPercentageRate = "486.89%";
-			//						}
-			//						else
-			//						{
-			//							this.txs1.Text = "";
-			//						}
-			//					}
-			//                	
-			//					this.litAmountOfCredit.Text = numLoanAmount.ToString();
-			//					this.litChargeForCredit.Text =(totalPayable- numLoanAmount).ToString("0.00");
-			//					this.litTotalPayable.Text = totalPayable.ToString("0.00");
-			//					this.litRepaymentInDays.Text = (span.Days + 1).ToString()+ " day(s)";
-			//					this.litAnnualPercentageRate.Text = annualPercentageRate;
-			//				}
-			//			}
-			//以下代码屏蔽，统一使用跟前台一样的计算逻辑结束（20130703）
+			int numInstallmentCount = PayDaySchedule.CalculateInstallmentCount(GetSelectedRepaymentCycleType(),timeRecentlySalaryDate,SafeDateTime.LocalNow);
 
-			//使用新的计算逻辑（20130703）
+            
 			string errorString = string.Empty;
-			bool isSuccessful = PayDaySchedule.CalculatePayLoan(this.Page, userLoanType, numInstallmentCount, numIncome,
-				numLoanAmount,false, out errorString);
+			double PayAmountPerTime= 0;
+			bool isSuccessful = PayDaySchedule.CalculatePayLoan(this.Page,  numIncome,numLoanAmount,numInstallmentCount, false,ref PayAmountPerTime, out errorString);
+
 			
 			double totalPayable = 0;
 			if(isSuccessful==true)
 			{
-				switch (numInstallmentCount)
-				{
-					case 1:
-						this.txs1.Text =Convert.ToString(this.Session["Repaydue1"]);
-						totalPayable= Convert.ToDouble(this.Session["Repaydue1"]);
-						break;
-					case 2:
-						this.txs1.Text= Convert.ToString(this.Session["Repaydue1"]);
-						this.txs2.Text= Convert.ToString(this.Session["Repaydue2"]);
-						totalPayable= Convert.ToDouble(this.Session["Repaydue1"]) + Convert.ToDouble(this.Session["Repaydue2"]);
-						break;
-					case 3:
-						this.txs1.Text= Convert.ToString(this.Session["Repaydue1"]);
-						this.txs2.Text= Convert.ToString(this.Session["Repaydue2"]);
-						this.txs3.Text= Convert.ToString(this.Session["Repaydue3"]);
-						totalPayable= Convert.ToDouble(this.Session["Repaydue1"]) + Convert.ToDouble(this.Session["Repaydue2"]) +  + Convert.ToDouble(this.Session["Repaydue3"]);
-						break;
-					case 4:
-						if (this.Session["XFirst2"] != null)
-						{
-							this.txs1.Text= Convert.ToString(this.Session["Repaydue4"]);
-							totalPayable= Convert.ToDouble(this.Session["Repaydue4"]) ;
-						}
-						else
-						{
-							this.txs1.Text = "";
-						}
-						break;
-				}
+				payAmountPerTime4Schedule= PayAmountPerTime;
+
+				this.Session["numInstallmentCount4Schedule"]= numInstallmentCount;
+				this.Session["payAmountPerTime4Schedule"]= PayAmountPerTime;
+				totalPayable= PayAmountPerTime * numInstallmentCount;
+
+//				switch (numInstallmentCount)
+//				{
+//					case 1:
+//						this.txs1.Text =Convert.ToString(this.Session["Repaydue1"]);
+//						totalPayable= Convert.ToDouble(this.Session["Repaydue1"]);
+//						break;
+//					case 2:
+//						this.txs1.Text= Convert.ToString(this.Session["Repaydue1"]);
+//						this.txs2.Text= Convert.ToString(this.Session["Repaydue2"]);
+//						totalPayable= Convert.ToDouble(this.Session["Repaydue1"]) + Convert.ToDouble(this.Session["Repaydue2"]);
+//						break;
+//					case 3:
+//						this.txs1.Text= Convert.ToString(this.Session["Repaydue1"]);
+//						this.txs2.Text= Convert.ToString(this.Session["Repaydue2"]);
+//						this.txs3.Text= Convert.ToString(this.Session["Repaydue3"]);
+//						totalPayable= Convert.ToDouble(this.Session["Repaydue1"]) + Convert.ToDouble(this.Session["Repaydue2"]) +  + Convert.ToDouble(this.Session["Repaydue3"]);
+//						break;
+//					case 4:
+//						if (this.Session["XFirst2"] != null)
+//						{
+//							this.txs1.Text= Convert.ToString(this.Session["Repaydue4"]);
+//							totalPayable= Convert.ToDouble(this.Session["Repaydue4"]) ;
+//						}
+//						else
+//						{
+//							this.txs1.Text = "";
+//						}
+//						break;
+//				}
 
 				DateTime lastPayDate= new DateTime(2000,1,1);
 				if(this.Session["LastPayDate"]!=null)
@@ -662,7 +344,7 @@
 			dt.Param4 = this.txFullname.Text;
 			dt.IsValid = 3;
 			dt.Loan = Convert.ToSingle(this.txLoan.Value);
-			dt.NInstallment = Convert.ToInt32(this.DropDownList1.SelectedValue);
+			dt.NInstallment = Convert.ToInt32(this.Session["numInstallmentCount4Schedule"]);
 			dt.RTime = SafeDateTime.LocalNow;
 			DataTable list = new SystemInfoBN(this.Page).GetList();
 			if (list.Rows.Count > 0)
@@ -671,27 +353,23 @@
 				num = Convert.ToSingle(list.Rows[0]["poundage"].ToString());
 			}
 			dt.Frequency = Convert.ToInt32(this.Session["frequency"]);
-			if (this.DropDownList1.SelectedValue.Equals("4"))
-			{
-				dt.XDay = Convert.ToInt32(this.Session["XFirst2"]);
-			}
-			else
-			{
+			
 				dt.XDay = Convert.ToInt32(this.Session["XFirst"]);
-			}
+			
 			dt.huiSid = Convert.ToInt32(this.Hidden3.Value);
-			if (this.Session["Repaydue1"] != null)
-			{
-				dt.Param1 = Convert.ToSingle(this.Session["Repaydue1"]);
-			}
-			if ((this.Session["Repaydue1"] != null) && (this.Session["Repaydue2"] != null))
-			{
-				dt.Param1 = Convert.ToSingle(this.Session["Repaydue1"]) + Convert.ToSingle(this.Session["Repaydue2"]);
-			}
-			if (((this.Session["Repaydue1"] != null) && (this.Session["Repaydue2"] != null)) && (this.Session["Repaydue3"] != null))
-			{
-				dt.Param1 = (Convert.ToSingle(this.Session["Repaydue1"]) + Convert.ToSingle(this.Session["Repaydue2"])) + Convert.ToSingle(this.Session["Repaydue3"]);
-			}
+//			if (this.Session["Repaydue1"] != null)
+//			{
+//				dt.Param1 = Convert.ToSingle(this.Session["Repaydue1"]);
+//			}
+//			if ((this.Session["Repaydue1"] != null) && (this.Session["Repaydue2"] != null))
+//			{
+//				dt.Param1 = Convert.ToSingle(this.Session["Repaydue1"]) + Convert.ToSingle(this.Session["Repaydue2"]);
+//			}
+//			if (((this.Session["Repaydue1"] != null) && (this.Session["Repaydue2"] != null)) && (this.Session["Repaydue3"] != null))
+//			{
+//				dt.Param1 = (Convert.ToSingle(this.Session["Repaydue1"]) + Convert.ToSingle(this.Session["Repaydue2"])) + Convert.ToSingle(this.Session["Repaydue3"]);
+//			}
+			dt.Param1 = dt.NInstallment * Convert.ToDouble(this.Session["payAmountPerTime4Schedule"]);
 			dt.Param2 = num * dt.NInstallment;
 			dt.Param3 = count + 1;
 			//---------------------------------------------------------------------------
@@ -728,97 +406,117 @@
 		{
 			ScheduleBN ebn = new ScheduleBN(this.Page);
 			ScheduleDT dt = null;
-			switch (Convert.ToInt32(this.DropDownList1.SelectedValue))
+
+			double PayAmountPerTime= Convert.ToDouble(this.Session["payAmountPerTime4Schedule"]);
+			DateTime[] payDates= (DateTime[])this.Session["payDates4Schedule"];
+
+
+			int numInstallmentCount= Convert.ToInt32(this.Session["numInstallmentCount4Schedule"]);
+			for(int i=0;i<numInstallmentCount;i++)
 			{
-				case 1:
-					dt = new ScheduleDT();
-					dt.Datedue = Convert.ToDateTime(this.Session["Datedue1"]);
-					dt.Repaydue = Convert.ToSingle(this.Session["Repaydue1"]);
-					dt.huiSid = Convert.ToInt32(this.Hidden3.Value);
-					dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
-					dt.Param1 = this.Hidden1.Value;
-					dt.Param2 = "0";
-					dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]);
-					dt.RepayTime = Convert.ToDateTime("2000-1-1");
-					dt.OperateTime = Convert.ToDateTime("2000-1-1");
-					ebn.Add(dt);
-					break;
-
-				case 2:
-					dt = new ScheduleDT();
-					dt.Datedue = Convert.ToDateTime(this.Session["Datedue1"]);
-					dt.Repaydue = Convert.ToSingle(this.Session["Repaydue1"]);
-					dt.huiSid = Convert.ToInt32(this.Hidden3.Value);
-					dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
-					dt.Param1 = this.Hidden1.Value;
-					dt.Param2 = "0";
-					dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]);
-					dt.RepayTime = Convert.ToDateTime("2000-1-1");
-					dt.OperateTime = Convert.ToDateTime("2000-1-1");
-					ebn.Add(dt);
-					dt = new ScheduleDT();
-					dt.Datedue = Convert.ToDateTime(this.Session["Datedue2"]);
-					dt.Repaydue = Convert.ToSingle(this.Session["Repaydue2"]);
-					dt.huiSid = Convert.ToInt32(this.Hidden3.Value);
-					dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
-					dt.Param1 = this.Hidden1.Value;
-					dt.Param2 = "0";
-					dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]) + Convert.ToSingle(this.Session["Repaydue2"]);
-					dt.RepayTime = Convert.ToDateTime("2000-1-1");
-					dt.OperateTime = Convert.ToDateTime("2000-1-1");
-					ebn.Add(dt);
-					break;
-
-				case 3:
-					dt = new ScheduleDT();
-					dt.Datedue = Convert.ToDateTime(this.Session["Datedue1"]);
-					dt.Repaydue = Convert.ToSingle(this.Session["Repaydue1"]);
-					dt.huiSid = Convert.ToInt32(this.Hidden3.Value);
-					dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
-					dt.Param1 = this.Hidden1.Value;
-					dt.Param2 = "0";
-					dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]);
-					dt.RepayTime = Convert.ToDateTime("2000-1-1");
-					dt.OperateTime = Convert.ToDateTime("2000-1-1");
-					ebn.Add(dt);
-					dt = new ScheduleDT();
-					dt.Datedue = Convert.ToDateTime(this.Session["Datedue2"]);
-					dt.Repaydue = Convert.ToSingle(this.Session["Repaydue2"]);
-					dt.huiSid = Convert.ToInt32(this.Hidden3.Value);
-					dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
-					dt.Param1 = this.Hidden1.Value;
-					dt.Param2 = "0";
-					dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]) + Convert.ToSingle(this.Session["Repaydue2"]);
-					dt.RepayTime = Convert.ToDateTime("2000-1-1");
-					dt.OperateTime = Convert.ToDateTime("2000-1-1");
-					ebn.Add(dt);
-					dt = new ScheduleDT();
-					dt.Datedue = Convert.ToDateTime(this.Session["Datedue3"]);
-					dt.Repaydue = Convert.ToSingle(this.Session["Repaydue3"]);
-					dt.huiSid = Convert.ToInt32(this.Hidden3.Value);
-					dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
-					dt.Param1 = this.Hidden1.Value;
-					dt.Param2 = "0";
-					dt.Balance = (Convert.ToSingle(this.Session["Repaydue1"]) + Convert.ToSingle(this.Session["Repaydue2"])) + Convert.ToSingle(this.Session["Repaydue3"]);
-					dt.RepayTime = Convert.ToDateTime("2000-1-1");
-					dt.OperateTime = Convert.ToDateTime("2000-1-1");
-					ebn.Add(dt);
-					break;
-
-				case 4:
-					dt = new ScheduleDT();
-					dt.Datedue = Convert.ToDateTime(this.Session["Datedue4"]);
-					dt.Repaydue = Convert.ToSingle(this.Session["Repaydue4"]);
-					dt.huiSid = Convert.ToInt32(this.HuiSid);
-					dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
-					dt.Param1 = this.Hidden1.Value;
-					dt.Param2 = "0";
-					dt.Balance = Convert.ToSingle(this.Session["Repaydue4"]);
-					dt.RepayTime = Convert.ToDateTime("2000-1-1");
-					dt.OperateTime = Convert.ToDateTime("2000-1-1");
-					ebn.Add(dt);
-					break;
+				dt = new ScheduleDT();
+				dt.Datedue = payDates[i];//Convert.ToDateTime(this.Session["Datedue1"]);
+				dt.Repaydue = PayAmountPerTime;
+				dt.huiSid = Convert.ToInt32(this.Session["huiSid"]);
+				dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
+				dt.Param1 = this.Hidden1.Value;
+				dt.Param2 = "0";
+				dt.Balance = PayAmountPerTime * (i+1);
+				dt.RepayTime = Convert.ToDateTime("2000-1-1");
+				dt.OperateTime = Convert.ToDateTime("2000-1-1");
+				ebn.Add(dt);
 			}
+//			switch (Convert.ToInt32(this.DropDownList1.SelectedValue))
+//			{
+//				case 1:
+//					dt = new ScheduleDT();
+//					dt.Datedue = Convert.ToDateTime(this.Session["Datedue1"]);
+//					dt.Repaydue = Convert.ToSingle(this.Session["Repaydue1"]);
+//					dt.huiSid = Convert.ToInt32(this.Hidden3.Value);
+//					dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
+//					dt.Param1 = this.Hidden1.Value;
+//					dt.Param2 = "0";
+//					dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]);
+//					dt.RepayTime = Convert.ToDateTime("2000-1-1");
+//					dt.OperateTime = Convert.ToDateTime("2000-1-1");
+//					ebn.Add(dt);
+//					break;
+//
+//				case 2:
+//					dt = new ScheduleDT();
+//					dt.Datedue = Convert.ToDateTime(this.Session["Datedue1"]);
+//					dt.Repaydue = Convert.ToSingle(this.Session["Repaydue1"]);
+//					dt.huiSid = Convert.ToInt32(this.Hidden3.Value);
+//					dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
+//					dt.Param1 = this.Hidden1.Value;
+//					dt.Param2 = "0";
+//					dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]);
+//					dt.RepayTime = Convert.ToDateTime("2000-1-1");
+//					dt.OperateTime = Convert.ToDateTime("2000-1-1");
+//					ebn.Add(dt);
+//					dt = new ScheduleDT();
+//					dt.Datedue = Convert.ToDateTime(this.Session["Datedue2"]);
+//					dt.Repaydue = Convert.ToSingle(this.Session["Repaydue2"]);
+//					dt.huiSid = Convert.ToInt32(this.Hidden3.Value);
+//					dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
+//					dt.Param1 = this.Hidden1.Value;
+//					dt.Param2 = "0";
+//					dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]) + Convert.ToSingle(this.Session["Repaydue2"]);
+//					dt.RepayTime = Convert.ToDateTime("2000-1-1");
+//					dt.OperateTime = Convert.ToDateTime("2000-1-1");
+//					ebn.Add(dt);
+//					break;
+//
+//				case 3:
+//					dt = new ScheduleDT();
+//					dt.Datedue = Convert.ToDateTime(this.Session["Datedue1"]);
+//					dt.Repaydue = Convert.ToSingle(this.Session["Repaydue1"]);
+//					dt.huiSid = Convert.ToInt32(this.Hidden3.Value);
+//					dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
+//					dt.Param1 = this.Hidden1.Value;
+//					dt.Param2 = "0";
+//					dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]);
+//					dt.RepayTime = Convert.ToDateTime("2000-1-1");
+//					dt.OperateTime = Convert.ToDateTime("2000-1-1");
+//					ebn.Add(dt);
+//					dt = new ScheduleDT();
+//					dt.Datedue = Convert.ToDateTime(this.Session["Datedue2"]);
+//					dt.Repaydue = Convert.ToSingle(this.Session["Repaydue2"]);
+//					dt.huiSid = Convert.ToInt32(this.Hidden3.Value);
+//					dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
+//					dt.Param1 = this.Hidden1.Value;
+//					dt.Param2 = "0";
+//					dt.Balance = Convert.ToSingle(this.Session["Repaydue1"]) + Convert.ToSingle(this.Session["Repaydue2"]);
+//					dt.RepayTime = Convert.ToDateTime("2000-1-1");
+//					dt.OperateTime = Convert.ToDateTime("2000-1-1");
+//					ebn.Add(dt);
+//					dt = new ScheduleDT();
+//					dt.Datedue = Convert.ToDateTime(this.Session["Datedue3"]);
+//					dt.Repaydue = Convert.ToSingle(this.Session["Repaydue3"]);
+//					dt.huiSid = Convert.ToInt32(this.Hidden3.Value);
+//					dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
+//					dt.Param1 = this.Hidden1.Value;
+//					dt.Param2 = "0";
+//					dt.Balance = (Convert.ToSingle(this.Session["Repaydue1"]) + Convert.ToSingle(this.Session["Repaydue2"])) + Convert.ToSingle(this.Session["Repaydue3"]);
+//					dt.RepayTime = Convert.ToDateTime("2000-1-1");
+//					dt.OperateTime = Convert.ToDateTime("2000-1-1");
+//					ebn.Add(dt);
+//					break;
+//
+//				case 4:
+//					dt = new ScheduleDT();
+//					dt.Datedue = Convert.ToDateTime(this.Session["Datedue4"]);
+//					dt.Repaydue = Convert.ToSingle(this.Session["Repaydue4"]);
+//					dt.huiSid = Convert.ToInt32(this.HuiSid);
+//					dt.Numberment = Convert.ToInt32(this.Hidden2.Value);
+//					dt.Param1 = this.Hidden1.Value;
+//					dt.Param2 = "0";
+//					dt.Balance = Convert.ToSingle(this.Session["Repaydue4"]);
+//					dt.RepayTime = Convert.ToDateTime("2000-1-1");
+//					dt.OperateTime = Convert.ToDateTime("2000-1-1");
+//					ebn.Add(dt);
+//					break;
+//			}
 		}
 
 		public void SetTip()

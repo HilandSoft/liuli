@@ -184,11 +184,11 @@ namespace YingNet.WeiXing.WebApp
 
         public void CalDateDue()
         {
-            TimeSpan span3;
-            DateTime timeFirstPay = new DateTime();
-            DateTime timeSecondPay = new DateTime();
-            DateTime timeThirdPay = new DateTime();
-            DateTime timeAtOncePay = new DateTime();
+//            TimeSpan span3;
+//            DateTime timeFirstPay = new DateTime();
+//            DateTime timeSecondPay = new DateTime();
+//            DateTime timeThirdPay = new DateTime();
+//            DateTime timeAtOncePay = new DateTime();
             DateTime timeRecentlySalaryDate = this.getSalaryDate();
             
         	
@@ -391,18 +391,6 @@ namespace YingNet.WeiXing.WebApp
                 dt.XDay = Convert.ToInt32(this.Session["XFirst"]);
             }
             dt.huiSid = Convert.ToInt32(this.Session["huiSid"]);
-//            if (this.s1.Text != "")
-//            {
-//                dt.Param1 = Convert.ToSingle(this.s1.Text);
-//            }
-//            if ((this.s1.Text != "") && (this.s2.Text != ""))
-//            {
-//                dt.Param1 = Convert.ToSingle(this.s1.Text) + Convert.ToSingle(this.s2.Text);
-//            }
-//            if (((this.s1.Text != "") && (this.s2.Text != "")) && (this.s3.Text != ""))
-//            {
-//                dt.Param1 = (Convert.ToSingle(this.s1.Text) + Convert.ToSingle(this.s2.Text)) + Convert.ToSingle(this.s3.Text);
-//            }
 			dt.Param1= dt.NInstallment * Convert.ToDouble(this.Session["payAmountPerTime4Schedule"]);
 
             dt.Param2 = num * dt.NInstallment;

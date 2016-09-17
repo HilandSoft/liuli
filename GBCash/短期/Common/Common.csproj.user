@@ -1,7 +1,7 @@
 <VisualStudioProject>
     <CSHARP LastOpenVersion = "7.10.3077" >
         <Build>
-            <Settings ReferencePath = "C:\MyProjects\CashSolutions\2.1\代码\Lib\;C:\MyWorkSpace\MyProjects\GBCash\短期\Lib\;E:\MyWorkSpace\MyProjectsXP\GBCash\短期\Lib\" >
+            <Settings ReferencePath = "C:\MyProjects\CashSolutions\2.1\代码\Lib\;C:\MyWorkSpace\MyProjects\GBCash\短期\Lib\;E:\MyWorkSpace\MyProjectsXP\GBCash\短期\Lib\;C:\projects\liuli\GBCash\短期\Lib\" >
                 <Config
                     Name = "Debug"
                     EnableASPDebugging = "false"

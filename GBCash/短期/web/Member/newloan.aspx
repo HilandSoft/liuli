@@ -1,7 +1,7 @@
-<%@ Register TagPrefix="uc1" TagName="CircleDropDownList" Src="../Include/CircleDropDownList.ascx" %>
-<%@ Page language="c#" Codebehind="newloan.aspx.cs" AutoEventWireup="false" Inherits="YingNet.WeiXing.WebApp.Member.newloan" %>
-<%@ Register TagPrefix="uc1" TagName="MemberTop" Src="MemberTop.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="MemberLeft" Src="MemberLeft.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="MemberTop" Src="MemberTop.ascx" %>
+<%@ Page language="c#" Codebehind="newloan.aspx.cs" AutoEventWireup="false" Inherits="YingNet.WeiXing.WebApp.Member.newloan" %>
+<%@ Register TagPrefix="uc1" TagName="CircleDropDownList" Src="../Include/CircleDropDownList.ascx" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <HTML>
 	<HEAD>
@@ -86,7 +86,7 @@
 		}
 		</script>
 		<LINK rel="stylesheet" type="text/css" href="../CSSN/final.css">
-			<style type="text/css">.style2 { FONT-FAMILY: Verdana; FONT-SIZE: small }
+			<style type="text/css">.style2 { FONT-SIZE: small; FONT-FAMILY: Verdana }
 	</style>
 	</HEAD>
 	<body>
@@ -102,12 +102,12 @@
 		<div id="main">
 			<!--start process--><uc1:memberleft id="MemberLeft1" runat="server"></uc1:memberleft>
 			<!--end process-->
-			<div style="HEIGHT: 1024px; MARGIN-LEFT: 0px" id="content">
+			<div style="MARGIN-LEFT: 0px; HEIGHT: 1024px" id="content">
 				<form id="Form2" method="post" runat="server">
 					<table border="0" cellSpacing="1" cellPadding="1" width="510">
 						<tr>
 							<td vAlign="top"><asp:panel id="Panel2" runat="server" Visible="False" Width="472px" Height="120px">
-									<TABLE border="0" cellSpacing="1" cellPadding="1" width="510">
+									<TABLE cellSpacing="1" cellPadding="1" width="510" border="0">
 										<TR>
 											<TD><FONT face="宋体"></FONT><FONT face="宋体"></FONT><BR>
 												<BR>
@@ -126,7 +126,7 @@
 										</TR>
 										<TR>
 											<TD>
-												<asp:CheckBox id="CheckBox1" runat="server" Width="192px" Text="My details are up to date"></asp:CheckBox><INPUT style="WIDTH: 40px; HEIGHT: 21px" id="Hidden3" size="1" type="hidden" name="Hidden1"
+												<asp:CheckBox id="CheckBox1" runat="server" Width="192px" Text="My details are up to date"></asp:CheckBox><INPUT id="Hidden3" style="WIDTH: 40px; HEIGHT: 21px" type="hidden" size="1" name="Hidden1"
 													runat="server"></TD>
 										</TR>
 										<TR>
@@ -137,7 +137,7 @@
 								</asp:panel></td>
 						</tr>
 						<tr>
-							<td><asp:panel id="PanelWarning" runat="server" Visible="True" Width="472px" Height="120px"><IFRAME height="400" border="0" src="../Warning.htm" frameBorder="no" width="100%"></IFRAME>
+							<td><asp:panel id="PanelWarning" runat="server" Visible="True" Width="472px" Height="120px"><IFRAME border="0" src="../Warning.htm" frameBorder="no" width="100%" height="400"></IFRAME>
 									<DIV align="center">
 										<asp:LinkButton id="Linkbutton4" runat="server">Next</asp:LinkButton></DIV>
 								</asp:panel></td>
@@ -158,7 +158,7 @@
 						</tr>
 						<tr>
 							<td><asp:panel id="Panel1" runat="server" Visible="False" Width="500px">
-									<TABLE border="0" cellSpacing="0" cellPadding="0" width="500">
+									<TABLE cellSpacing="0" cellPadding="0" width="500" border="0">
 										<TR>
 											<TD><FONT face="宋体"></FONT><BR>
 												Review your information listed below; click the <STRONG>Edit </STRONG>button 
@@ -168,7 +168,7 @@
 										</TR>
 										<TR>
 											<TD>
-												<TABLE id="Table1" border="0" cellSpacing="0" cellPadding="0" width="504">
+												<TABLE id="Table1" cellSpacing="0" cellPadding="0" width="504" border="0">
 													<TR>
 														<TD height="39"><FONT face="宋体"></FONT><FONT face="宋体"></FONT><FONT face="宋体"></FONT><BR>
 															<STRONG>Member 
@@ -178,8 +178,8 @@
 													</TR>
 													<TR>
 														<TD>
-															<TABLE style="WIDTH: 496px; HEIGHT: 100px" id="Table2" border="0" cellSpacing="0" cellPadding="0"
-																width="496">
+															<TABLE id="Table2" style="WIDTH: 496px; HEIGHT: 100px" cellSpacing="0" cellPadding="0"
+																width="496" border="0">
 																<TR>
 																	<TD width="133">First Name:</TD>
 																	<TD width="118"><%=txFname%></TD>
@@ -210,7 +210,7 @@
 													</TR>
 													<TR>
 														<TD>
-															<TABLE id="Table3" border="0" cellSpacing="0" cellPadding="0" width="397">
+															<TABLE id="Table3" cellSpacing="0" cellPadding="0" width="397" border="0">
 																<TR>
 																	<TD width="116">Home&nbsp;Address:</TD>
 																	<TD colSpan="3"><%=txResident%></TD>
@@ -264,7 +264,7 @@
 										</TR>
 										<TR>
 											<TD>
-												<TABLE id="TableEmp" border="0" cellSpacing="0" cellPadding="0" width="397">
+												<TABLE id="TableEmp" cellSpacing="0" cellPadding="0" width="397" border="0">
 													<TR>
 														<TD colSpan="4"><STRONG>Employment 
 																Information&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A href="employmentedit.aspx?Type=1">Edit</A></STRONG></TD>
@@ -313,7 +313,7 @@
 										</TR>
 										<TR>
 											<TD>
-												<TABLE id="Table11" border="0" cellSpacing="0" cellPadding="0" width="397">
+												<TABLE id="Table11" cellSpacing="0" cellPadding="0" width="397" border="0">
 													<TR>
 														<TD colSpan="2"><STRONG>Bank details</STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 														</TD>
@@ -344,7 +344,7 @@
 													</TR>
 													<TR>
 														<TD colSpan="2">
-															<TABLE border="0" cellSpacing="0" cellPadding="0" width="100%">
+															<TABLE cellSpacing="0" cellPadding="0" width="100%" border="0">
 																<TR>
 																	<TD width="132"><STRONG>Referees</STRONG></TD>
 																	<TD width="132">&nbsp;</TD>
@@ -374,7 +374,7 @@
 														</TD>
 													</TR>
 													<TR>
-														<TD colSpan="2" align="center">
+														<TD align="center" colSpan="2">
 															<asp:LinkButton id="LinkButton2" runat="server">Save</asp:LinkButton></TD>
 													</TR>
 												</TABLE>
@@ -385,17 +385,20 @@
 						</tr>
 						<tr>
 							<td><asp:panel id="Panel3" runat="server" Visible="False" Width="472px" Height="620px">
-									<TABLE border="0" cellSpacing="0" cellPadding="0" width="500">
+									<TABLE cellSpacing="0" cellPadding="0" width="500" border="0">
 										<TR>
-											<TD width="137">Name:											</TD>
+											<TD width="137">Name:
+											</TD>
 											<TD width="363"><%=huiName%><FONT face="宋体"></FONT></TD>
 										</TR>
 										<TR>
-											<TD>Customer Number:											</TD>
+											<TD>Customer Number:
+											</TD>
 											<TD><%=CustomerNum%><FONT face="宋体"></FONT></TD>
 										</TR>
 										<TR>
-											<TD>When are you paid:											</TD>
+											<TD>When are you paid:
+											</TD>
 											<TD>
 												<asp:radiobuttonlist id="RadioButtonList1" runat="server" Width="224px" RepeatDirection="Horizontal">
 													<asp:ListItem Value="Weekly" Selected="True">Weekly</asp:ListItem>
@@ -406,129 +409,138 @@
 										<TR>
 											<TD>Next Payday:</TD>
 											<TD><FONT face="宋体">DD <INPUT id="nPayDd" size="4" name="textfield292436" runat="server">
-													MM <INPUT id="nPayMm" size="4" name="textfield2924324" runat="server"> YYYY <INPUT id="nPayYy" size="4" name="textfield2924334" runat="server"><FONT color="#990000" face="宋体">*</FONT></FONT></TD>
+													MM <INPUT id="nPayMm" size="4" name="textfield2924324" runat="server"> YYYY <INPUT id="nPayYy" size="4" name="textfield2924334" runat="server"><FONT face="宋体" color="#990000">*</FONT></FONT></TD>
 										</TR>
 										<TR>
-										  <TD colSpan="2">&nbsp;</TD>
-									  </TR>
+											<TD colSpan="2">&nbsp;</TD>
+										</TR>
 										<TR>
-											<TD colSpan="2"><STRONG>Loan Information </STRONG>											</TD>
+											<TD colSpan="2"><STRONG>Loan Information </STRONG>
+											</TD>
 										</TR>
 										<TR>
 											<TD>Purpose of the loan:</TD>
 											<TD>
-												<asp:TextBox id="txtLoanPurpose" runat="server" Height="22px" Width="268px"></asp:TextBox><FONT color="#990000" face="ËÎÌå">*</FONT></TD>
+												<asp:TextBox id="txtLoanPurpose" runat="server" Height="22px" Width="268px"></asp:TextBox><FONT face="ËÎÌå" color="#990000">*</FONT></TD>
 										</TR>
 										<TR>
 											<TD>Loan Requested:</TD>
-											<TD><FONT color="#990000" face="宋体">$</FONT><INPUT style="WIDTH: 166px; HEIGHT: 22px" id="txLoan" size="11" name="Text1" runat="server"><FONT color="#990000" face="宋体">*<INPUT style="WIDTH: 11px; HEIGHT: 22px" id="Hidden1" size="1" type="hidden" name="Hidden1"
-														runat="server"><INPUT style="WIDTH: 11px; HEIGHT: 22px" id="Hidden2" size="1" type="hidden" name="Hidden1"
+											<TD><FONT face="宋体" color="#990000">$</FONT><INPUT id="txLoan" style="WIDTH: 166px; HEIGHT: 22px" size="11" name="Text1" runat="server"><FONT face="宋体" color="#990000">*<INPUT id="Hidden1" style="WIDTH: 11px; HEIGHT: 22px" type="hidden" size="1" name="Hidden1"
+														runat="server"><INPUT id="Hidden2" style="WIDTH: 11px; HEIGHT: 22px" type="hidden" size="1" name="Hidden1"
 														runat="server"></FONT></TD>
 										</TR>
-										<TR>
-											<TD>Loan Repayment:</TD>
-											<TD>
-												<asp:DropDownList id="DropDownList1" runat="server">
-													<asp:ListItem Value="1">1 installment</asp:ListItem>
-													<asp:ListItem Value="2">2 installments</asp:ListItem>
-													<asp:ListItem Value="3">3 installments</asp:ListItem>
-													<asp:ListItem Value="4">Repay on next payday</asp:ListItem>
-												</asp:DropDownList><FONT color="#990000" face="ËÎÌå">* </FONT>											</TD>
-										</TR>
-										<TR>
-										  <TD colSpan="3">&nbsp;</TD>
-									  </TR>
-										<TR>
-											<TD colSpan="3"><STRONG>Financial Obligations</STRONG></TD>
-										</TR>
-										<TR>
-											<TD colSpan="3"><ul>
-											  <li>Are you in default in payment under other <A class="title" title="small amount credit contract: a credit contract is a small amount&#13;&#10;credit contract if:|(a) the contract is not a continuing credit contract; and |(b) the credit provider under the contract is not an ADI; and |(c) the credit limit of the contract is $2,000 (or such other&#13;&#10;amount as is prescribed by the regulations) or less; and |(d) the term of the contract is at least 16 days but not longer than&#13;&#10;1 year (or such other number of years as is prescribed by the regulations); and |(e) the debtor’s obligations under the contract are not, and will&#13;&#10;not be, secured; and |(f) the contract meets any other requirements prescribed by the regulations."
-													href="#">Small Amount Credit Contract </A>?										      </li>
-											  </ul>											  <asp:RadioButtonList style="Z-INDEX: 0" id="rblHasOtherSamllCredit" runat="server" RepeatDirection="Horizontal">
-												  <asp:ListItem Value="1">Yes</asp:ListItem>
-												  <asp:ListItem Value="0">No</asp:ListItem>
-												</asp:RadioButtonList></TD>
-									  </TR>
-										<TR>
-										  <TD colSpan="4">&nbsp;</TD>
-									  </TR>
-										<TR>
-											<TD colSpan="4"><ul>
-											  <li>How many other small amount credit contracts have you had in the 
-											    last 90 days?										      </li>
-											  </ul>											  <asp:DropDownList style="Z-INDEX: 0" id="ddlSmalCreditCount" runat="server">
-												  <asp:ListItem Value="0">nil</asp:ListItem>
-												  <asp:ListItem Value="1">1</asp:ListItem>
-												  <asp:ListItem Value="2">2</asp:ListItem>
-												  <asp:ListItem Value="3">3</asp:ListItem>
-												  <asp:ListItem Value="99">More than 3</asp:ListItem>
-												</asp:DropDownList></TD>
-									  </TR>
 										<TR>
 											<TD colSpan="3">&nbsp;</TD>
 										</TR>
 										<TR>
-											<TD colSpan="3"><ul>
-											  <li>Are you expecting any changes of your gross income in your next 
-											    three pay cycles?										      </li>
-											  </ul>											  <asp:RadioButtonList style="Z-INDEX: 0" id="rblIsGrossIncomeChange" runat="server" RepeatDirection="Horizontal">
-												  <asp:ListItem Value="1">Yes</asp:ListItem>
-												  <asp:ListItem Value="0">No</asp:ListItem>
+											<TD colSpan="3"><STRONG>Financial Obligations</STRONG></TD>
+										</TR>
+										<TR>
+											<TD colSpan="3">
+												<UL>
+													<LI>
+														Are you in default in payment under other <A class="title" title="small amount credit contract: a credit contract is a small amount&#13;&#10;credit contract if:|(a) the contract is not a continuing credit contract; and |(b) the credit provider under the contract is not an ADI; and |(c) the credit limit of the contract is $2,000 (or such other&#13;&#10;amount as is prescribed by the regulations) or less; and |(d) the term of the contract is at least 16 days but not longer than&#13;&#10;1 year (or such other number of years as is prescribed by the regulations); and |(e) the debtor’s obligations under the contract are not, and will&#13;&#10;not be, secured; and |(f) the contract meets any other requirements prescribed by the regulations."
+															href="#">Small Amount Credit Contract </A>?
+													</LI>
+												</UL>
+												<asp:RadioButtonList id="rblHasOtherSamllCredit" runat="server" RepeatDirection="Horizontal">
+													<asp:ListItem Value="1">Yes</asp:ListItem>
+													<asp:ListItem Value="0">No</asp:ListItem>
 												</asp:RadioButtonList></TD>
-									  </TR>
+										</TR>
+										<TR>
+											<TD colSpan="4">&nbsp;</TD>
+										</TR>
+										<TR>
+											<TD colSpan="4">
+												<UL>
+													<LI>
+														How many other small amount credit contracts have you had in the last 90 days?
+													</LI>
+												</UL>
+												<asp:DropDownList id="ddlSmalCreditCount" runat="server">
+													<asp:ListItem Value="0">nil</asp:ListItem>
+													<asp:ListItem Value="1">1</asp:ListItem>
+													<asp:ListItem Value="2">2</asp:ListItem>
+													<asp:ListItem Value="3">3</asp:ListItem>
+													<asp:ListItem Value="99">More than 3</asp:ListItem>
+												</asp:DropDownList></TD>
+										</TR>
+										<TR>
+											<TD colSpan="3">&nbsp;</TD>
+										</TR>
+										<TR>
+											<TD colSpan="3">
+												<UL>
+													<LI>
+														Are you expecting any changes of your gross income in your next three pay 
+														cycles?
+													</LI>
+												</UL>
+												<asp:RadioButtonList id="rblIsGrossIncomeChange" runat="server" RepeatDirection="Horizontal">
+													<asp:ListItem Value="1">Yes</asp:ListItem>
+													<asp:ListItem Value="0">No</asp:ListItem>
+												</asp:RadioButtonList></TD>
+										</TR>
 										<TR>
 											<TD colSpan="2">If the answer is “yes”, how much are you expecting to get paid in 
 												each pay cycle?</TD>
 											<TD>
-												<asp:TextBox style="Z-INDEX: 0" id="tbxGrossIncomeChangeValue" runat="server"></asp:TextBox></TD>
+												<asp:TextBox id="tbxGrossIncomeChangeValue" runat="server"></asp:TextBox></TD>
 										</TR>
 										<TR>
-										  <TD colSpan="3">&nbsp;</TD>
-									  </TR>
+											<TD colSpan="3">&nbsp;</TD>
+										</TR>
 										<TR>
-											<TD colSpan="3"><ul>
-											  <li>Are you expecting to pay any other credit providers other thanbanks in your next three pay cycle?										      </li>
-											  </ul>											  <asp:RadioButtonList style="Z-INDEX: 0" id="rblIsPayOtherCredit" runat="server" RepeatDirection="Horizontal">
-												  <asp:ListItem Value="1">Yes</asp:ListItem>
-												  <asp:ListItem Value="0">No</asp:ListItem>
+											<TD colSpan="3">
+												<UL>
+													<LI>
+														Are you expecting to pay any other credit providers other thanbanks in your 
+														next three pay cycle?
+													</LI>
+												</UL>
+												<asp:RadioButtonList id="rblIsPayOtherCredit" runat="server" RepeatDirection="Horizontal">
+													<asp:ListItem Value="1">Yes</asp:ListItem>
+													<asp:ListItem Value="0">No</asp:ListItem>
 												</asp:RadioButtonList></TD>
-									  </TR>
-										<TR>
-											<TD colSpan="2">If the answer is “yes”,how much are you expecting to pay in each pay cycle?</TD>
-											<TD>
-												<asp:TextBox style="Z-INDEX: 0" id="tbxPayOtherCreditValue" runat="server"></asp:TextBox></TD>
 										</TR>
 										<TR>
-										  <TD colSpan="3">&nbsp;</TD>
-									  </TR>
+											<TD colSpan="2">If the answer is “yes”,how much are you expecting to pay in each 
+												pay cycle?</TD>
+											<TD>
+												<asp:TextBox id="tbxPayOtherCreditValue" runat="server"></asp:TextBox></TD>
+										</TR>
 										<TR>
-											<TD colSpan="3"><STRONG>Expenses Information </STRONG>											</TD>
+											<TD colSpan="3">&nbsp;</TD>
+										</TR>
+										<TR>
+											<TD colSpan="3"><STRONG>Expenses Information </STRONG>
+											</TD>
 										</TR>
 										<TR>
 											<TD>Your rent/mortgage payment:</TD>
 											<TD colSpan="3">$<INPUT id="txtHousePaymentValue" size="12" name="txtHousePaymentValue" runat="server">
-												<uc1:CircleDropDownList id="ddlHousePaymentCircle" runat="server"></uc1:CircleDropDownList><FONT color="#990000" face="ËÎÌå">*</FONT></TD>
+												<uc1:CircleDropDownList id="ddlHousePaymentCircle" runat="server"></uc1:CircleDropDownList><FONT face="ËÎÌå" color="#990000">*</FONT></TD>
 										</TR>
 										<TR>
 											<TD>Your regular repayment to other lenders:</TD>
 											<TD colSpan="3">$<INPUT id="txtOtherLenderValue" size="12" name="txtOtherLenderValue" runat="server">
-												<uc1:CircleDropDownList id="ddlOtherLenderCircle" runat="server"></uc1:CircleDropDownList><FONT color="#990000" face="ËÎÌå">*</FONT></TD>
+												<uc1:CircleDropDownList id="ddlOtherLenderCircle" runat="server"></uc1:CircleDropDownList><FONT face="ËÎÌå" color="#990000">*</FONT></TD>
 										</TR>
 										<TR>
 											<TD>
-												<asp:button id="Button1" runat="server" Text="Next"></asp:button><INPUT style="WIDTH: 16px; HEIGHT: 22px" id="txInstallment" size="1" name="Text2" runat="server"
+												<asp:button id="Button1" runat="server" Text="Next"></asp:button><INPUT id="txInstallment" style="WIDTH: 16px; HEIGHT: 22px" size="1" name="Text2" runat="server"
 													visible="false"></TD>
 										</TR>
 									</TABLE>
 								</asp:panel><asp:panel id="Panel4" runat="server" Visible="False" Width="472px" Height="620px">
 									<TABLE>
 										<TR height="5">
-											<TD colSpan="2"><STRONG style="Z-INDEX: 0">Financial Table :</STRONG></TD>
+											<TD colSpan="2"><STRONG>Financial Table :</STRONG></TD>
 										</TR>
 										<TR>
 											<TD colSpan="2">
-												<TABLE border="1" cellSpacing="0" borderColor="#d4d0c8" cellPadding="0" width="95%">
+												<TABLE borderColor="#d4d0c8" cellSpacing="0" cellPadding="0" width="95%" border="1">
 													<TR>
 														<TD width="35%">Amount of credit</TD>
 														<TD>$
@@ -550,13 +562,15 @@
 															<asp:Literal id="litRepaymentInDays" Text="day(s)" Runat="server"></asp:Literal></TD>
 													</TR>
 													<TR>
-													  <TD>Establishment fee </TD>
-													  <TD>20%</TD>
-												  </TR>
+														<TD>Establishment fee
+														</TD>
+														<TD>20%</TD>
+													</TR>
 													<TR>
-													  <TD>Monthly fee </TD>
-													  <TD>4%</TD>
-												  </TR>
+														<TD>Monthly fee
+														</TD>
+														<TD>4%</TD>
+													</TR>
 													<TR>
 														<TD>Annual Percentage Rate</TD>
 														<TD>
@@ -564,24 +578,37 @@
 													</TR>
 													<TR>
 														<TD>Repayment Schedule</TD>
-														<TD>Installment1:
-															<asp:TextBox id="txd1" runat="server" Width="72px" ReadOnly="True" BorderWidth="0px" BorderStyle="None"></asp:TextBox>&nbsp; 
-															&nbsp; $
-															<asp:TextBox id="txs1" runat="server" Width="72px" ReadOnly="True" BorderWidth="0px" BorderStyle="None"></asp:TextBox><BR>
-															Installment2:
-															<asp:TextBox id="txd2" runat="server" Width="72px" ReadOnly="True" BorderWidth="0px" BorderStyle="None"></asp:TextBox>&nbsp; 
-															&nbsp; $
-															<asp:TextBox id="txs2" runat="server" Width="72px" ReadOnly="True" BorderWidth="0px" BorderStyle="None"></asp:TextBox><BR>
-															Installment3:
-															<asp:TextBox id="txd3" runat="server" Width="72px" ReadOnly="True" BorderWidth="0px" BorderStyle="None"></asp:TextBox>&nbsp; 
-															&nbsp; $
-															<asp:TextBox id="txs3" runat="server" Width="72px" ReadOnly="True" BorderWidth="0px" BorderStyle="None"></asp:TextBox><BR>														</TD>
+														<TD>
+															<TABLE>
+																<TR>
+																	<TD width="120">&nbsp;</TD>
+																	<TD width="130">Date due
+																	</TD>
+																	<TD width="120">Repayment due</TD>
+																</TR>
+																<%
+									if(payDates4Schedule!=null)
+									for( int i=0;i<payDates4Schedule.Length;i++ ){
+									%>
+																<TR>
+																	<TD>Installment
+																		<%= i+1 %>
+																	</TD>
+																	<TD><FONT face="宋体"><%=payDates4Schedule[i].ToString("MM/dd/yyyy")%></FONT></TD>
+																	<TD><FONT face="宋体"><%=payAmountPerTime4Schedule.ToString("0.00")%></FONT></TD>
+																</TR>
+																<%}%>
+															</TABLE>
+														</TD>
 													</TR>
 													<TR>
 														<TD width="35%">Charges may become payable</TD>
-														<TD>Payment Dishonour Fee: $25 for each payment dishonoured. <br />
-Late Fee: $50 for any installment is not paid in full within 5                           days following its scheduled due date.<BR>
-													  Collection Fee: 50% of outstanding debt.<BR>														</TD>
+														<TD>Payment Dishonour Fee: $25 for each payment dishonoured.
+															<BR>
+															Late Fee: $50 for any installment is not paid in full within 5 days following 
+															its scheduled due date.<BR>
+															Collection Fee: 50% of outstanding debt.<BR>
+														</TD>
 													</TR>
 												</TABLE>
 											</TD>
@@ -591,18 +618,17 @@ Late Fee: $50 for any installment is not paid in full within 5                  
 										</TR>
 										<TR>
 											<TD colSpan="2">
-												<DIV style="Z-INDEX: 0; BORDER-BOTTOM: black 1px solid; BORDER-LEFT: black 1px solid; HEIGHT: 150px; OVERFLOW: auto; BORDER-TOP: black 1px solid; BORDER-RIGHT: black 1px solid"
-													id="divAgreement">&nbsp;&nbsp;By typing my name below, I am applying for a new 
-													online cash loan and certify that this information is true and correct under 
-													penalty of perjury. I authorize Golden Bridge Cash Solution to verify the 
-													information I have provided, and to be bound by the terms of the Master Loan 
-													Agreement that I signed with my initial loan application. I agree that the 
-													payment schedule set above is not in dispute and that I have full capacity to 
-													consent to the payment of such amount.
+												<DIV id="divAgreement" style="BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; OVERFLOW: auto; BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid; HEIGHT: 150px">&nbsp;&nbsp;By 
+													typing my name below, I am applying for a new online cash loan and certify that 
+													this information is true and correct under penalty of perjury. I authorize 
+													Golden Bridge Cash Solution to verify the information I have provided, and to 
+													be bound by the terms of the Master Loan Agreement that I signed with my 
+													initial loan application. I agree that the payment schedule set above is not in 
+													dispute and that I have full capacity to consent to the payment of such amount.
 													<BR>
 													&nbsp;&nbsp;In the event of default, I agree to pay all applicable penalties 
 													including a $25.00 Returned Item Fee, and if the balance is not paid within 5 
-													days following its scheduled Due Date, to pay an additional $50 Late Fee. 
+													days following its scheduled Due Date, to pay an additional $50 Late Fee.
 													<BR>
 													&nbsp;&nbsp;I understand that a Debt Collection Fee calculated to be 50% of the 
 													total amount owing will be added to my outstanding amount if my account is 
@@ -621,8 +647,8 @@ Late Fee: $50 for any installment is not paid in full within 5                  
 												<asp:TextBox id="txFullname" runat="server" Width="192px"></asp:TextBox></TD>
 										</TR>
 										<TR>
-											<TD colSpan="2" align="center"><INPUT id="Button2" value="I agree, Submit" type="button" name="Button2" runat="server"><FONT face="宋体">&nbsp;&nbsp; 
-													&nbsp; </FONT><INPUT value="Reset" type="reset"></TD>
+											<TD align="center" colSpan="2"><INPUT id="Button2" type="button" value="I agree, Submit" name="Button2" runat="server"><FONT face="宋体">&nbsp;&nbsp; 
+													&nbsp; </FONT><INPUT type="reset" value="Reset"></TD>
 										</TR>
 									</TABLE>
 								</asp:panel></td>
