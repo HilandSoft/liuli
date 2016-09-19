@@ -49,11 +49,6 @@
 									<INPUT style="WIDTH: 60px" id="txYy1" name="textfield292433" runat="server"></TD>
 							</TR>
 							<tr>
-								<td height="30">How long are you going to borrow?
-								</td>
-								<td><uc1:repaymentcounttypeselector id="RepaymentCountTypeSelector1" runat="server"></uc1:repaymentcounttypeselector></td>
-							</tr>
-							<tr>
 								<td height="30" colSpan="2">&nbsp;</td>
 							</tr>
 							<tr>

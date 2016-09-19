@@ -34,7 +34,6 @@ namespace YingNet.WeiXing.WebApp
 		protected System.Web.UI.HtmlControls.HtmlInputButton bnCal2;
 		protected RepaymentCycleTypeSelector RepaymentCycleTypeSelector1;
 		protected System.Web.UI.WebControls.Literal litSchedule;
-		protected RepaymentCountTypeSelector RepaymentCountTypeSelector1;
 
 		protected int CurrentYear= SafeDateTime.LocalNow.Year;
 	
@@ -95,78 +94,39 @@ namespace YingNet.WeiXing.WebApp
 			}
 			catch{}
 
-			string errorString = string.Empty;
-			int numInstallmentCount= this.RepaymentCountTypeSelector1.SelectedRepaymentCountType;
+			
+			
 			PaidPeriodTypes repaymentCycleType= this.RepaymentCycleTypeSelector1.SelectedRepaymentCycleType;
 			int userSalaryType=0;
 
-			bool isSuccessful= PayDaySchedule.CalculatePayDate(this.Page, numInstallmentCount, timeRecentlySalaryDate, userSalaryType,
-				repaymentCycleType,ref timeFirstPay,ref timeSecondPay,ref timeThirdPay,
-				ref timeAtOncePay, SafeDateTime.LocalNow, out errorString);
+			int numInstallmentCount= PayDaySchedule.CalculateInstallmentCount(repaymentCycleType,timeRecentlySalaryDate,SafeDateTime.LocalNow); 
+
+
+
+//			bool isSuccessful= PayDaySchedule.CalculatePayDate(this.Page, numInstallmentCount, timeRecentlySalaryDate, userSalaryType,
+//				repaymentCycleType,ref timeFirstPay,ref timeSecondPay,ref timeThirdPay,
+//				ref timeAtOncePay, SafeDateTime.LocalNow, out errorString);
+
+			string errorString = string.Empty;
+			DateTime[]  payDates= new DateTime[9];
+        	
+			bool isSuccessful= PayDaySchedule.CalculatePayDate(this.Page, timeRecentlySalaryDate,repaymentCycleType,SafeDateTime.LocalNow,ref payDates, out errorString);
+
 
 			if(isSuccessful == true)
 			{
 				float numIncomeOrBenefit= Convert.ToSingle(this.txIncome.Value);
 				float numLoanAmount= Convert.ToSingle(this.txLoan.Value);
-				isSuccessful = PayDaySchedule.CalculatePayLoan(this.Page, userSalaryType, numInstallmentCount, numIncomeOrBenefit,
-					numLoanAmount,out errorString);
+				
+				double PayAmountPerTime= 0;
+				isSuccessful = PayDaySchedule.CalculatePayLoan(this.Page,  numIncomeOrBenefit,numLoanAmount,numInstallmentCount, false,ref PayAmountPerTime, out errorString);
+
 				if(isSuccessful==true)
 				{
 					string repaymentSchedule= string.Empty;
-					string firstDate= string.Empty;
-					string firstDue= string.Empty;
 
-					string secondDate=string.Empty;
-					string secondDue=string.Empty;
-
-					string thirdDate=string.Empty;
-					string thirdDue= string.Empty;
-					
-					
-					switch(numInstallmentCount)
-					{
-						case 1:
-
-							firstDate= timeFirstPay.ToString(Config.DateDisplayFormat);
-							firstDue=  (Convert.ToSingle( this.Session["Repaydue1"])).ToString("0.00");
-							repaymentSchedule = string.Format("[installment1]. {0} {1}",firstDate,firstDue);
-							break;
-						case 2:
-
-							firstDate= timeFirstPay.ToString(Config.DateDisplayFormat);
-							firstDue=  (Convert.ToSingle( this.Session["Repaydue1"])).ToString("0.00");
-
-							secondDate= timeSecondPay.ToString(Config.DateDisplayFormat);
-							secondDue=  (Convert.ToSingle( this.Session["Repaydue2"])).ToString("0.00");
-
-							repaymentSchedule= string.Format("[installment1]. {0} {1}",firstDate,firstDue);
-							repaymentSchedule+= "<br/>"+string.Format("[installment2]. {0} {1}",secondDate,secondDue);
-							break;
-						case 3:
-
-							firstDate= timeFirstPay.ToString(Config.DateDisplayFormat);
-							firstDue=  (Convert.ToSingle( this.Session["Repaydue1"])).ToString("0.00");
-
-							secondDate= timeSecondPay.ToString(Config.DateDisplayFormat);
-							secondDue=  (Convert.ToSingle( this.Session["Repaydue2"])).ToString("0.00");
-
-							thirdDate= timeThirdPay.ToString(Config.DateDisplayFormat);
-							thirdDue=  (Convert.ToSingle( this.Session["Repaydue3"])).ToString("0.00");
-
-							repaymentSchedule= string.Format("[installment1]. {0} {1}",firstDate,firstDue);
-							repaymentSchedule+="<br/>"+ string.Format("[installment2]. {0} {1}",secondDate,secondDue);
-							repaymentSchedule+= "<br/>"+string.Format("[installment3]. {0} {1}",thirdDate,thirdDue);
-							break;
-						case 4:
-							
-							string atOnceDate= timeAtOncePay.ToString(Config.DateDisplayFormat);
-							string atOnceDue = string.Empty;
-							if (this.Session["XFirst2"] != null)
-							{
-								atOnceDue= Convert.ToString(this.Session["Repaydue4"]);
-							}
-							repaymentSchedule= string.Format("[installment1]. {0} {1}",atOnceDate,atOnceDue);
-							break;
+					for( int i=0;i<payDates.Length;i++ ){
+						repaymentSchedule+= string.Format("[installment{0}]/.{1}/ ${2}<br/>",i+1,payDates[i].ToString("dd/MM/yyyy"),PayAmountPerTime.ToString("0.00"));
 					}
 
 					this.litSchedule.Text= repaymentSchedule;
