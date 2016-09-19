@@ -319,12 +319,17 @@
 					lastPayDate= Convert.ToDateTime(this.Session["LastPayDate"]);
 				}
 
-				string annualPercentageRate= AnnualPercentageRate.GetAnnualPercentageRatePercent(lastPayDate);
+//				string annualPercentageRate= AnnualPercentageRate.GetAnnualPercentageRatePercent(lastPayDate);
+//				this.litAnnualPercentageRate.Text = annualPercentageRate;
+				
 				this.litAmountOfCredit.Text = numLoanAmount.ToString();
 				this.litChargeForCredit.Text =(totalPayable- numLoanAmount).ToString("0.00");
 				this.litTotalPayable.Text = totalPayable.ToString("0.00");
-				this.litRepaymentInDays.Text = (((TimeSpan)(lastPayDate - SafeDateTime.LocalNow)).Days + 1).ToString()+ " day(s)";
-				this.litAnnualPercentageRate.Text = annualPercentageRate;
+				
+				int repaymentInDaysNumber= ((TimeSpan)(lastPayDate - SafeDateTime.LocalNow)).Days + 1;
+				this.litRepaymentInDays.Text = repaymentInDaysNumber.ToString()+ " day(s)";
+
+				this.litAnnualPercentageRate.Text =  (28 / (double)repaymentInDaysNumber * 365 ).ToString("0.00") + "%";  //;annualPercentageRate;
 			}
 			else
 			{

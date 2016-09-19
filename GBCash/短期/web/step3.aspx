@@ -650,7 +650,7 @@ MARGINHEIGHT="0">
 									%>
               <TR>
                 <TD>Installment <%= i+1 %></TD>
-                <TD><FONT face=ËÎÌו><%=payDates4Schedule[i].ToString("MM/dd/yyyy")%></FONT></TD>
+                <TD><FONT face=ËÎÌו><%=payDates4Schedule[i].ToString("dd/MM/yyyy")%></FONT></TD>
                 <TD><FONT face=ËÎÌו><%=payAmountPerTime4Schedule.ToString("0.00")%></FONT></TD></TR><%}%></TABLE></TD></TR>
         <TR id=annualRateRow runat="server">
           <TD colSpan=3>
