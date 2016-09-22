@@ -529,9 +529,9 @@ MARGINHEIGHT="0">
         <TR>
           <TD>&nbsp;</TD></TR>
         <TR>
-          <TD colSpan=4><STRONG>Bank Information<BR>This must be the account 
+          <TD colSpan=4><STRONG>Bank Information</STRONG><BR>This must be the account 
             where your pay / benefit is paid into. <BR>This is the account we 
-            will credit to and deduct from</STRONG></TD></TR>
+            will credit to and deduct from</TD></TR>
         <TR>
           <TD width=85>Bank Name:</TD>
           <TD width=105><INPUT id=txBank size=10 name=textfield2102 
