@@ -7,6 +7,7 @@
 	<HEAD>
 		<title>Golden Bridge Cash Solution</title>
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+		<LINK href="../jslib/jquery-cluetip/jquery.cluetip.css" type=text/css rel=stylesheet >
 		<script type="text/javascript" src="../javascriptN/jquery-1.4.4.min.js"></script>
 		<script language="javascript" type="text/javascript" src="../jslib/commCheck.js"></script>
 		<script language="javascript" type="text/javascript" src="../jslib/jquery-cluetip/lib/jquery-1.7.1.min.js"></script>
