@@ -103,25 +103,30 @@
                     builder.Append("<tr><td colspan='2'>Payment Schedule:</td></tr>");
                     builder.Append("<tr><td colspan='2'><table width='100%' border='0' cellspacing='0' cellpadding='0'>");
                     builder.Append("<tr><td width='8%'></td><td width='9%'>Date due</td><td width='9%'>Repayment due</td><td width='6%'>Paid</td><td width='6%'>Penalty</td><td width='8%'>Balance</td><td width='8%'>RepayTime</td><td width='12%'>OperateTime</td><td width='4%'>Delete</td><td width='9%'>Full Name</td></tr>");
-                    for (int j = 0; j < num3; j++)
+                    
+					float balanceAdded= 0;
+					for (int j = 0; j < num3; j++)
                     {
                         builder.Append("<tr><td >Installment " + ((j + 1)).ToString()+ "<span style='display:none'>("+ listByTime.Rows[j]["id"].ToString() +")</span>" + "</td>");
 						//builder.Append("<tr><td width='10%'>Installment " + ((j + 1)).ToString() + "</td>");
                         DateTime time2 = Convert.ToDateTime(listByTime.Rows[j]["Datedue"]);
                         builder.Append("<td>" + (time2.Day.ToString() + "/" + time2.Month.ToString() + "/" + time2.Year.ToString()) + "</td>");
-                        builder.Append("<td>" + Convert.ToSingle(listByTime.Rows[j]["Repaydue"]).ToString("0.00") + "</td>");
+                        
+						float repayDue= Convert.ToSingle(listByTime.Rows[j]["Repaydue"]);
+						balanceAdded+= repayDue;
+						builder.Append("<td>" + repayDue.ToString("0.00") + "</td>");
                         builder.Append("<td>" + Convert.ToSingle(listByTime.Rows[j]["Paid"]).ToString("0.00") + "</td>");
                         builder.Append("<td>" + Convert.ToSingle(listByTime.Rows[j]["Penalty"]).ToString("0.00") + "</td>");
-                        builder.Append("<td>" + Convert.ToSingle(listByTime.Rows[j]["Balance"]).ToString("0.00") + "</td>");
+                        builder.Append("<td>" + balanceAdded.ToString("0.00") + "</td>");
                         string str6 = "";
                         string str7 = "";
-                        if (Convert.ToDateTime(listByTime.Rows[j]["RepayTime"]).ToShortDateString() != "1/1/2000")
+                        if (Convert.ToDateTime(listByTime.Rows[j]["RepayTime"])> new DateTime(2000,1,1))
                         {
                             DateTime time3 = Convert.ToDateTime(listByTime.Rows[j]["RepayTime"]);
                             str6 = time3.Day.ToString() + "/" + time3.Month.ToString() + "/" + time3.Year.ToString();
                         }
                         builder.Append("<td>" + str6 + "</td>");
-                        if (Convert.ToDateTime(listByTime.Rows[j]["OperateTime"]).ToShortDateString() != "1/1/2000")
+                        if (Convert.ToDateTime(listByTime.Rows[j]["OperateTime"])> new DateTime(2000,1,1))
                         {
                             DateTime time4 = Convert.ToDateTime(listByTime.Rows[j]["OperateTime"]);
                             str7 = time4.Day.ToString() + "/" + time4.Month.ToString() + "/" + time4.Year.ToString() + " " + time4.ToShortTimeString();

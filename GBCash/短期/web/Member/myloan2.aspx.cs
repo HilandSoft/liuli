@@ -48,8 +48,10 @@
             builder.Append("<tr><td>Loan Amount:</td><td>" + Convert.ToSingle(list.Rows[0]["Loan"]).ToString("0.00") + "</td></tr>");
 			//-----------------------------------------------------------
 			builder.AppendFormat("<tr><td>Loan Purpose:</td><td>{0}</td></tr>",list.Rows[0]["LoanPurpose"].ToString());
-			builder.AppendFormat("<tr><td>rent/mortgage payment:</td><td>{0} {1}</td></tr>",list.Rows[0]["HousePaymentValue"].ToString(),EnumsOP.GetHousePaymentCircleLiteral( list.Rows[0]["HousePaymentCircle"]));
-			builder.AppendFormat("<tr><td> other lenders:</td><td>{0} {1}</td></tr>",list.Rows[0]["OtherLenderValue"].ToString(),EnumsOP.GetOtherLenderCircleLiteral( list.Rows[0]["OtherLenderCircle"]));
+			float HousePaymentValue= Convert.ToSingle(list.Rows[0]["HousePaymentValue"]);
+			builder.AppendFormat("<tr><td>rent/mortgage payment:</td><td>{0} {1}</td></tr>",HousePaymentValue.ToString("0.00"),EnumsOP.GetHousePaymentCircleLiteral( list.Rows[0]["HousePaymentCircle"]));
+			float OtherLenderValue= Convert.ToSingle( list.Rows[0]["OtherLenderValue"]);
+			builder.AppendFormat("<tr><td> other lenders:</td><td>{0} {1}</td></tr>",OtherLenderValue.ToString("0.00"),EnumsOP.GetOtherLenderCircleLiteral( list.Rows[0]["OtherLenderCircle"]));
 			//-----------------------------------------------------------
 
 			string str3 = "";
@@ -90,25 +92,30 @@
             ebn.Filter = " IsValid!=3 ";
             DataTable listByTime = ebn.GetListByTime();
             int count = listByTime.Rows.Count;
-            for (int i = 0; i < count; i++)
+            
+			float balanceAdded= 0;
+			for (int i = 0; i < count; i++)
             {
                 builder.Append("<tr><td width='11%'>Installment " + ((i + 1)).ToString() + "</td>");
                 builder.Append("<td width=\"8%\">" + (Convert.ToDateTime(listByTime.Rows[i]["Datedue"]).Day.ToString() + "/" + Convert.ToDateTime(listByTime.Rows[i]["Datedue"]).Month.ToString() + "/" + Convert.ToDateTime(listByTime.Rows[i]["Datedue"]).Year.ToString()) + "</td>");
-                builder.Append("<td width=\"12%\">" + Convert.ToSingle(listByTime.Rows[i]["Repaydue"]).ToString("0.00") + "</td>");
+                
+				float repayDue= Convert.ToSingle(listByTime.Rows[i]["Repaydue"]);
+				balanceAdded+= repayDue;
+				builder.Append("<td width=\"12%\">" + repayDue.ToString("0.00") + "</td>");
                 builder.Append("<td width=\"10%\">" + Convert.ToSingle(listByTime.Rows[i]["Paid"]).ToString("0.00") + "</td>");
                 string str6 = "";
                 string str7 = "";
-                if (Convert.ToDateTime(listByTime.Rows[i]["RepayTime"]).ToShortDateString() != "1/1/2000")
+                if (Convert.ToDateTime(listByTime.Rows[i]["RepayTime"])> new DateTime(2000,1,1))
                 {
                     str6 = Convert.ToDateTime(listByTime.Rows[i]["RepayTime"]).Day.ToString() + "/" + Convert.ToDateTime(listByTime.Rows[i]["RepayTime"]).Month.ToString() + "/" + Convert.ToDateTime(listByTime.Rows[i]["RepayTime"]).Year.ToString();
                 }
-                if (Convert.ToDateTime(listByTime.Rows[i]["OperateTime"]).ToShortDateString() != "1/1/2000")
+                if (Convert.ToDateTime(listByTime.Rows[i]["OperateTime"])> new DateTime(2000,1,1))
                 {
                     str7 = Convert.ToDateTime(listByTime.Rows[i]["OperateTime"]).Day.ToString() + "/" + Convert.ToDateTime(listByTime.Rows[i]["OperateTime"]).Month.ToString() + "/" + Convert.ToDateTime(listByTime.Rows[i]["OperateTime"]).Year.ToString();
                 }
                 builder.Append("<td width=\"10%\">" + str6 + "</td>");
                 builder.Append("<td width=\"5%\">" + Convert.ToSingle(listByTime.Rows[i]["Penalty"]).ToString("0.00") + "</td>");
-                builder.Append("<td width=\"6%\">" + Convert.ToSingle(listByTime.Rows[i]["Balance"]).ToString("0.00") + "</td>");
+                builder.Append("<td width=\"6%\">" + balanceAdded.ToString("0.00") + "</td>");
                 builder.Append("</tr>");
             }
             builder.Append("</table></td></tr></table>");

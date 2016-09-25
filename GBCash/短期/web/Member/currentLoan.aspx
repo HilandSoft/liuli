@@ -70,22 +70,22 @@
 								<TD colSpan="7"><B>Repayment Schedule</B></TD>
 							</TR>
 							<TR>
-								<TD height="17" width="5%">
+								<TD height="17" width="15%">
 									<P>Installment</P>
 								</TD>
-								<TD height="17" width="10%">
+								<TD height="17" width="15%">
 									<P>DueDate</P>
 								</TD>
-								<TD height="17" width="10%">
+								<TD height="17" width="15%">
 									<P>AmountDue</P>
 								</TD>
 								<TD height="17" width="10%">
 									<P>Penalty</P>
 								</TD>
-								<TD height="17" width="10%">
+								<TD height="17" width="20%">
 									<P>PaymentMade</P>
 								</TD>
-								<TD height="17" width="10%">
+								<TD height="17" width="15%">
 									<P>DatePaid</P>
 								</TD>
 								<TD height="17" width="10%">
