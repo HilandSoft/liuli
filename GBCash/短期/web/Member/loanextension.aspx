@@ -1,6 +1,6 @@
-<%@ Register TagPrefix="uc1" TagName="MemberLeft" Src="MemberLeft.ascx" %>
-<%@ Register TagPrefix="uc1" TagName="MemberTop" Src="MemberTop.ascx" %>
 <%@ Page language="c#" Codebehind="loanextension.aspx.cs" AutoEventWireup="false" Inherits="YingNet.WeiXing.WebApp.Member.loanextension" %>
+<%@ Register TagPrefix="uc1" TagName="MemberTop" Src="MemberTop.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="MemberLeft" Src="MemberLeft.ascx" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <HTML>
 	<HEAD>
@@ -8,10 +8,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<script src="../javascriptN/jquery-1.4.4.min.js" type="text/javascript"></script>
 		<LINK href="../CSSN/final.css" type="text/css" rel="stylesheet">
-			<style type="text/css">.style2 {
-	FONT-SIZE: small; FONT-FAMILY: Verdana
-}
-</style>
+			<style type="text/css">.style2 { FONT-SIZE: small; FONT-FAMILY: Verdana }
+	</style>
 	</HEAD>
 	<body>
 		<!--start top--><uc1:membertop id="MemberTop1" runat="server"></uc1:membertop>

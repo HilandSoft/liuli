@@ -219,11 +219,12 @@
             EmployedBN dbn = new EmployedBN(this.Page);
             dbn.QueryhuiSid(this.Hidden2.Value);
             //dbn.QueryParam3(this.Hidden1.Value);
-            DataTable list = dbn.GetList();
-            num4 = Convert.ToSingle(list.Rows[0]["Loan"]);
-            num10 = Convert.ToInt32(list.Rows[0]["NInstallment"]);
+			EmployedDT loanDT =dbn.Get(Convert.ToInt32(this.Session["currentLoanID"]));
+            //DataTable list = dbn.GetList();
+            num4 = Convert.ToSingle(loanDT.Loan);
+            num10 = Convert.ToInt32(loanDT.NInstallment);
             //num5 = Convert.ToSingle(list.Rows[0]["Interest"]);
-            num6 = Convert.ToSingle(list.Rows[0]["Frequency"]);
+            num6 = Convert.ToSingle(loanDT.Frequency);
 
 
 			DataRow row= scheduleList.Rows[scheduleNumber-1];
