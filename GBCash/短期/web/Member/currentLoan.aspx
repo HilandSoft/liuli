@@ -92,26 +92,30 @@
 									<P>Balance</P>
 								</TD>
 							</TR>
-							<%for( int i=0;i<listByTime.Rows.Count;i++ ){
+							<%
+							float balance= 0F;
+							for( int i=0;i<listByTime.Rows.Count;i++ ){
 								string repayTime = "";
 
 								if (Convert.ToDateTime(listByTime.Rows[i]["RepayTime"]).ToShortDateString() != "01-01-2000")
 								{
-									repayTime = Convert.ToDateTime(listByTime.Rows[i]["RepayTime"]).ToString("MM/dd/yyyy");
+									repayTime = Convert.ToDateTime(listByTime.Rows[i]["RepayTime"]).ToString("dd/MM/yyyy");
 								}
 								
 								if(repayTime=="01-01-2000" || repayTime=="01/01/2000"){
 									repayTime ="";
 								}
+								
+								balance+= Convert.ToSingle(listByTime.Rows[i]["Repaydue"]);
 							%>
 							<TR>
 								<TD><%= i+1 %></TD>
-								<td><%= Convert.ToDateTime(listByTime.Rows[i]["Datedue"]).ToString("MM/dd/yyyy") %></td>
+								<td><%= Convert.ToDateTime(listByTime.Rows[i]["Datedue"]).ToString("dd/MM/yyyy") %></td>
 								<td><%= Convert.ToSingle(listByTime.Rows[i]["Repaydue"]).ToString("0.00")%> </td>
 								<td><%= Convert.ToSingle(listByTime.Rows[i]["Penalty"]).ToString("0.00")%> </td>
 								<td><%= Convert.ToSingle(listByTime.Rows[i]["Paid"]).ToString("0.00")%> </td>
 								<td><%= repayTime%> </td>
-								<td><%= Convert.ToSingle(listByTime.Rows[i]["Balance"]).ToString("0.00")%> </td>
+								<td><%= balance.ToString("0.00")%> </td>
 							</TR>
 							<%}%>
 						</TABLE>

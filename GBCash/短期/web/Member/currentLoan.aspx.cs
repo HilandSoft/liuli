@@ -49,7 +49,7 @@ namespace YingNet.WeiXing.WebApp.Member
 						this.PanelNoCurrent.Visible= false;
 						this.PanelHasCurrent.Visible= true;
 
-						this.litApplicationDate.Text= ((DateTime)firstRow["RTime"]).ToString("MM/dd/yyyy");
+						this.litApplicationDate.Text= ((DateTime)firstRow["RTime"]).ToString("dd/MM/yyyy");
 						this.litLoanAmount.Text= ((decimal)firstRow["Loan"]).ToString("0.00");
 						string loanStatus= string.Empty;
 						switch(firstRow["IsValid"].ToString())

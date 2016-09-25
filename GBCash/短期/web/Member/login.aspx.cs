@@ -51,9 +51,10 @@
 
         private void InitializeComponent()
         {
-            this.Button1.ServerClick += new EventHandler(this.Button1_ServerClick);
-            base.Load += new EventHandler(this.Page_Load);
-        }
+			this.Button1.ServerClick += new System.EventHandler(this.Button1_ServerClick);
+			this.Load += new System.EventHandler(this.Page_Load);
+
+		}
 
         protected override void OnInit(EventArgs e)
         {
