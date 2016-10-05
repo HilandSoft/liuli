@@ -1,7 +1,7 @@
-<%@ Register TagPrefix="uc1" TagName="MemberLeft" Src="MemberLeft.ascx" %>
-<%@ Register TagPrefix="uc1" TagName="MemberTop" Src="MemberTop.ascx" %>
-<%@ Register TagPrefix="cc1" Namespace="YingNet.Common" Assembly="YingNet.Common" %>
 <%@ Page language="c#" Codebehind="myloan2.aspx.cs" AutoEventWireup="false" Inherits="YingNet.WeiXing.WebApp.Member.myloan2" %>
+<%@ Register TagPrefix="cc1" Namespace="YingNet.Common" Assembly="YingNet.Common" %>
+<%@ Register TagPrefix="uc1" TagName="MemberTop" Src="MemberTop.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="MemberLeft" Src="MemberLeft.ascx" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <HTML>
 	<HEAD>
@@ -10,7 +10,7 @@
 		<script src="../javascriptN/jquery-1.4.4.min.js" type="text/javascript"></script>
 		<link href="../CSSN/final.css" rel="stylesheet" type="text/css">
 			<style type="text/css">
-        .style2 { FONT-FAMILY: Verdana; FONT-SIZE: small }
+        .style2 { FONT-SIZE: small; FONT-FAMILY: Verdana }
         </style>
 	</HEAD>
 	<body>

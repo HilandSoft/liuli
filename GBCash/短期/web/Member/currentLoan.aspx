@@ -106,14 +106,20 @@
 									repayTime ="";
 								}
 								
-								balance+= Convert.ToSingle(listByTime.Rows[i]["Repaydue"]);
+								float repayDue= Convert.ToSingle(listByTime.Rows[i]["Repaydue"]);
+								balance+= repayDue;
+								float penalty= Convert.ToSingle(listByTime.Rows[i]["Penalty"]);
+								balance+= penalty;
+								float paid= Convert.ToSingle(listByTime.Rows[i]["Paid"]);
+								balance-= paid;
+								
 							%>
 							<TR>
 								<TD><%= i+1 %></TD>
 								<td><%= Convert.ToDateTime(listByTime.Rows[i]["Datedue"]).ToString("dd/MM/yyyy") %></td>
-								<td><%= Convert.ToSingle(listByTime.Rows[i]["Repaydue"]).ToString("0.00")%> </td>
-								<td><%= Convert.ToSingle(listByTime.Rows[i]["Penalty"]).ToString("0.00")%> </td>
-								<td><%= Convert.ToSingle(listByTime.Rows[i]["Paid"]).ToString("0.00")%> </td>
+								<td><%= repayDue.ToString("0.00")%> </td>
+								<td><%= penalty.ToString("0.00")%> </td>
+								<td><%= paid.ToString("0.00")%> </td>
 								<td><%= repayTime%> </td>
 								<td><%= balance.ToString("0.00")%> </td>
 							</TR>

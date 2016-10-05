@@ -102,7 +102,11 @@
 				float repayDue= Convert.ToSingle(listByTime.Rows[i]["Repaydue"]);
 				balanceAdded+= repayDue;
 				builder.Append("<td width=\"12%\">" + repayDue.ToString("0.00") + "</td>");
-                builder.Append("<td width=\"10%\">" + Convert.ToSingle(listByTime.Rows[i]["Paid"]).ToString("0.00") + "</td>");
+                
+				float paid= Convert.ToSingle(listByTime.Rows[i]["Paid"]);
+				balanceAdded-= paid;
+				builder.Append("<td width=\"10%\">" + paid.ToString("0.00") + "</td>");
+
                 string str6 = "";
                 string str7 = "";
                 if (Convert.ToDateTime(listByTime.Rows[i]["RepayTime"])> new DateTime(2000,1,1))
@@ -114,7 +118,11 @@
                     str7 = Convert.ToDateTime(listByTime.Rows[i]["OperateTime"]).Day.ToString() + "/" + Convert.ToDateTime(listByTime.Rows[i]["OperateTime"]).Month.ToString() + "/" + Convert.ToDateTime(listByTime.Rows[i]["OperateTime"]).Year.ToString();
                 }
                 builder.Append("<td width=\"10%\">" + str6 + "</td>");
-                builder.Append("<td width=\"5%\">" + Convert.ToSingle(listByTime.Rows[i]["Penalty"]).ToString("0.00") + "</td>");
+                
+				float penalty= Convert.ToSingle(listByTime.Rows[i]["Penalty"]);
+				balanceAdded+= penalty;
+				builder.Append("<td width=\"5%\">" + penalty.ToString("0.00") + "</td>");
+
                 builder.Append("<td width=\"6%\">" + balanceAdded.ToString("0.00") + "</td>");
                 builder.Append("</tr>");
             }
