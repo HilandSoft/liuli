@@ -115,8 +115,14 @@
 						float repayDue= Convert.ToSingle(listByTime.Rows[j]["Repaydue"]);
 						balanceAdded+= repayDue;
 						builder.Append("<td>" + repayDue.ToString("0.00") + "</td>");
-                        builder.Append("<td>" + Convert.ToSingle(listByTime.Rows[j]["Paid"]).ToString("0.00") + "</td>");
-                        builder.Append("<td>" + Convert.ToSingle(listByTime.Rows[j]["Penalty"]).ToString("0.00") + "</td>");
+                        
+						float paid= Convert.ToSingle(listByTime.Rows[j]["Paid"]);
+						balanceAdded-= paid;
+						builder.Append("<td>" + paid.ToString("0.00") + "</td>");
+                        
+						float penalty= Convert.ToSingle(listByTime.Rows[j]["Penalty"]);
+						balanceAdded+= penalty;
+						builder.Append("<td>" + penalty.ToString("0.00") + "</td>");
                         builder.Append("<td>" + balanceAdded.ToString("0.00") + "</td>");
                         string str6 = "";
                         string str7 = "";
