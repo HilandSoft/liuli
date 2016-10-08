@@ -245,7 +245,7 @@ namespace YingNet.WeiXing.WebApp
             
             string errorString = string.Empty;
 			double PayAmountPerTime= 0;
-			bool isSuccessful = PayDaySchedule.CalculatePayLoan(this.Page,  numIncomeOrBenefit,numLoanAmount,numInstallmentCount, false,ref PayAmountPerTime, out errorString);
+			bool isSuccessful = PayDaySchedule.CalculatePayLoan(this.Page,  numIncomeOrBenefit,numLoanAmount,numInstallmentCount, true,ref PayAmountPerTime, out errorString);
         	if(isSuccessful==true)
         	{
 				payAmountPerTime4Schedule= PayAmountPerTime;
