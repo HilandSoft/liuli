@@ -33,6 +33,7 @@
 //        protected TextBox txs2;
 //        protected TextBox txs3;
 		protected System.Web.UI.HtmlControls.HtmlForm Form2;
+		protected System.Web.UI.WebControls.Label LabWarning;
 		protected System.Web.UI.HtmlControls.HtmlInputHidden HiddenCalced;
         //protected TextBox txYanQi;
 
@@ -204,10 +205,17 @@
             
             ScheduleDT edt = ebn.Get(scheduleId);
             DateTime datedue = edt.Datedue;
-            if (edt.Datedue < SafeDateTime.LocalNow)
-            {
-                return;
-            }
+			if (edt.Datedue.AddDays(-3) < SafeDateTime.LocalToday)
+			{
+				this.LabWarning.Text= "WARNING:duedate must go beyond 2 days today!";
+				this.LabWarning.Visible= true;
+				return;
+			}
+			else{
+				this.LabWarning.Visible= false;
+			}
+
+
             num8 = Convert.ToSingle(edt.Repaydue);
             num9 = Convert.ToInt32(edt.Numberment);
             str3 = edt.Param1;

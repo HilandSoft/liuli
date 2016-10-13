@@ -1,6 +1,6 @@
-<%@ Page language="c#" Codebehind="loanextension.aspx.cs" AutoEventWireup="false" Inherits="YingNet.WeiXing.WebApp.Member.loanextension" %>
-<%@ Register TagPrefix="uc1" TagName="MemberTop" Src="MemberTop.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="MemberLeft" Src="MemberLeft.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="MemberTop" Src="MemberTop.ascx" %>
+<%@ Page language="c#" Codebehind="loanextension.aspx.cs" AutoEventWireup="false" Inherits="YingNet.WeiXing.WebApp.Member.loanextension" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <HTML>
 	<HEAD>
@@ -70,7 +70,8 @@
 									</tr>
 									<%=Content1%>
 									<tr>
-										<td align="right" colSpan="5"><FONT face="����"><asp:button id="Button2" runat="server" Text="Calculate"></asp:button><INPUT id="Hidden1" style="WIDTH: 35px; HEIGHT: 22px" type="hidden" size="1" name="Hidden1"
+										<td align="right" colSpan="5"><FONT face="����">
+												<asp:Label id="LabWarning" runat="server" Visible="False" ForeColor="Red">Label</asp:Label><asp:button id="Button2" runat="server" Text="Calculate"></asp:button><INPUT id="Hidden1" style="WIDTH: 35px; HEIGHT: 22px" type="hidden" size="1" name="Hidden1"
 													runat="server"> &nbsp;&nbsp;</FONT>&nbsp;&nbsp; <FONT face="����">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											</FONT>
 										</td>
