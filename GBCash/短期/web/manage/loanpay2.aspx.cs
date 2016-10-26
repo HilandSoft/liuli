@@ -331,7 +331,7 @@
                 string str4 = Convert.ToSingle(listByTime.Rows[i]["Repaydue"]).ToString("0.00");
                 builder.Append("<tr><td width=\"15%\">" + str2 + "</td>");
                 builder.Append("<td width=\"15%\">" + ("<INPUT id=\"dtext\" value=" + str3 + " type=\"text\" size=\"15\" name=\"dtext\">") + "</td>");
-                string str6 = "<INPUT id=\"text5\" style=\"BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none\"  value=" + str4 + " type=\"text\" size=\"15\" name=\"text5\">";
+                string str6 = "<INPUT id=\"text5\" value=" + str4 + " type=\"text\" size=\"15\" name=\"text5\">";
                 builder.Append("<td width=\"15%\">" + str6 + "</td>");
                 string str7 = listByTime.Rows[i]["Paid"].ToString();
                 string str8 = listByTime.Rows[i]["Penalty"].ToString();
