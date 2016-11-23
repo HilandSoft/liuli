@@ -1,7 +1,7 @@
-<%@ Register TagPrefix="uc1" TagName="CircleDropDownList" Src="../Include/CircleDropDownList.ascx" %>
-<%@ Page language="c#" Codebehind="MemberDetailEdit.aspx.cs" AutoEventWireup="false" Inherits="YingNet.WeiXing.WebApp.manage.MemberDetailEdit" %>
-<%@ Register TagPrefix="uc1" TagName="RepaymentCycleTypeSelector" Src="../UControls/RepaymentCycleTypeSelector.ascx" %>
 <%@ Register TagPrefix="cc1" Namespace="YingNet.Common" Assembly="YingNet.Common" %>
+<%@ Register TagPrefix="uc1" TagName="RepaymentCycleTypeSelector" Src="../UControls/RepaymentCycleTypeSelector.ascx" %>
+<%@ Page language="c#" Codebehind="MemberDetailEdit.aspx.cs" AutoEventWireup="false" Inherits="YingNet.WeiXing.WebApp.manage.MemberDetailEdit" %>
+<%@ Register TagPrefix="uc1" TagName="CircleDropDownList" Src="../Include/CircleDropDownList.ascx" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
 <HTML>
 	<HEAD>
@@ -22,25 +22,17 @@
 				</tr>
 				<tr>
 					<td height="28" vAlign="top" width="21%">Title:</td>
-					<td vAlign="top" colSpan="3"><asp:textbox id="txtTitle" runat="server">
-							
-						</asp:textbox></td>
+					<td vAlign="top" colSpan="3"><asp:textbox id="txtTitle" runat="server"></asp:textbox></td>
 				</tr>
 				<tr>
 					<td height="28" vAlign="top" width="21%">First Name:</td>
-					<td vAlign="top" width="26%"><asp:textbox id="txtFname" runat="server">
-							
-						</asp:textbox></td>
+					<td vAlign="top" width="26%"><asp:textbox id="txtFname" runat="server"></asp:textbox></td>
 					<td vAlign="top" width="20%">Middle Name:</td>
-					<td vAlign="top" width="33%"><asp:textbox id="txtMname" runat="server">
-							
-						</asp:textbox></td>
+					<td vAlign="top" width="33%"><asp:textbox id="txtMname" runat="server"></asp:textbox></td>
 				</tr>
 				<tr>
 					<td vAlign="top">Last Name:</td>
-					<td vAlign="top"><asp:textbox id="txtLname" runat="server">
-							
-						</asp:textbox></td>
+					<td vAlign="top"><asp:textbox id="txtLname" runat="server"></asp:textbox></td>
 					<td vAlign="top">&nbsp;
 					</td>
 					<td vAlign="top">&nbsp;
@@ -48,14 +40,10 @@
 				</tr>
 				<tr>
 					<td vAlign="top">Date of Birth:</td>
-					<td vAlign="top"><asp:textbox id="txtDate" runat="server">
-							
-						</asp:textbox></td>
+					<td vAlign="top"><asp:textbox id="txtDate" runat="server"></asp:textbox></td>
 					<td vAlign="top">E-Mail:
 					</td>
-					<td vAlign="top"><asp:textbox id="txtEmail" runat="server">
-							
-						</asp:textbox></td>
+					<td vAlign="top"><asp:textbox id="txtEmail" runat="server"></asp:textbox></td>
 				</tr>
 				<tr>
 					<td vAlign="top">Driver Licence Number:</td>
@@ -193,14 +181,14 @@
 				</TR>
 				<TR>
 					<TD>Any default under other SACC</TD>
-					<TD colSpan="3"><asp:radiobuttonlist style="Z-INDEX: 0" id="rblHasOtherSamllCredit" runat="server" RepeatDirection="Horizontal">
+					<TD colSpan="3"><asp:radiobuttonlist id="rblHasOtherSamllCredit" runat="server" RepeatDirection="Horizontal">
 							<asp:ListItem Value="1" Selected="True">Yes</asp:ListItem>
 							<asp:ListItem Value="0">No</asp:ListItem>
 						</asp:radiobuttonlist></TD>
 				</TR>
 				<TR>
 					<TD>How many SACC in the last 90 days</TD>
-					<TD colSpan="3"><asp:dropdownlist style="Z-INDEX: 0" id="ddlSmalCreditCount" runat="server">
+					<TD colSpan="3"><asp:dropdownlist id="ddlSmalCreditCount" runat="server">
 							<asp:ListItem Value="0">nil</asp:ListItem>
 							<asp:ListItem Value="1">1</asp:ListItem>
 							<asp:ListItem Value="2">2</asp:ListItem>
@@ -211,23 +199,22 @@
 				<tr>
 					<td>Does gross income change:</td>
 					<td>
-					<asp:RadioButtonList style="Z-INDEX: 0" id="rblIsGrossIncomeChange" runat="server" RepeatDirection="Horizontal">
-													<asp:ListItem Value="1">Yes</asp:ListItem>
-													<asp:ListItem Value="0">No</asp:ListItem>
-												</asp:RadioButtonList>
-					
+						<asp:RadioButtonList id="rblIsGrossIncomeChange" runat="server" RepeatDirection="Horizontal">
+							<asp:ListItem Value="1">Yes</asp:ListItem>
+							<asp:ListItem Value="0">No</asp:ListItem>
+						</asp:RadioButtonList>
 					</td>
 					<td>Gross income value</td>
-					<td><asp:TextBox style="Z-INDEX: 0" id="tbxGrossIncomeChangeValue" runat="server"></asp:TextBox></td>
+					<td><asp:TextBox id="tbxGrossIncomeChangeValue" runat="server"></asp:TextBox></td>
 				</tr>
 				<tr>
 					<td>Does Pay Other Credit:</td>
-					<td><asp:RadioButtonList style="Z-INDEX: 0" id="rblIsPayOtherCredit" runat="server" RepeatDirection="Horizontal">
-													<asp:ListItem Value="1">Yes</asp:ListItem>
-													<asp:ListItem Value="0">No</asp:ListItem>
-												</asp:RadioButtonList></td>
+					<td><asp:RadioButtonList id="rblIsPayOtherCredit" runat="server" RepeatDirection="Horizontal">
+							<asp:ListItem Value="1">Yes</asp:ListItem>
+							<asp:ListItem Value="0">No</asp:ListItem>
+						</asp:RadioButtonList></td>
 					<td>Pay Other Credit Value</td>
-					<td><asp:TextBox style="Z-INDEX: 0" id="tbxPayOtherCreditValue" runat="server"></asp:TextBox></td>
+					<td><asp:TextBox id="tbxPayOtherCreditValue" runat="server"></asp:TextBox></td>
 				</tr>
 				<tr>
 					<td colSpan="4">&nbsp;</td>
@@ -316,19 +303,9 @@
 							<TR>
 								<TD style="WIDTH: 143px" width="143">Loan Requested:</TD>
 								<TD colSpan="2">$<INPUT style="WIDTH: 166px; HEIGHT: 22px" id="txtLoan" name="Text1" runat="server"><FONT color="#990000" face="宋体">*
-									</FONT>
-								</TD>
-							</TR>
-							<TR>
-								<TD style="WIDTH: 143px" width="143">Loan Repayment:</TD>
-								<TD colSpan="2"><FONT color="#990000" face="宋体"><asp:dropdownlist id="ddlInstallment" runat="server">
-											<asp:ListItem Value="1">1 installment</asp:ListItem>
-											<asp:ListItem Value="2">2 installments</asp:ListItem>
-											<asp:ListItem Value="3">3 installments</asp:ListItem>
-											<asp:ListItem Value="4">Repay on next payday</asp:ListItem>
-										</asp:dropdownlist>*
 										<asp:button id="btnCalculate" runat="server" Text="Calculate"></asp:button>(if 
-										change schedule,pls must Calculate first)</FONT></TD>
+										change schedule,pls must Calculate first)</FONT>
+								</TD>
 							</TR>
 							<TR>
 								<TD colSpan="3">Note: Each installment dues on your payday . Please make sure your 
@@ -345,24 +322,19 @@
 								</TD>
 								<TD>Repayment due</TD>
 							</TR>
+							<%
+									if(payDates4Schedule!=null)
+									for( int i=0;i<payDates4Schedule.Length;i++ ){
+									%>
 							<TR>
-								<TD>1st Installment
+								<TD>Installment
+									<%= i+1 %>
 								</TD>
-								<TD><FONT face="宋体"><asp:textbox id="d1F" runat="server" Width="113px" ReadOnly="True" BorderStyle="None"></asp:textbox></FONT></TD>
-								<TD><FONT face="宋体"><asp:textbox id="s1F" runat="server" Width="113px" ReadOnly="True" BorderStyle="None"></asp:textbox></FONT></TD>
+								<TD><FONT face="宋体"><%=payDates4Schedule[i].ToString("dd/MM/yyyy")%></FONT></TD>
+								<TD><FONT face="宋体"><%=payAmountPerTime4Schedule.ToString("0.00")%></FONT></TD>
 							</TR>
-							<TR>
-								<TD>2nd Installment
-								</TD>
-								<TD><FONT face="宋体"><asp:textbox id="d2F" runat="server" Width="113px" ReadOnly="True" BorderStyle="None"></asp:textbox></FONT></TD>
-								<TD><FONT face="宋体"><asp:textbox id="s2F" runat="server" Width="113px" ReadOnly="True" BorderStyle="None"></asp:textbox></FONT></TD>
-							</TR>
-							<TR>
-								<TD style="WIDTH: 143px; HEIGHT: 21px">3rd Installment
-								</TD>
-								<TD><FONT face="宋体"><asp:textbox id="d3F" runat="server" Width="113px" ReadOnly="True" BorderStyle="None"></asp:textbox></FONT></TD>
-								<TD><FONT face="宋体"><asp:textbox id="s3F" runat="server" Width="113px" BorderStyle="None" ReadOnly="True"></asp:textbox></FONT></TD>
-							</TR>
+							<%}%>
+							
 							<TR>
 								<TD style="WIDTH: 143px" align="center">&nbsp;</TD>
 							</TR>
