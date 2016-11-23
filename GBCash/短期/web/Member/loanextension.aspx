@@ -8,8 +8,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<script src="../javascriptN/jquery-1.4.4.min.js" type="text/javascript"></script>
 		<LINK href="../CSSN/final.css" type="text/css" rel="stylesheet">
-			<style type="text/css">.style2 { FONT-SIZE: small; FONT-FAMILY: Verdana }
-	</style>
+			<style type="text/css">.style2 {
+	FONT-SIZE: small; FONT-FAMILY: Verdana
+}
+</style>
 	</HEAD>
 	<body>
 		<!--start top--><uc1:membertop id="MemberTop1" runat="server"></uc1:membertop>
@@ -70,8 +72,7 @@
 									</tr>
 									<%=Content1%>
 									<tr>
-										<td align="right" colSpan="5"><FONT face="����">
-												<asp:Label id="LabWarning" runat="server" Visible="False" ForeColor="Red">Label</asp:Label><asp:button id="Button2" runat="server" Text="Calculate"></asp:button><INPUT id="Hidden1" style="WIDTH: 35px; HEIGHT: 22px" type="hidden" size="1" name="Hidden1"
+										<td align="right" colSpan="5"><FONT face="����"><asp:label id="LabWarning" runat="server" ForeColor="Red" Visible="False">Label</asp:label><asp:button id="Button2" runat="server" Text="Calculate"></asp:button><INPUT id="Hidden1" style="WIDTH: 35px; HEIGHT: 22px" type="hidden" size="1" name="Hidden1"
 													runat="server"> &nbsp;&nbsp;</FONT>&nbsp;&nbsp; <FONT face="����">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											</FONT>
 										</td>

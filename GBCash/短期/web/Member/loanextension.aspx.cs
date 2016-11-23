@@ -37,6 +37,11 @@
 		protected System.Web.UI.HtmlControls.HtmlInputHidden HiddenCalced;
         //protected TextBox txYanQi;
 
+		/************************************************************************/
+		/* 用schedule彪中的Param4来区分是否为原始的还款日程还是客户要求延期的还款日程 
+		 * 2016年11月23日于即墨                                                 */
+		/************************************************************************/
+
         private void Button1_Click(object sender, EventArgs e)
         {
             HuiyuanBN nbn;
@@ -72,7 +77,7 @@
 
             //float num2 = (Convert.ToSingle(this.txYanQi.Text) + Convert.ToSingle(this.Session["Balance"])) - Convert.ToSingle(this.Session["Repaydue"]);
 
-			commandText = string.Concat(new object[] { "update Schedule set Repaydue='", delayCurrentPay, "' where id=", delayCurrentScheduleID, "" });
+			commandText = string.Concat(new object[] { "update Schedule set Param4=1, Repaydue='", delayCurrentPay, "' where id=", delayCurrentScheduleID, "" });
 			SqlHelper.ExecuteNonQuery(Config.DataSource, CommandType.Text, commandText, null);
 
             
@@ -164,11 +169,7 @@
 
         private void Button2_Click(object sender, EventArgs e)
         {
-//            this.txDuedate.Text = this.txYanQi.Text = "";
-//            this.txd1.Text = this.txd2.Text = this.txd3.Text = "";
-//            this.txs1.Text = this.txs2.Text = this.txs3.Text = "";
-            this.CalLoan();
-			
+            this.CalLoan();			
         }
 
         public void CalLoan()
@@ -235,7 +236,14 @@
             num6 = Convert.ToSingle(loanDT.Frequency);
 
 
-			DataRow row= scheduleList.Rows[scheduleNumber-1];
+			DataRow row=null;
+			//row= scheduleList.Rows[scheduleNumber-1];
+			int rowCount= scheduleList.Rows.Count;
+			for(int i=0;i<rowCount;i++){
+				if(Convert.ToInt32( scheduleList.Rows[i]["id"])== scheduleId){
+					row= scheduleList.Rows[i];
+				}
+			}
 
 			DataRow addedRow= scheduleList.NewRow();
 			addedRow["Repaydue"]= row["Repaydue"];
@@ -252,7 +260,6 @@
 			row["Repaydue"]= repaydueDelay;
 			this.Session["delayCurrentPay"]= repaydueDelay;
 			this.Session["delayCurrentScheduleID"]= scheduleId;
-
 
             StringBuilder builder= new StringBuilder();
 
@@ -406,7 +413,7 @@
 			
 			//this.Hidden1.Value = list.Rows[0]["Numberment"].ToString();
 			
-            
+            int originalScheduleNumber=0;
             for (int i = 0; i < list.Rows.Count; i++)
             {
                 string str = "Repaydue" + ((i + 1)).ToString();
@@ -415,13 +422,19 @@
                 this.Session[str2] = Convert.ToDateTime(list.Rows[i]["Datedue"]);
                 string str3 = "Schedule" + ((i + 1)).ToString();
                 this.Session[str3] = list.Rows[i]["id"].ToString();
-                string str4 = "";
-                string str5 = "";
-                str5 = list.Rows[i]["id"].ToString() + "&" + ((i + 1)).ToString();
-                str4 = "<INPUT id='Radio0'  type='radio' value='" + str5 + "' name='Radio0' >";
+				
+				string str4 = "";
+				string delayString= "";
+				if( list.Rows[i]["Param4"]== System.DBNull.Value|| list.Rows[i]["Param4"].ToString()=="0"){
+					string str5 = "";
+					str5 = list.Rows[i]["id"].ToString() + "&" + ((++originalScheduleNumber)).ToString();
+					str4 = "<INPUT id='Radio0'  type='radio' value='" + str5 + "' name='Radio0' >";
+					delayString= "Extend to Next payday";
+				}				
+                
                 DateTime time = Convert.ToDateTime(list.Rows[i]["Datedue"]);
                 string str6 = Convert.ToDateTime(list.Rows[i]["Datedue"]).Day.ToString() + "/" + Convert.ToDateTime(list.Rows[i]["Datedue"]).Month.ToString() + "/" + Convert.ToDateTime(list.Rows[i]["Datedue"]).Year.ToString();
-                string[] strArray2 = new string[] { "<tr><td>", (i + 1).ToString(), "</td><td>", str6, "</td><td>", Convert.ToSingle(list.Rows[i]["Repaydue"]).ToString("0.00"), "</td><td>", str4, "</td><td>Extend to Next payday</td>" };
+                string[] strArray2 = new string[] { "<tr><td>", (i + 1).ToString(), "</td><td>", str6, "</td><td>", Convert.ToSingle(list.Rows[i]["Repaydue"]).ToString("0.00"), "</td><td>", str4, "</td><td>",delayString,"</td>" };
                 builder.Append(string.Concat(strArray2));
             }
             return builder.ToString();
