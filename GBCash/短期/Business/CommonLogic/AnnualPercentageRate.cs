@@ -112,6 +112,9 @@ namespace YingNet.WeiXing.Business.CommonLogic
 		public static decimal GetAnnualPercentageRate(DateTime lastPayDate)
 		{
 			int spanDays= ((TimeSpan)(lastPayDate- SafeDateTime.LocalNow)).Days;
+			if(spanDays<=0){
+				spanDays=1;
+			}
 
 			double interest= 0.24; 
 			if(spanDays<=31)

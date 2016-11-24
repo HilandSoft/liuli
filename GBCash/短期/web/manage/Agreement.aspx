@@ -113,9 +113,9 @@
 								</td>
 								<td vAlign="top" width="180">
 									<p class="unnamed1"><strong>Repayment Schedule</strong>:<br>
-										1st Installment &nbsp;<%=Datedue1%>&nbsp;&nbsp;$<%=Repaydue1%><BR>
-										2nd Installment &nbsp;<%=Datedue2%>&nbsp;&nbsp;$<%=Repaydue2%><BR>
-										3rd Installment &nbsp;<%=Datedue3%>&nbsp;&nbsp;$<%=Repaydue3%><BR>
+										<%=ScheduleData%>
+										
+							
 										<%=Wpaid%>
 										<BR>
 										Repayment period in days:

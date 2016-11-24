@@ -41,6 +41,9 @@
         public string TotalRepayable = "";
         public string Wpaid = "";
 
+		//还款日程
+		protected string ScheduleData="";
+
         private void InitializeComponent()
         {
             this.LinkButton1.Click += new EventHandler(this.LinkButton1_Click);
@@ -99,38 +102,62 @@
                 ebn.QueryParam1(str);
                 ebn.QueryNotValid("3");
                 DataTable table3 = ebn.GetList();
-                TimeSpan span = new TimeSpan(0x3e8L);
-                int paidCount= table3.Rows.Count;
+                TimeSpan span = new TimeSpan(0x3e8L);                
 				DateTime lastPayDate= new DateTime(2000,1,1);
-				switch (paidCount)
-                {
-                    case 1:
-                        this.Datedue1 = Convert.ToDateTime(table3.Rows[0]["Datedue"]).Day.ToString() + "/" + Convert.ToDateTime(table3.Rows[0]["Datedue"]).Month.ToString() + "/" + Convert.ToDateTime(table3.Rows[0]["Datedue"]).Year.ToString();
-                        this.Repaydue1 = Convert.ToSingle(table3.Rows[0]["Repaydue"]).ToString("0.00");
-						lastPayDate= Convert.ToDateTime(table3.Rows[0]["Datedue"]);
-						span = (TimeSpan) (lastPayDate - Convert.ToDateTime(this.Regtime));
-                        break;
 
-                    case 2:
-                        this.Datedue1 = Convert.ToDateTime(table3.Rows[0]["Datedue"]).Day.ToString() + "/" + Convert.ToDateTime(table3.Rows[0]["Datedue"]).Month.ToString() + "/" + Convert.ToDateTime(table3.Rows[0]["Datedue"]).Year.ToString();
-                        this.Repaydue1 = Convert.ToSingle(table3.Rows[0]["Repaydue"]).ToString("0.00");
-                        this.Datedue2 = Convert.ToDateTime(table3.Rows[1]["Datedue"]).Day.ToString() + "/" + Convert.ToDateTime(table3.Rows[1]["Datedue"]).Month.ToString() + "/" + Convert.ToDateTime(table3.Rows[1]["Datedue"]).Year.ToString();
-                        this.Repaydue2 = Convert.ToSingle(table3.Rows[1]["Repaydue"]).ToString("0.00");
-						lastPayDate= Convert.ToDateTime(table3.Rows[1]["Datedue"]);
-						span = (TimeSpan) ( lastPayDate - Convert.ToDateTime(this.Regtime));
-                        break;
+				for(int i=0;i<table3.Rows.Count;i++){
+					lastPayDate= Convert.ToDateTime(table3.Rows[i]["Datedue"]);
+					int number= i+1;
+					ScheduleData+= "Installment "+ number + "&nbsp;"+ Convert.ToDateTime(table3.Rows[i]["Datedue"]).ToString("dd/MM/yyyy")+
+						"&nbsp;&nbsp;$"+ Convert.ToSingle(table3.Rows[0]["Repaydue"]).ToString("0.00")+ "<br/>";
+				}
 
-                    case 3:
-                        this.Datedue1 = Convert.ToDateTime(table3.Rows[0]["Datedue"]).Day.ToString() + "/" + Convert.ToDateTime(table3.Rows[0]["Datedue"]).Month.ToString() + "/" + Convert.ToDateTime(table3.Rows[0]["Datedue"]).Year.ToString();
-                        this.Repaydue1 = Convert.ToSingle(table3.Rows[0]["Repaydue"]).ToString("0.00");
-                        this.Datedue2 = Convert.ToDateTime(table3.Rows[1]["Datedue"]).Day.ToString() + "/" + Convert.ToDateTime(table3.Rows[1]["Datedue"]).Month.ToString() + "/" + Convert.ToDateTime(table3.Rows[1]["Datedue"]).Year.ToString();
-                        this.Repaydue2 = Convert.ToSingle(table3.Rows[1]["Repaydue"]).ToString("0.00");
-                        this.Datedue3 = Convert.ToDateTime(table3.Rows[2]["Datedue"]).Day.ToString() + "/" + Convert.ToDateTime(table3.Rows[2]["Datedue"]).Month.ToString() + "/" + Convert.ToDateTime(table3.Rows[2]["Datedue"]).Year.ToString();
-                        this.Repaydue3 = Convert.ToSingle(table3.Rows[2]["Repaydue"]).ToString("0.00");
-						lastPayDate= Convert.ToDateTime(table3.Rows[2]["Datedue"]);
-						span = (TimeSpan) (lastPayDate - Convert.ToDateTime(this.Regtime));
-                        break;
-                }
+				span = (TimeSpan) ( lastPayDate - Convert.ToDateTime(this.Regtime));
+
+//				<%
+//					if(payDates4Schedule!=null)
+//					for( int i=0;i<payDates4Schedule.Length;i++ )
+//					{
+//						%>
+//							
+//								
+//							Installment <%= i+1 %>
+//												&nbsp;<%=payDates4Schedule[i].ToString("dd/MM/yyyy")%>
+//														  &nbsp;&nbsp;$<%=payAmountPerTime4Schedule.ToString("0.00")%>
+//																			  <%}%>
+
+//				int paidCount= table3.Rows.Count;
+//				switch (paidCount)
+//                {
+//                    case 1:
+//                        this.Datedue1 = Convert.ToDateTime(table3.Rows[0]["Datedue"]).Day.ToString() + "/" + Convert.ToDateTime(table3.Rows[0]["Datedue"]).Month.ToString() + "/" + Convert.ToDateTime(table3.Rows[0]["Datedue"]).Year.ToString();
+//                        this.Repaydue1 = Convert.ToSingle(table3.Rows[0]["Repaydue"]).ToString("0.00");
+//						lastPayDate= Convert.ToDateTime(table3.Rows[0]["Datedue"]);
+//						span = (TimeSpan) (lastPayDate - Convert.ToDateTime(this.Regtime));
+//                        break;
+//
+//                    case 2:
+//                        this.Datedue1 = Convert.ToDateTime(table3.Rows[0]["Datedue"]).Day.ToString() + "/" + Convert.ToDateTime(table3.Rows[0]["Datedue"]).Month.ToString() + "/" + Convert.ToDateTime(table3.Rows[0]["Datedue"]).Year.ToString();
+//                        this.Repaydue1 = Convert.ToSingle(table3.Rows[0]["Repaydue"]).ToString("0.00");
+//                        this.Datedue2 = Convert.ToDateTime(table3.Rows[1]["Datedue"]).Day.ToString() + "/" + Convert.ToDateTime(table3.Rows[1]["Datedue"]).Month.ToString() + "/" + Convert.ToDateTime(table3.Rows[1]["Datedue"]).Year.ToString();
+//                        this.Repaydue2 = Convert.ToSingle(table3.Rows[1]["Repaydue"]).ToString("0.00");
+//						lastPayDate= Convert.ToDateTime(table3.Rows[1]["Datedue"]);
+//						span = (TimeSpan) ( lastPayDate - Convert.ToDateTime(this.Regtime));
+//                        break;
+//
+//                    case 3:
+//                        this.Datedue1 = Convert.ToDateTime(table3.Rows[0]["Datedue"]).Day.ToString() + "/" + Convert.ToDateTime(table3.Rows[0]["Datedue"]).Month.ToString() + "/" + Convert.ToDateTime(table3.Rows[0]["Datedue"]).Year.ToString();
+//                        this.Repaydue1 = Convert.ToSingle(table3.Rows[0]["Repaydue"]).ToString("0.00");
+//                        this.Datedue2 = Convert.ToDateTime(table3.Rows[1]["Datedue"]).Day.ToString() + "/" + Convert.ToDateTime(table3.Rows[1]["Datedue"]).Month.ToString() + "/" + Convert.ToDateTime(table3.Rows[1]["Datedue"]).Year.ToString();
+//                        this.Repaydue2 = Convert.ToSingle(table3.Rows[1]["Repaydue"]).ToString("0.00");
+//                        this.Datedue3 = Convert.ToDateTime(table3.Rows[2]["Datedue"]).Day.ToString() + "/" + Convert.ToDateTime(table3.Rows[2]["Datedue"]).Month.ToString() + "/" + Convert.ToDateTime(table3.Rows[2]["Datedue"]).Year.ToString();
+//                        this.Repaydue3 = Convert.ToSingle(table3.Rows[2]["Repaydue"]).ToString("0.00");
+//						lastPayDate= Convert.ToDateTime(table3.Rows[2]["Datedue"]);
+//						span = (TimeSpan) (lastPayDate - Convert.ToDateTime(this.Regtime));
+//                        break;
+//                }
+
+
                 this.Period = (span.Days + 1).ToString();
                 float num = 0f;
                 DataTable table4 = new SystemInfoBN(this.Page).GetList();
@@ -160,7 +187,10 @@
 				string interrestDisplay= string.Empty;
 				//interrestDisplay= AnnualPercentageRate.GetAnnualPercentageRatePercent(paidPeriodType,paidCount);
 
-				interrestDisplay= AnnualPercentageRate.GetAnnualPercentageRatePercent(lastPayDate);
+				//20161124暂时用如下利率计算
+				//interrestDisplay= AnnualPercentageRate.GetAnnualPercentageRatePercent(lastPayDate);
+				interrestDisplay= ((decimal)28 / Convert.ToInt32( Period) * 365).ToString("#0.00") + "%";
+				//20161124结束
 
 				this.Tcoc1= interrestDisplay;
                 this.Tcoc2 = (Convert.ToSingle(this.TotalRepayable) - Convert.ToSingle(this.LoanAccount)).ToString("0.00");

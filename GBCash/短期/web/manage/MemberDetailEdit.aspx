@@ -1,7 +1,7 @@
-<%@ Register TagPrefix="cc1" Namespace="YingNet.Common" Assembly="YingNet.Common" %>
-<%@ Register TagPrefix="uc1" TagName="RepaymentCycleTypeSelector" Src="../UControls/RepaymentCycleTypeSelector.ascx" %>
-<%@ Page language="c#" Codebehind="MemberDetailEdit.aspx.cs" AutoEventWireup="false" Inherits="YingNet.WeiXing.WebApp.manage.MemberDetailEdit" %>
 <%@ Register TagPrefix="uc1" TagName="CircleDropDownList" Src="../Include/CircleDropDownList.ascx" %>
+<%@ Page language="c#" Codebehind="MemberDetailEdit.aspx.cs" AutoEventWireup="false" Inherits="YingNet.WeiXing.WebApp.manage.MemberDetailEdit" %>
+<%@ Register TagPrefix="uc1" TagName="RepaymentCycleTypeSelector" Src="../UControls/RepaymentCycleTypeSelector.ascx" %>
+<%@ Register TagPrefix="cc1" Namespace="YingNet.Common" Assembly="YingNet.Common" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
 <HTML>
 	<HEAD>
@@ -334,7 +334,6 @@
 								<TD><FONT face="ËÎÌו"><%=payAmountPerTime4Schedule.ToString("0.00")%></FONT></TD>
 							</TR>
 							<%}%>
-							
 							<TR>
 								<TD style="WIDTH: 143px" align="center">&nbsp;</TD>
 							</TR>
