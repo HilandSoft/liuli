@@ -114,8 +114,6 @@
 								<td vAlign="top" width="180">
 									<p class="unnamed1"><strong>Repayment Schedule</strong>:<br>
 										<%=ScheduleData%>
-										
-							
 										<%=Wpaid%>
 										<BR>
 										Repayment period in days:

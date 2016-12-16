@@ -516,29 +516,33 @@ namespace YingNet.WeiXing.WebApp
 
         private void Submit1_ServerClick(object sender, EventArgs e)
         {
-            if (this.txFullname.Text == "")
-            {
-                base.Response.Write("<script>alert('You need to sign by tying in your FULL name before submission.');</script>");
-            }
-            else if (this.Session["Repayduezs"].ToString() != this.txLoan.Value)
-            {
-                base.Response.Write("<script>alert(\"Please click 'Calculate' button for repayment schedule before you submit the application.\");</script>");
-            }
-            else
-            {
-                try
-                {
-                    this.Session["NumberLoanI"] = this.Session["numInstallmentCount4Schedule"]; //this.DropDownList1.SelectedValue;
-                    this.getInfo();
-                    this.getSchedule();
-                    this.getHuiyuan();
-                    base.Response.Write("<script>window.top.location='newcu4.htm';</script>");
-                }
-                catch (Exception exception)
-                {
-                    base.Response.Write(exception.Message);
-                }
-            }
+			if (this.txFullname.Text == "")
+			{
+				base.Response.Write("<script>alert('You need to sign by tying in your FULL name before submission.');</script>");
+			}
+			else if (this.Session["Repayduezs"]== null)
+			{
+				base.Response.Write("<script>alert(\"Please click 'Calculate' button for repayment schedule before you submit the application.\");</script>");
+			}
+			else if (this.Session["Repayduezs"].ToString() != this.txLoan.Value)
+			{
+				base.Response.Write("<script>alert(\"Please click 'Calculate' button for repayment schedule before you submit the application.\");</script>");
+			}
+			else
+			{
+				try
+				{
+					this.Session["NumberLoanI"] = this.Session["numInstallmentCount4Schedule"]; //this.DropDownList1.SelectedValue;
+					this.getInfo();
+					this.getSchedule();
+					this.getHuiyuan();
+					base.Response.Write("<script>window.top.location='newcu4.htm';</script>");
+				}
+				catch (Exception exception)
+				{
+					base.Response.Write(exception.Message);
+				}
+			}
         }
     }
 }
