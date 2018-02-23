@@ -1,0 +1,72 @@
+.HeadText 
+{
+	FONT-FAMILY :  Tahoma,Verdana;
+	FONT-SIZE   : 13px;
+	font-weight : bold ;
+	Color: #FF0000
+}
+
+.RightHeadText 
+{
+	FONT-FAMILY :  Tahoma,Verdana;
+	FONT-SIZE   : 15px;
+	font-weight : bold ;
+	Color: #FF0000
+}
+
+.WhiteText 
+{
+	FONT-FAMILY :  Tahoma,Verdana;
+	FONT-SIZE   : 13px;
+	font-weight : bold ;
+	Color: #FFFFFF;
+}
+
+.Text
+{
+	FONT-FAMILY :  Verdana;
+	FONT-SIZE   : 11px;
+	Color: black;
+}
+
+.Terms
+{
+	FONT-FAMILY :  Verdana;
+	FONT-SIZE   : 11px;
+	Color: #999999;
+}
+.Text1
+{
+	FONT-FAMILY :   Tahoma;
+	FONT-SIZE   : 13px;
+	Color: black;
+}
+
+
+a.bottomlink {
+	FONT-FAMILY :  Tahoma, Verdana;
+	FONT-SIZE   : 11px;
+	text-decoration: none;
+	color:#FF0000; 
+}
+a:hover.bottomlink {
+	FONT-FAMILY :  Tahoma, Verdana;
+	FONT-SIZE   : 11px;
+	text-decoration: underline; 
+	color: #FF0000; 
+}
+
+a.more {
+	FONT-FAMILY : Verdana;
+	FONT-SIZE   : 11px;
+	text-decoration: none;
+	color: #F40000; 
+}
+a:hover.more {
+	FONT-FAMILY : Verdana;
+	FONT-SIZE   : 11px;
+	text-decoration: underline; 
+	color: #F40000; 
+}
+
+

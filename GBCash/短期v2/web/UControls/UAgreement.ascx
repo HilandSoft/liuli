@@ -1,0 +1,1 @@
+<%@ Control Language="c#" AutoEventWireup="false" Codebehind="UAgreement.ascx.cs" Inherits="YingNet.WeiXing.WebApp.UControls.UAgreement" TargetSchema="http://schemas.microsoft.com/intellisense/ie5" %>
