@@ -1,0 +1,1 @@
+这是2018年5月将短期，Secured，Pawn三者后台进行整合的项目（前台依然分开，只是将Secured和Pawn作为GBCash的子应用实现）
